@@ -1,0 +1,7 @@
+UCSC.api.url            Get or set the default UCSC API URL
+UCSC_dbselect           Conveniently retrieve data from the UCSC
+                        MariaDB server
+fetch_UCSC_track_data   Fetch UCSC track data
+get_UCSC_chrom_sizes    List UCSC chromosome sizes
+list_UCSC_genomes       List UCSC genomes
+list_UCSC_tracks        List UCSC tracks and associated primary tables

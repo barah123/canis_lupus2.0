@@ -1,0 +1,708 @@
+---
+title: "Introduction to heatmaply"
+date: "`r Sys.Date()`"
+author: "Tal Galili and Alan O'Callaghan"
+output:
+ html_document:
+  fig_width: 12
+  fig_height: 9
+  self_contained: yes
+  toc: true
+editor_options: 
+  chunk_output_type: console
+---
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Introduction to heatmaply}
+-->
+
+
+```{r, echo = FALSE, message = FALSE}
+library("heatmaply")
+library("knitr")
+knitr::opts_chunk$set(
+  warning=FALSE, # because of a bug in plotly: https://github.com/ropensci/plotly/issues/1670
+  # see also: https://github.com/talgalili/heatmaply/issues/226
+  # cache = TRUE,
+  dpi = 60,
+  comment = "#>",
+  tidy = FALSE)
+
+# http://stackoverflow.com/questions/24091735/why-pandoc-does-not-retrieve-the-image-file
+# < ! -- rmarkdown v1 -->
+
+```
+
+
+**Author**: [Tal Galili](https://www.r-statistics.com/) (Tal.Galili@gmail.com)
+
+
+
+Introduction
+============
+
+A heatmap is a popular graphical method for visualizing high-dimensional data,
+in which a table of numbers are encoded as a grid of colored cells. The rows 
+and columns of the matrix are ordered to highlight patterns and are often 
+accompanied by dendrograms. Heatmaps are used in many fields for visualizing 
+observations, correlations, missing values patterns, and more.
+
+Interactive heatmaps allow the inspection of specific value by hovering the 
+mouse over a cell, as well as zooming into a region of the heatmap by dragging 
+a rectangle around the relevant area.
+
+This work is based on ggplot2 and plotly.js engine. It produces similar 
+heatmaps as d3heatmap, with the advantage of speed (plotly.js is able to 
+handle larger size matrix), and the ability to zoom from the dendrogram.
+
+heatmaply also provides an interface based around the 
+[plotly R package](https://CRAN.R-project.org/package=plotly).
+This interface can be used by choosing `plot_method = "plotly"` instead of
+the default `plot_method = "ggplot"`. This interface can provide smaller
+objects and faster rendering to disk in many cases and provides otherwise almost
+identical features.
+
+Documentation for this package is also available as a 
+[pkgdown](https://cran.r-project.org/package=pkgdown)
+site: <http://talgalili.github.io/heatmaply/>
+
+Installation
+============
+
+To install the stable version on CRAN:
+
+```{r, eval = FALSE}
+install.packages('heatmaply')
+```
+
+To install the GitHub version:
+
+```{r, eval = FALSE}
+# You'll need devtools
+install.packages.2 <- function (pkg) if (!require(pkg)) install.packages(pkg);
+install.packages.2('remotes')
+
+remotes::install_github("ropensci/plotly") 
+remotes::install_github('talgalili/heatmaply')
+```
+
+
+And then you may load the package using:
+
+```{r}
+library("heatmaply")
+```
+
+Basic usage
+===========
+
+
+Default
+-------
+
+The default settings in heatmaply attempt to be both useful yet not too computationally intensive. Here is an example based on the `mtcars` dataset:
+
+> The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
+
+```{r}
+library("heatmaply")
+heatmaply(mtcars)
+```
+
+<!-- The margins parameter
+-------------
+
+
+By default heatmaply tries to fix the margins of the plot based on the length of the labels, but this system is not perfect. Hence, we sometimes need to manually fix the margins (hopefully this will be fixed in future versions of plotly). This is also helpful when including xlab/ylab/main texts.
+
+```{r}
+heatmaply(mtcars, xlab = "Features", ylab = "Cars", 
+  main = "An example of title and xlab/ylab")
+```
+ -->
+
+Correlation heatmaps
+--------------------
+
+We can use the margins parameter with correlation heatmaps. heatmaply includes
+the `heatmaply_cor` function, which is a wrapper around `heatmaply` with 
+arguments optimised for use with correlation matrices. Notice how we color 
+the branches (see dendextend::color_branches for further detail on `k_row` and 
+`k_col`):
+
+```{r}
+heatmaply_cor(
+  cor(mtcars),
+  xlab = "Features",
+  ylab = "Features",
+  k_col = 2,
+  k_row = 2
+)
+```
+
+We can also do a more advanced correlation heatmap where the p-value from
+the correlation test is mapped to point size: 
+
+```{r}
+
+r <- cor(mtcars)
+## We use this function to calculate a matrix of p-values from correlation tests
+## https://stackoverflow.com/a/13112337/4747043
+cor.test.p <- function(x){
+    FUN <- function(x, y) cor.test(x, y)[["p.value"]]
+    z <- outer(
+      colnames(x), 
+      colnames(x), 
+      Vectorize(function(i,j) FUN(x[,i], x[,j]))
+    )
+    dimnames(z) <- list(colnames(x), colnames(x))
+    z
+}
+p <- cor.test.p(mtcars)
+
+heatmaply_cor(
+  r,
+  node_type = "scatter",
+  point_size_mat = -log10(p), 
+  point_size_name = "-log10(p-value)",
+  label_names = c("x", "y", "Correlation")
+)
+```
+
+
+
+Data transformation (scaling, normalize, and percentize)
+========================================================
+
+The variables in mtcars includes values that reflect different types of 
+measurement, each with its own range (and meaning) of values. In such a case, 
+it is best to transform the data so to have all the variables have comparable 
+values.
+
+scale
+-----
+
+If we would assume all variables come from some normal distribution, then 
+scaling (i.e.: subtract the mean and divide by the standard deviation) would 
+bring them all close to the standard normal distribution. In such a case, each 
+value would reflect the distance from the mean in units of standard deviation. 
+The "scale" parameter in heatmaply supports column and row scaling, and can be 
+used as follows:
+
+(not evaluated so to reduce vignette size)
+
+```{r, eval = F}
+heatmaply(
+  mtcars, 
+  xlab = "Features",
+  ylab = "Cars", 
+  scale = "column",
+  main = "Data transformation using 'scale'"
+)
+```
+
+normalize
+---------
+
+
+
+When variables in the data comes from possibly different (and non-normal)
+distributions, other transformations may be in order. For example, scaling on 
+a binary variable with many 0's and just a few 1's will lead to a column with a 
+very extreme value that would cause the color legend to be very skewed by that 
+variable, leading to a masking of the distribution of the rest of the variables.
+
+Another possibility is to use the `normalize` function to brings data to the 0 
+to 1 scale by subtracting the minimum and dividing by the maximum of all 
+observations. This preserves the shape of each variable's distribution while 
+making them easily comparable on the same "scale". Using the function on 
+mtcars easily reveals columns with only two (`am`, `vs`) or three (`gear`, 
+`cyl`) variables compared with variables that have a higher resolution of 
+possible values:
+
+(not evaluated so to reduce vignette size)
+
+```{r, eval = F}
+heatmaply(
+  normalize(mtcars),
+  xlab = "Features",
+  ylab = "Cars", 
+  main = "Data transformation using 'normalize'"
+)
+```
+
+percentize
+----------
+
+An alternative to `normalize` is the `percentize` function. This is similar 
+to ranking the variables, but instead of keeping the rank values, divide them 
+by the maximal rank. This is done by using the `ecdf` of the variables on their 
+own values, bringing each value to its  empirical percentile. The benefit of 
+the percentize function is that each value has a relatively clear 
+interpretation, it is the percent of observations with that value or below 
+it.
+
+```{r}
+heatmaply(
+  percentize(mtcars),
+  xlab = "Features",
+  ylab = "Cars", 
+  main = "Data transformation using 'percentize'"
+)
+```
+
+Notice that for binary variables (0 and 1), `percentize` will turn all 0 values
+to their proportion and all 1 values will remain 1. This means the 
+transformation is not symmatric for 0 and 1. Hence, if scaling for clustering, 
+it might be better to use `rank` for dealing with tie values (if no ties 
+are present, then `percentize` will perform similarly to `rank`).
+
+
+
+is.na10 (missing values)
+------------------------
+
+Reviewing missing values can easily be done using the `is.na10` function. 
+When using it with heatmaply, it is often helpful to use a non-zero `grid_gap`
+to place gaps between cells of the heatmap. Similar to `heatmaply_cor`,
+`heatmaply_na` is a wrapper around `heatmaply` with arguments optimised for the
+visualisation of missingness:
+
+```{r}
+heatmaply_na(
+  airquality[1:30, ],
+  showticklabels = c(TRUE, FALSE),
+  k_col = 3,
+  k_row = 3
+)
+
+
+# warning - using grid_color cannot handle a large matrix! For example:
+# airquality[1:10, ] %>% is.na10 %>% 
+#   heatmaply(color = c("white", "black"), grid_color = "grey",
+#             k_col =3, k_row = 3,
+#             margins = c(40, 50)) 
+# airquality %>% is.na10 %>% 
+#   heatmaply(color = c("grey80", "grey20"), # grid_color = "grey",
+#             k_col =3, k_row = 3,
+#             margins = c(40, 50)) 
+# 
+
+```
+
+
+
+
+Changing color palettes
+-----------------------
+
+We can use colors other than the default `viridis`. The packages
+[`cetcolor`](https://CRAN.R-project.org/package=cetcolor) and 
+[`RColorBrewer`](https://CRAN.R-project.org/package=RColorBrewer)
+provide a number of excellent options for continuous and discrete colour 
+palettes. These are generally designed to be perceptually uniform, and often
+also colorblind-friendly.
+
+For example, we may want to use other color palettes in order to get divergent colors for the correlations (these will, sadly, often be less useful for colorblind people). These come by default when using `heatmaply_cor`
+
+(not evaluated so to reduce vignette size)
+
+```{r, eval = F}
+heatmaply_cor(
+  cor(mtcars),
+  k_col = 2, 
+  k_row = 2
+)
+
+```
+
+
+Another example for using colors:
+
+
+```{r, eval = FALSE}
+heatmaply(
+  percentize(mtcars),
+  colors = heat.colors(100)
+)
+```
+
+Or even more customized colors using `scale_fill_gradient_fun`:
+
+```{r}
+heatmaply(
+  mtcars,
+  scale_fill_gradient_fun = ggplot2::scale_fill_gradient2(
+    low = "blue", 
+    high = "red", 
+    midpoint = 200, 
+    limits = c(0, 500)
+  )
+)
+
+```
+
+
+
+Customized dendrograms and annotation
+=====================================
+
+
+Various seriation options
+-------------------------
+
+heatmaply uses the `seriation` package to find an optimal ordering of rows 
+and columns. Optimal means to optimize the Hamiltonian path length that 
+is restricted by the dendrogram structure. This, in other words, means to 
+rotate the branches so that the sum of distances between each adjacent leaf 
+(label) will be minimized. This is related to a restricted version of the 
+travelling salesman problem. 
+
+The default options is `"OLO"` (Optimal leaf ordering) which optimizes the 
+above criterion (in O(n^4)). Another option is `"GW"`
+([Gruvaeus and Wainer](https://doi.org/10.1111/j.2044-8317.1972.tb00491.x)) 
+which aims for the same goal but uses a potentially faster heuristic. The 
+option `"mean"` gives the output we would get by default from heatmap functions 
+in other packages such as `gplots::heatmap.2`. The option `"none"` gives us 
+the dendrograms without any rotation that is based on the data matrix. 
+
+```{r}
+# The default of heatmaply:
+heatmaply(
+  percentize(mtcars)[1:10, ],
+  seriate = "OLO"
+)
+```
+
+(not evaluated so to reduce vignette size)
+```{r, eval = F}
+# Similar to OLO but less optimal (since it is a heuristic)
+heatmaply(
+  percentize(mtcars)[1:10, ],
+  seriate = "GW"
+)
+```
+
+(not evaluated so to reduce vignette size)
+```{r, eval = F}
+# the default by gplots::heatmaply.2
+heatmaply(
+  percentize(mtcars)[1:10, ],
+  seriate = "mean"
+)
+```
+
+
+```{r, eval = F}
+# the default output from hclust
+heatmaply(
+  percentize(mtcars)[1:10, ],
+  seriate = "none"
+)
+```
+
+This works heavily relies on the `seriation` package (their 
+[vignette](https://CRAN.R-project.org/package=seriation/vignettes/seriation.pdf)
+is well worth the read), and also lightly on the `dendextend` package (see
+[vignette](http://talgalili.github.io/dendextend/articles/dendextend.html) )
+
+
+Customized dendrograms using dendextend
+---------------------------------------
+
+A user can supply their own dendrograms for the rows/columns of the heatmaply
+using the `Rowv` and the `Colv` parameters:
+
+```{r}
+
+x  <- as.matrix(datasets::mtcars)
+
+# now let's spice up the dendrograms a bit:
+library("dendextend")
+
+row_dend  <- x %>% 
+  dist %>% 
+  hclust %>% 
+  as.dendrogram %>%
+  set("branches_k_color", k = 3) %>% 
+  set("branches_lwd", c(1, 3)) %>%
+  ladderize
+# rotate_DendSer(ser_weight = dist(x))
+col_dend  <- x %>% 
+  t %>% 
+  dist %>% 
+  hclust %>% 
+  as.dendrogram %>%
+  set("branches_k_color", k = 2) %>% 
+  set("branches_lwd", c(1, 2)) %>%
+  ladderize
+#    rotate_DendSer(ser_weight = dist(t(x)))
+
+heatmaply(
+  percentize(x),
+  Rowv = row_dend,
+  Colv = col_dend
+)
+
+
+```
+
+
+
+Replicating the dendrogram ordering of heatmap.2
+------------------------------------------------
+
+The following example shows how to get the same result in heatmaply as with 
+`gplots::heatmap.2`:
+
+```{r}
+x  <- as.matrix(datasets::mtcars)
+gplots::heatmap.2(
+  x,
+  trace = "none",
+  col = viridis(100),
+  key = FALSE
+)
+```
+
+With heatmaply, the only difference is the side of the row dendrogram. 
+This is because the `ggplotly` function from plotly does not (yet) handle 
+axes placed in different locations than the default.
+
+```{r, eval = FALSE}
+heatmaply(
+  x,
+  seriate = "mean"
+)
+```
+
+We can get a more similar version using:
+
+```{r}
+heatmaply(x,
+  seriate = "mean", 
+  row_dend_left = TRUE,
+  plot_method = "plotly"
+)
+```
+
+Some aspects of heatmaply may not function identically when using 
+`plot_method = "plotly"` relative to how they function when using
+`plot_method = "ggplot"` (the default), however in the majority of cases
+the output is equivalent. Using this option results in faster heatmaps capable 
+of handling larger matrices.
+
+
+
+Adding annotation based on additional factors using `RowSideColors`
+-------------------------------------------------------------------
+
+With heatmap.2
+
+```{r}
+# Example for using RowSideColors
+
+x  <- as.matrix(datasets::mtcars)
+rc <- colorspace::rainbow_hcl(nrow(x))
+
+library("gplots")
+library("viridis")
+heatmap.2(
+  x,
+  trace = "none",
+  col = viridis(100),
+  RowSideColors = rc,
+  key = FALSE
+)
+
+```
+
+With `heatmaply`:
+
+```{r, eval = FALSE}
+heatmaply(
+  x,
+  seriate = "mean",
+  RowSideColors = rc
+)
+```
+
+A more sophisticated heatmap:
+
+```{r}
+heatmaply(
+  x[, -c(8, 9)],
+  seriate = "mean",
+  col_side_colors = c(rep(0, 5), rep(1, 4)),
+  row_side_colors = x[, 8:9]
+)
+
+```
+
+Text annotations
+----------------
+
+`heatmaply` includes the `cellnote` argument, which allows us to display
+character values overlaid on the heatmap. By default, the colour of the text
+on each cell is chosen to ensure legibility, with black text shown over light
+cells and white text shown over dark cells.
+
+```{r}
+heatmaply(
+  mtcars,
+  cellnote = mtcars
+)
+```
+
+
+Hover text
+----------
+
+As hovertext is one of the most useful aspects of interactive heatmaps,
+`heatmaply` allows users to append custom hovertext:
+
+```{r}
+mat <- mtcars
+mat[] <- paste("This cell is", rownames(mat))
+mat[] <- lapply(colnames(mat), function(colname) {
+    paste0(mat[, colname], ", ", colname)
+})
+heatmaply(
+  mtcars,
+  custom_hovertext = mat
+)
+```
+
+
+ggheatmap
+---------
+
+`heatmaply` also has the option to produce (static) vector graphic equivalents using
+the excellent [`egg`](https://CRAN.R-project.org/package=egg) 
+package. This feature is somewhat experimental, and all feedback and 
+contributions to improve it are highly appreciated.
+
+```{r}
+ggheatmap(
+  mtcars,
+  scale = "column",
+  row_side_colors = mtcars[, c("cyl", "gear")]
+)
+```
+
+
+Saving your heatmaply into a file
+=================================
+
+You can save an interactive version of your `heatmaply` into an HTML file using
+the following code:
+
+```{r, eval = FALSE}
+dir.create("folder")
+heatmaply(mtcars, file = "folder/heatmaply_plot.html")
+browseURL("folder/heatmaply_plot.html")
+```
+
+
+Similar code can be used for saving a static file (png/jpeg/pdf)
+
+```{r, eval = FALSE}
+dir.create("folder")
+# Before the first time using this code you may need to first run:
+# webshot::install_phantomjs() or to install 
+# [plotly's orca](https://github.com/plotly/orca) program.
+heatmaply(mtcars, file = "folder/heatmaply_plot.png")
+browseURL("folder/heatmaply_plot.png")
+```
+
+If you only wish to save the file, without plotting it in the console,
+you can assign the output to a temporary object name:
+
+```{r, eval = FALSE}
+# This saves the file, but does not plot it in the RStudio viewer
+tmp <- heatmaply(mtcars, file = "folder/heatmaply_plot.png")
+rm(tmp)
+```
+
+
+Sidenotes
+=========
+
+We considered using the fastcluster package for clustering, but the time gain 
+was too small compared to the rest of the bottlenecks in the package.
+
+```{r, eval = FALSE}
+
+library("microbenchmark")
+
+
+library("heatmaply")
+x <- matrix(1:1000, 500, 2)
+
+microbenchmark(
+  heatmaply(x, hclustfun = stats::hclust),
+  heatmaply(x, hclustfun = fastcluster::hclust),
+  times = 10
+)
+
+x <- matrix(1:1000, 1000, 2)
+microbenchmark(
+  stats::hclust(dist(x)),
+  fastcluster::hclust(dist(x)),
+  times = 10
+)
+
+
+```
+
+
+
+
+
+
+
+
+Credit
+======
+
+This package is thanks to the amazing work done by many people in the open 
+source community. Beyond the many people working on the pipeline of R, thanks 
+should go to the plotly team, and especially to Carson Sievert and others 
+working on the R package of plotly. Also, many of the design elements were 
+inspired by the work done on heatmap, heatmap.2 and d3heatmap, so special 
+thanks goes to the R core team, Gregory R. Warnes, and Joe Cheng from RStudio. 
+The dendrogram side of the package is based on the work in dendextend, in which
+special thanks should go to Andrie de Vries for his original work on the 
+ggdendro package was the first to bring dendrograms to ggplot2 (this later 
+evolved into the richer ggdend objects, as implemented in dendextend). 
+Thanks should also go to Alan O'Callaghan for his many contributions to getting 
+the package to work better with plotly, as well as for Jonathan Sidi for his 
+work on the shinyHeatmply package. Lastely, my thanks goes to Yoav Benjamini 
+for his support and helpful comments on this work.
+
+
+Contact
+=======
+
+You are welcome to:
+
+* submit suggestions and bug-reports at: 
+  <https://github.com/talgalili/heatmaply/issues>
+* send a pull request on: <https://github.com/talgalili/heatmaply/>
+* compose a friendly e-mail to: <tal.galili@gmail.com>
+
+
+Latest news
+===========
+
+You can see the most recent changes to the package in the [NEWS.md file](https://talgalili.github.io/heatmaply/news/)
+
+
+
+Session info
+============
+
+```{r, cache = FALSE}
+sessionInfo()
+```

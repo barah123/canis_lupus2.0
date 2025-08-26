@@ -1,0 +1,3 @@
+available_filters       Return a list of installed filters
+hdf5_plugin_path        Return location of installed filters
+rhdf5filters            rhdf5filters

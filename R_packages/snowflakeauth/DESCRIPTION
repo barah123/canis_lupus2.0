@@ -1,0 +1,30 @@
+Package: snowflakeauth
+Title: Authentication Helpers for 'Snowflake'
+Version: 0.1.2
+Authors@R: c(
+    person("Aaron", "Jacobs", , "aaron.jacobs@posit.co", role = c("aut")),
+    person("E. David", "Aja", , "david@posit.co", role = c("aut", "cre")),
+    person("Posit Software, PBC", role = c("cph", "fnd"))
+  )
+Description: Authentication helpers for 'Snowflake'.
+    It provides compatibility with authentication approaches supported
+    by the 'Snowflake Connector for Python' <https://pypi.org/project/snowflake-connector-python>
+    and the 'Snowflake CLI' <https://pypi.org/project/snowflake-cli>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: cli, curl, jsonlite, RcppTOML, rlang
+Suggests: jose, openssl, testthat (>= 3.0.0), withr
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
+URL: https://posit-dev.github.io/snowflakeauth/,
+        https://github.com/posit-dev/snowflakeauth
+BugReports: https://github.com/posit-dev/snowflakeauth/issues
+NeedsCompilation: no
+Packaged: 2025-06-18 13:05:51 UTC; edavidaja
+Author: Aaron Jacobs [aut],
+  E. David Aja [aut, cre],
+  Posit Software, PBC [cph, fnd]
+Maintainer: E. David Aja <david@posit.co>
+Repository: CRAN
+Date/Publication: 2025-06-19 15:20:02 UTC
+Built: R 4.4.3; ; 2025-08-25 01:37:57 UTC; windows

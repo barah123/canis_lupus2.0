@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Interactive Cluster Heat Maps Using 'plotly' and 'ggplot2'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Interactive Cluster Heat Maps Using 'plotly' and 'ggplot2'
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;heatmaply&rsquo; version 1.6.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Blues</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">BrBG</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">BuGn</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">BuPu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">cool_warm</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="ggheatmap.html">ggheatmap</a></td>
+<td>ggplot heatmap equivalent to heatmaply</td></tr>
+<tr><td style="width: 25%;"><a href="ggplot_side_color_plot.html">ggplot_side_color_plot</a></td>
+<td>Side color plots for heatmaps</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">GnBu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Greens</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Greys</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="heatmaply.html">heatmaply</a></td>
+<td>Cluster heatmap based on plotly</td></tr>
+<tr><td style="width: 25%;"><a href="heatmaply.html">heatmaply.default</a></td>
+<td>Cluster heatmap based on plotly</td></tr>
+<tr><td style="width: 25%;"><a href="heatmaply.html">heatmaply.heatmapr</a></td>
+<td>Cluster heatmap based on plotly</td></tr>
+<tr><td style="width: 25%;"><a href="heatmaply.html">heatmaply_cor</a></td>
+<td>Cluster heatmap based on plotly</td></tr>
+<tr><td style="width: 25%;"><a href="heatmaply.html">heatmaply_na</a></td>
+<td>Cluster heatmap based on plotly</td></tr>
+<tr><td style="width: 25%;"><a href="heatmapr.html">heatmapr</a></td>
+<td>Creates a heatmapr object</td></tr>
+<tr><td style="width: 25%;"><a href="is.heatmapr.html">is.heatmapr</a></td>
+<td>Is the object of class heatmapr</td></tr>
+<tr><td style="width: 25%;"><a href="is.na10.html">is.na10</a></td>
+<td>Indicates which elements are missing (either 1 and 0)</td></tr>
+<tr><td style="width: 25%;"><a href="is.plotly.html">is.plotly</a></td>
+<td>Checks if an object is of class plotly or not.</td></tr>
+<tr><td style="width: 25%;"><a href="normalize.html">normalize</a></td>
+<td>Normalization transformation (0-1)</td></tr>
+<tr><td style="width: 25%;"><a href="normalize.html">normalize.data.frame</a></td>
+<td>Normalization transformation (0-1)</td></tr>
+<tr><td style="width: 25%;"><a href="normalize.html">normalize.default</a></td>
+<td>Normalization transformation (0-1)</td></tr>
+<tr><td style="width: 25%;"><a href="normalize.html">normalize.matrix</a></td>
+<td>Normalization transformation (0-1)</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Oranges</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">OrRd</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="percentize.html">percentize</a></td>
+<td>Empirical Percentile Transformation</td></tr>
+<tr><td style="width: 25%;"><a href="percentize.html">percentize.data.frame</a></td>
+<td>Empirical Percentile Transformation</td></tr>
+<tr><td style="width: 25%;"><a href="percentize.html">percentize.default</a></td>
+<td>Empirical Percentile Transformation</td></tr>
+<tr><td style="width: 25%;"><a href="percentize.html">percentize.matrix</a></td>
+<td>Empirical Percentile Transformation</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PiYG</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PRGn</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PuBu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PuBuGn</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PuOr</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">PuRd</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Purples</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RColorBrewer_colors</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RdBu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RdGy</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RdPu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RdYlBu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">RdYlGn</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Reds</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">Spectral</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">YlGn</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">YlGnBu</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">YlOrBr</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+<tr><td style="width: 25%;"><a href="RColorBrewer_colors.html">YlOrRd</a></td>
+<td>RColorBrewer color Ramp Palette</td></tr>
+</table>
+</div></body></html>

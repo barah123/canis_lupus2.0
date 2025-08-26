@@ -1,0 +1,47 @@
+Type: Package
+Package: rsconnect
+Title: Deploy Docs, Apps, and APIs to 'Posit Connect', 'shinyapps.io',
+        and 'RPubs'
+Version: 1.5.0
+Authors@R: c(
+    person("Aron", "Atkins", , "aron@posit.co", role = c("aut", "cre")),
+    person("Toph", "Allen", role = "aut"),
+    person("Hadley", "Wickham", role = "aut"),
+    person("Jonathan", "McPherson", role = "aut"),
+    person("JJ", "Allaire", role = "aut"),
+    person("Posit Software, PBC", role = c("cph", "fnd"))
+  )
+Description: Programmatic deployment interface for 'RPubs',
+    'shinyapps.io', and 'Posit Connect'. Supported content types include R
+    Markdown documents, Shiny applications, Plumber APIs, plots, and
+    static web content.
+License: GPL-2
+URL: https://rstudio.github.io/rsconnect/,
+        https://github.com/rstudio/rsconnect
+BugReports: https://github.com/rstudio/rsconnect/issues
+Depends: R (>= 3.5.0)
+Imports: cli, curl, digest, jsonlite, lifecycle, openssl (>= 2.0.0),
+        PKI, packrat (>= 0.6), renv (>= 1.0.0), rlang (>= 1.0.0),
+        rstudioapi (>= 0.5), snowflakeauth, tools, yaml (>= 2.1.5),
+        utils
+Suggests: Biobase, BiocManager, foreign, knitr, MASS, plumber (>=
+        0.3.2), quarto, RCurl, reticulate, rmarkdown (>= 1.1), shiny,
+        testthat (>= 3.1.9), webfakes, withr
+VignetteBuilder: knitr, rmarkdown
+Config/Needs/website: tidyverse/tidytemplate
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+NeedsCompilation: no
+Packaged: 2025-06-26 15:08:33 UTC; aron
+Author: Aron Atkins [aut, cre],
+  Toph Allen [aut],
+  Hadley Wickham [aut],
+  Jonathan McPherson [aut],
+  JJ Allaire [aut],
+  Posit Software, PBC [cph, fnd]
+Maintainer: Aron Atkins <aron@posit.co>
+Repository: CRAN
+Date/Publication: 2025-06-26 15:50:02 UTC
+Built: R 4.4.3; ; 2025-08-25 02:04:44 UTC; windows

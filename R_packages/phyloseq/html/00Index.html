@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Handling and analysis of high-throughput microbiome census data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Handling and analysis of high-throughput microbiome census data
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;phyloseq&rsquo; version 1.50.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="# "> </a>
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#I">I</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#O">O</a>
+<a href="#P">P</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#U">U</a>
+<a href="#misc">misc</a>
+</p>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">phyloseq-deprecated-package</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-package.html">phyloseq-package</a></td>
+<td>Handling and analysis of high-throughput phylogenetic sequence data.</td></tr>
+</table>
+
+<h2><a id="A">-- A --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="access.html">access</a></td>
+<td>Universal slot accessor function for phyloseq-class.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-otu_table.html">assign-otu_table</a></td>
+<td>Assign a new OTU Table to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-phy_tree.html">assign-phy_tree</a></td>
+<td>Assign a (new) phylogenetic tree to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-sample_data.html">assign-sample_data</a></td>
+<td>Assign (new) sample_data to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-sample_names.html">assign-sample_names</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_are_rows.html">assign-taxa_are_rows</a></td>
+<td>Manually change taxa_are_rows through assignment.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_names.html">assign-taxa_names</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="assign-tax_table.html">assign-tax_table</a></td>
+<td>Assign a (new) Taxonomy Table to 'x'</td></tr>
+</table>
+
+<h2><a id="B">-- B --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="build_tax_table.html">build_tax_table</a></td>
+<td>Build a 'tax_table' from a named possibly-jagged list</td></tr>
+</table>
+
+<h2><a id="D">-- D --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="data-enterotype.html">data-enterotype</a></td>
+<td>(Data) Enterotypes of the human gut microbiome (2011)</td></tr>
+<tr><td style="width: 25%;"><a href="data-esophagus.html">data-esophagus</a></td>
+<td>(Data) Small example dataset from a human esophageal community (2004)</td></tr>
+<tr><td style="width: 25%;"><a href="data-GlobalPatterns.html">data-GlobalPatterns</a></td>
+<td>(Data) Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample (2011)</td></tr>
+<tr><td style="width: 25%;"><a href="data-soilrep.html">data-soilrep</a></td>
+<td>(Data) Reproducibility of soil microbiome data (2011)</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">deprecated_phyloseq_function</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="dist-class.html">dist-class</a></td>
+<td>An S4 placeholder for the 'dist' class.</td></tr>
+<tr><td style="width: 25%;"><a href="distance.html">distance</a></td>
+<td>Calculate distance, dissimilarity</td></tr>
+<tr><td style="width: 25%;"><a href="distance.html">distance-method</a></td>
+<td>Calculate distance, dissimilarity</td></tr>
+<tr><td style="width: 25%;"><a href="distanceMethodList.html">distanceMethodList</a></td>
+<td>List of distance method keys supported in 'distance'</td></tr>
+<tr><td style="width: 25%;"><a href="DPCoA.html">DPCoA</a></td>
+<td>Calculate Double Principle Coordinate Analysis (DPCoA) using phylogenetic distance</td></tr>
+</table>
+
+<h2><a id="E">-- E --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="data-enterotype.html">enterotype</a></td>
+<td>(Data) Enterotypes of the human gut microbiome (2011)</td></tr>
+<tr><td style="width: 25%;"><a href="data-esophagus.html">esophagus</a></td>
+<td>(Data) Small example dataset from a human esophageal community (2004)</td></tr>
+<tr><td style="width: 25%;"><a href="estimate_richness.html">estimate_richness</a></td>
+<td>Summarize alpha diversity</td></tr>
+<tr><td style="width: 25%;"><a href="export_env_file.html">export_env_file</a></td>
+<td>Export environment (ENV) file for UniFrac Server.</td></tr>
+<tr><td style="width: 25%;"><a href="export_mothur_dist.html">export_mothur_dist</a></td>
+<td>Export a distance object as '.names' and '.dist' files for mothur</td></tr>
+</table>
+
+<h2><a id="F">-- F --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">filterfunSample</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="filterfun_sample.html">filterfun_sample</a></td>
+<td>A sample-wise filter function builder analogous to 'filterfun'.</td></tr>
+<tr><td style="width: 25%;"><a href="filter_taxa.html">filter_taxa</a></td>
+<td>Filter taxa based on across-sample OTU abundance criteria</td></tr>
+</table>
+
+<h2><a id="G">-- G --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="gapstat_ord.html">gapstat_ord</a></td>
+<td>Estimate the gap statistic on an ordination result</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">genefilterSample</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="genefilter_sample-methods.html">genefilter_sample</a></td>
+<td>Filter OTUs with arbitrary function, sample-wise.</td></tr>
+<tr><td style="width: 25%;"><a href="genefilter_sample-methods.html">genefilter_sample-method</a></td>
+<td>Filter OTUs with arbitrary function, sample-wise.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">getSamples</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="getslots.phyloseq.html">getslots.phyloseq</a></td>
+<td>Return the non-empty slot names of a phyloseq object.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">getSpecies</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">getTaxa</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">getVariable</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="get_sample-methods.html">get_sample</a></td>
+<td>Returns all abundance values for species 'i'.</td></tr>
+<tr><td style="width: 25%;"><a href="get_sample-methods.html">get_sample-method</a></td>
+<td>Returns all abundance values for species 'i'.</td></tr>
+<tr><td style="width: 25%;"><a href="get_taxa-methods.html">get_taxa</a></td>
+<td>Returns all abundance values of sample 'i'.</td></tr>
+<tr><td style="width: 25%;"><a href="get_taxa-methods.html">get_taxa-method</a></td>
+<td>Returns all abundance values of sample 'i'.</td></tr>
+<tr><td style="width: 25%;"><a href="get_taxa_unique.html">get_taxa_unique</a></td>
+<td>Get a unique vector of the observed taxa at a particular taxonomic rank</td></tr>
+<tr><td style="width: 25%;"><a href="get_variable.html">get_variable</a></td>
+<td>Get the values for a particular variable in sample_data</td></tr>
+<tr><td style="width: 25%;"><a href="data-GlobalPatterns.html">GlobalPatterns</a></td>
+<td>(Data) Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample (2011)</td></tr>
+</table>
+
+<h2><a id="I">-- I --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="import.html">import</a></td>
+<td>Universal import method (wrapper) for phyloseq-package</td></tr>
+<tr><td style="width: 25%;"><a href="import_biom.html">import_biom</a></td>
+<td>Import phyloseq data from biom-format file</td></tr>
+<tr><td style="width: 25%;"><a href="import_env_file.html">import_env_file</a></td>
+<td>Read a UniFrac-formatted ENV file.</td></tr>
+<tr><td style="width: 25%;"><a href="import_mothur.html">import_mothur</a></td>
+<td>General function for importing mothur data files into phyloseq.</td></tr>
+<tr><td style="width: 25%;"><a href="import_mothur_dist.html">import_mothur_dist</a></td>
+<td>Import mothur-formatted distance file</td></tr>
+<tr><td style="width: 25%;"><a href="import_pyrotagger_tab.html">import_pyrotagger_tab</a></td>
+<td>Imports a tab-delimited version of the pyrotagger output file.</td></tr>
+<tr><td style="width: 25%;"><a href="import_qiime.html">import_qiime</a></td>
+<td>Import function to read the now legacy-format QIIME OTU table.</td></tr>
+<tr><td style="width: 25%;"><a href="import_qiime_otu_tax.html">import_qiime_otu_tax</a></td>
+<td>Import now legacy-format QIIME OTU table as a list of two matrices.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">import_qiime_sampleData</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="import_qiime_sample_data.html">import_qiime_sample_data</a></td>
+<td>Import just 'sample_data' file from QIIME pipeline.</td></tr>
+<tr><td style="width: 25%;"><a href="import_RDP_cluster.html">import_RDP_cluster</a></td>
+<td>Import RDP cluster file and return otu_table (abundance table).</td></tr>
+<tr><td style="width: 25%;"><a href="import_RDP_otu.html">import_RDP_otu</a></td>
+<td>Import new RDP OTU-table format</td></tr>
+<tr><td style="width: 25%;"><a href="import_uparse.html">import_uparse</a></td>
+<td>Import UPARSE file format</td></tr>
+<tr><td style="width: 25%;"><a href="import_usearch_uc.html">import_usearch_uc</a></td>
+<td>Import usearch table format ('.uc') to OTU table</td></tr>
+</table>
+
+<h2><a id="M">-- M --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="make_network.html">make_network</a></td>
+<td>Make microbiome network (igraph)</td></tr>
+<tr><td style="width: 25%;"><a href="merge_phyloseq.html">merge_phyloseq</a></td>
+<td>Merge arguments into one phyloseq object.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_phyloseq_pair-methods.html">merge_phyloseq_pair</a></td>
+<td>Merge pair of phyloseq component data objects of the same class.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_phyloseq_pair-methods.html">merge_phyloseq_pair-method</a></td>
+<td>Merge pair of phyloseq component data objects of the same class.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_samples-methods.html">merge_samples</a></td>
+<td>Merge samples based on a sample variable or factor.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_samples-methods.html">merge_samples-method</a></td>
+<td>Merge samples based on a sample variable or factor.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">merge_species</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_taxa-methods.html">merge_taxa</a></td>
+<td>Merge a subset of the species in 'x' into one species/taxa/OTU.</td></tr>
+<tr><td style="width: 25%;"><a href="merge_taxa-methods.html">merge_taxa-method</a></td>
+<td>Merge a subset of the species in 'x' into one species/taxa/OTU.</td></tr>
+<tr><td style="width: 25%;"><a href="microbio_me_qiime.html">microbio_me_qiime</a></td>
+<td>Import microbio.me/qiime (QIIME-DB) data package</td></tr>
+<tr><td style="width: 25%;"><a href="mt-methods.html">mt</a></td>
+<td>Multiple testing of taxa abundance according to sample categories/classes</td></tr>
+<tr><td style="width: 25%;"><a href="mt-methods.html">mt-method</a></td>
+<td>Multiple testing of taxa abundance according to sample categories/classes</td></tr>
+</table>
+
+<h2><a id="N">-- N --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nodeplotblank.html">nodeplotblank</a></td>
+<td>Function to avoid plotting node labels</td></tr>
+<tr><td style="width: 25%;"><a href="nodeplotboot.html">nodeplotboot</a></td>
+<td>Generates a function for labeling bootstrap values on a phylogenetic tree.</td></tr>
+<tr><td style="width: 25%;"><a href="nodeplotdefault.html">nodeplotdefault</a></td>
+<td>Generates a default node-label function</td></tr>
+<tr><td style="width: 25%;"><a href="nsamples-methods.html">nsamples</a></td>
+<td>Get the number of samples.</td></tr>
+<tr><td style="width: 25%;"><a href="nsamples-methods.html">nsamples-method</a></td>
+<td>Get the number of samples.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">nspecies</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="ntaxa-methods.html">ntaxa</a></td>
+<td>Get the number of taxa/species.</td></tr>
+<tr><td style="width: 25%;"><a href="ntaxa-methods.html">ntaxa-method</a></td>
+<td>Get the number of taxa/species.</td></tr>
+</table>
+
+<h2><a id="O">-- O --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="ordinate.html">ordinate</a></td>
+<td>Perform an ordination on phyloseq data</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">otuTable</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">otuTable&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="otu_table-methods.html">otu_table</a></td>
+<td>Build or access the otu_table.</td></tr>
+<tr><td style="width: 25%;"><a href="otu_table-class.html">otu_table-class</a></td>
+<td>The S4 class for storing taxa-abundance information.</td></tr>
+<tr><td style="width: 25%;"><a href="otu_table-methods.html">otu_table-method</a></td>
+<td>Build or access the otu_table.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-otu_table.html">otu_table&lt;-</a></td>
+<td>Assign a new OTU Table to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-otu_table.html">otu_table&lt;--method</a></td>
+<td>Assign a new OTU Table to 'x'</td></tr>
+</table>
+
+<h2><a id="P">-- P --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="parseTaxonomy-functions.html">parse_taxonomy_default</a></td>
+<td>Parse elements of a taxonomy vector</td></tr>
+<tr><td style="width: 25%;"><a href="parseTaxonomy-functions.html">parse_taxonomy_greengenes</a></td>
+<td>Parse elements of a taxonomy vector</td></tr>
+<tr><td style="width: 25%;"><a href="parseTaxonomy-functions.html">parse_taxonomy_qiime</a></td>
+<td>Parse elements of a taxonomy vector</td></tr>
+<tr><td style="width: 25%;"><a href="phylo-class.html">phylo-class</a></td>
+<td>An S4 placeholder of the main phylogenetic tree class from the ape package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq.html">phyloseq</a></td>
+<td>Build phyloseq-class objects from their components.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-class.html">phyloseq-class</a></td>
+<td>The main experiment-level class for phyloseq data</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">phyloseq-deprecated</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq_to_deseq2.html">phyloseq_to_deseq2</a></td>
+<td>Convert phyloseq data to DESeq2 dds object</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq_to_metagenomeSeq.html">phyloseq_to_metagenomeSeq</a></td>
+<td>Convert phyloseq data to MetagenomeSeq MRexperiment object</td></tr>
+<tr><td style="width: 25%;"><a href="phy_tree-methods.html">phy_tree</a></td>
+<td>Retrieve phylogenetic tree ('phylo'-class) from object.</td></tr>
+<tr><td style="width: 25%;"><a href="phy_tree-methods.html">phy_tree-method</a></td>
+<td>Retrieve phylogenetic tree ('phylo'-class) from object.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-phy_tree.html">phy_tree&lt;-</a></td>
+<td>Assign a (new) phylogenetic tree to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-phy_tree.html">phy_tree&lt;--method</a></td>
+<td>Assign a (new) phylogenetic tree to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="plot_bar.html">plot_bar</a></td>
+<td>A flexible, informative barplot phyloseq data</td></tr>
+<tr><td style="width: 25%;"><a href="plot_clusgap.html">plot_clusgap</a></td>
+<td>Create a ggplot summary of gap statistic results</td></tr>
+<tr><td style="width: 25%;"><a href="plot_heatmap.html">plot_heatmap</a></td>
+<td>Create an ecologically-organized heatmap using ggplot2 graphics</td></tr>
+<tr><td style="width: 25%;"><a href="plot_net.html">plot_net</a></td>
+<td>Microbiome Network Plot using ggplot2</td></tr>
+<tr><td style="width: 25%;"><a href="plot_network.html">plot_network</a></td>
+<td>Microbiome Network Plot using ggplot2</td></tr>
+<tr><td style="width: 25%;"><a href="plot_ordination.html">plot_ordination</a></td>
+<td>General ordination plotter based on ggplot2.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_phyloseq-methods.html">plot_phyloseq</a></td>
+<td>Generic plot defaults for phyloseq.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_phyloseq-methods.html">plot_phyloseq-method</a></td>
+<td>Generic plot defaults for phyloseq.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_richness.html">plot_richness</a></td>
+<td>Plot alpha diversity, flexibly with ggplot2</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">plot_richness_estimates</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_scree.html">plot_scree</a></td>
+<td>General ordination eigenvalue plotter using ggplot2.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">plot_taxa_bar</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_tree.html">plot_tree</a></td>
+<td>Plot a phylogenetic tree with optional annotations</td></tr>
+<tr><td style="width: 25%;"><a href="prune_samples-methods.html">prune_samples</a></td>
+<td>Define a subset of samples to keep in a phyloseq object.</td></tr>
+<tr><td style="width: 25%;"><a href="prune_samples-methods.html">prune_samples-method</a></td>
+<td>Define a subset of samples to keep in a phyloseq object.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">prune_species</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="prune_taxa-methods.html">prune_taxa</a></td>
+<td>Prune unwanted OTUs / taxa from a phylogenetic object.</td></tr>
+<tr><td style="width: 25%;"><a href="prune_taxa-methods.html">prune_taxa-method</a></td>
+<td>Prune unwanted OTUs / taxa from a phylogenetic object.</td></tr>
+<tr><td style="width: 25%;"><a href="psmelt.html">psmelt</a></td>
+<td>Melt phyloseq data object into large data.frame</td></tr>
+</table>
+
+<h2><a id="R">-- R --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">rank.names</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="rank_names.html">rank_names</a></td>
+<td>Retrieve the names of the taxonomic ranks</td></tr>
+<tr><td style="width: 25%;"><a href="rarefy_even_depth.html">rarefy_even_depth</a></td>
+<td>Resample an OTU table such that all samples have the same library size.</td></tr>
+<tr><td style="width: 25%;"><a href="read_tree.html">read_tree</a></td>
+<td>Somewhat flexible tree-import function</td></tr>
+<tr><td style="width: 25%;"><a href="read_tree_greengenes.html">read_tree_greengenes</a></td>
+<td>Read GreenGenes tree released in annotated newick format</td></tr>
+<tr><td style="width: 25%;"><a href="refseq-methods.html">refseq</a></td>
+<td>Retrieve reference sequences ('XStringSet'-class) from object.</td></tr>
+<tr><td style="width: 25%;"><a href="refseq-methods.html">refseq-method</a></td>
+<td>Retrieve reference sequences ('XStringSet'-class) from object.</td></tr>
+<tr><td style="width: 25%;"><a href="rm_outlierf.html">rm_outlierf</a></td>
+<td>Set to FALSE any outlier species greater than f fractional abundance.</td></tr>
+</table>
+
+<h2><a id="S">-- S --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">samData</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sample.names</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sample.variables</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sampleData</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sampleData&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sampleNames</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sampleSums</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="sample_data-methods.html">sample_data</a></td>
+<td>Build or access sample_data.</td></tr>
+<tr><td style="width: 25%;"><a href="sample_data-class.html">sample_data-class</a></td>
+<td>The S4 for storing sample variables.</td></tr>
+<tr><td style="width: 25%;"><a href="sample_data-methods.html">sample_data-method</a></td>
+<td>Build or access sample_data.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-sample_data.html">sample_data&lt;-</a></td>
+<td>Assign (new) sample_data to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="sample_names-methods.html">sample_names</a></td>
+<td>Get sample names.</td></tr>
+<tr><td style="width: 25%;"><a href="sample_names-methods.html">sample_names-method</a></td>
+<td>Get sample names.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-sample_names.html">sample_names&lt;-</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="assign-sample_names.html">sample_names&lt;--method</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="sample_sums.html">sample_sums</a></td>
+<td>Returns the total number of individuals observed from each sample.</td></tr>
+<tr><td style="width: 25%;"><a href="sample_variables.html">sample_variables</a></td>
+<td>Get the sample variables present in sample_data</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sam_data</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">sam_data&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="show-methods.html">show-method</a></td>
+<td>method extensions to show for phyloseq objects.</td></tr>
+<tr><td style="width: 25%;"><a href="show_mothur_cutoffs.html">show_mothur_cutoffs</a></td>
+<td>Show cutoff values available in a mothur file.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">show_mothur_list_cutoffs</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="data-soilrep.html">soilrep</a></td>
+<td>(Data) Reproducibility of soil microbiome data (2011)</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">species.names</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">speciesAreRows</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">speciesarerows</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">speciesAreRows&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">speciesSums</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="subset_ord_plot.html">subset_ord_plot</a></td>
+<td>Subset points from an ordination-derived ggplot</td></tr>
+<tr><td style="width: 25%;"><a href="subset_samples-methods.html">subset_samples</a></td>
+<td>Subset samples by sample_data expression</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">subset_species</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="subset_taxa-methods.html">subset_taxa</a></td>
+<td>Subset species by taxonomic expression</td></tr>
+</table>
+
+<h2><a id="T">-- T --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="transpose-methods.html">t</a></td>
+<td>Transpose 'otu_table-class' or 'phyloseq-class'</td></tr>
+<tr><td style="width: 25%;"><a href="transpose-methods.html">t-method</a></td>
+<td>Transpose 'otu_table-class' or 'phyloseq-class'</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">taxaplot</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="taxa_are_rows-methods.html">taxa_are_rows</a></td>
+<td>Access taxa_are_rows slot from otu_table objects.</td></tr>
+<tr><td style="width: 25%;"><a href="taxa_are_rows-methods.html">taxa_are_rows-method</a></td>
+<td>Access taxa_are_rows slot from otu_table objects.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_are_rows.html">taxa_are_rows&lt;-</a></td>
+<td>Manually change taxa_are_rows through assignment.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_are_rows.html">taxa_are_rows&lt;--method</a></td>
+<td>Manually change taxa_are_rows through assignment.</td></tr>
+<tr><td style="width: 25%;"><a href="taxa_names-methods.html">taxa_names</a></td>
+<td>Get species / taxa names.</td></tr>
+<tr><td style="width: 25%;"><a href="taxa_names-methods.html">taxa_names-method</a></td>
+<td>Get species / taxa names.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_names.html">taxa_names&lt;-</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="assign-taxa_names.html">taxa_names&lt;--method</a></td>
+<td>Replace OTU identifier names</td></tr>
+<tr><td style="width: 25%;"><a href="taxa_sums.html">taxa_sums</a></td>
+<td>Returns the total number of individuals observed from each species/taxa/OTU.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">taxglom</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="taxonomyTable-class.html">taxonomyTable-class</a></td>
+<td>An S4 class that holds taxonomic classification data as a character matrix.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">taxTab</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">taxtab</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">taxTab&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="tax_glom.html">tax_glom</a></td>
+<td>Agglomerate taxa of the same type.</td></tr>
+<tr><td style="width: 25%;"><a href="tax_table-methods.html">tax_table</a></td>
+<td>Build or access the taxonomyTable.</td></tr>
+<tr><td style="width: 25%;"><a href="tax_table-methods.html">tax_table-method</a></td>
+<td>Build or access the taxonomyTable.</td></tr>
+<tr><td style="width: 25%;"><a href="assign-tax_table.html">tax_table&lt;-</a></td>
+<td>Assign a (new) Taxonomy Table to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="assign-tax_table.html">tax_table&lt;--method</a></td>
+<td>Assign a (new) Taxonomy Table to 'x'</td></tr>
+<tr><td style="width: 25%;"><a href="threshrank.html">threshrank</a></td>
+<td>Thresholded rank transformation.</td></tr>
+<tr><td style="width: 25%;"><a href="threshrankfun.html">threshrankfun</a></td>
+<td>A closure version of the 'threshrank' function.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">tipglom</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="tip_glom.html">tip_glom</a></td>
+<td>Agglomerate closely-related taxa using single-linkage clustering.</td></tr>
+<tr><td style="width: 25%;"><a href="topf.html">topf</a></td>
+<td>Make filter fun. that returns the top f fraction of taxa in a sample.</td></tr>
+<tr><td style="width: 25%;"><a href="topk.html">topk</a></td>
+<td>Make filter fun. the most abundant 'k' taxa</td></tr>
+<tr><td style="width: 25%;"><a href="topp.html">topp</a></td>
+<td>Make filter fun. that returns the most abundant 'p' fraction of taxa</td></tr>
+<tr><td style="width: 25%;"><a href="transformcounts.html">transformSampleCounts</a></td>
+<td>Transform abundance data in an 'otu_table', sample-by-sample.</td></tr>
+<tr><td style="width: 25%;"><a href="transformcounts.html">transform_sample_counts</a></td>
+<td>Transform abundance data in an 'otu_table', sample-by-sample.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">tre</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="phyloseq-deprecated.html">tre&lt;-</a></td>
+<td>Depcrecated functions in the phyloseq package.</td></tr>
+<tr><td style="width: 25%;"><a href="tree_layout.html">tree_layout</a></td>
+<td>Returns a data table defining the line segments of a phylogenetic tree.</td></tr>
+</table>
+
+<h2><a id="U">-- U --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="UniFrac-methods.html">UniFrac</a></td>
+<td>Calculate weighted or unweighted (Fast) UniFrac distance for all sample pairs.</td></tr>
+<tr><td style="width: 25%;"><a href="UniFrac-methods.html">UniFrac-method</a></td>
+<td>Calculate weighted or unweighted (Fast) UniFrac distance for all sample pairs.</td></tr>
+</table>
+
+<h2><a id="misc">-- misc --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="extract-methods.html">[-method</a></td>
+<td>Method extensions to extraction operator for phyloseq objects.</td></tr>
+</table>
+</div></body></html>

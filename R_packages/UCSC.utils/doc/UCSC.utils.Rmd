@@ -1,0 +1,110 @@
+---
+title: "The _UCSC.utils_ package"
+author:
+- name: Hervé Pagès
+  affiliation: Fred Hutchinson Cancer Research Center, Seattle, WA
+date: "Compiled `r doc_date()`; Modified 16 April 2024"
+package: UCSC.utils
+vignette: |
+  %\VignetteIndexEntry{The UCSC.utils package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document
+---
+
+
+# Introduction
+
+`r Biocpkg("UCSC.utils")` is an infrastructure package that provides a
+small set of low-level utilities to retrieve data from the UCSC Genome
+Browser. Most functions in the package access the data via the UCSC REST
+API but some of them query the UCSC MySQL server directly.
+
+Note that the primary purpose of the package is to support higher-level
+functionalities implemented in downstream packages like
+`r Biocpkg("GenomeInfoDb")` or `r Biocpkg("txdbmaker")`.
+
+
+# Installation
+
+Like any other Bioconductor package, `r Biocpkg("UCSC.utils")` should always
+be installed with `BiocManager::install()`:
+```{r, eval=FALSE}
+if (!require("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("UCSC.utils")
+```
+However, note that `r Biocpkg("UCSC.utils")` will typically get automatically
+installed as a dependency of other Bioconductor packages, so explicit
+installation of the package is usually not needed.
+
+
+# Functions defined in the package
+
+## list_UCSC_genomes()
+
+```{r list_UCSC_genomes}
+suppressPackageStartupMessages(library(UCSC.utils))
+
+list_UCSC_genomes("cat")
+```
+
+See `?list_UCSC_genomes` for more information and additional examples.
+
+## get_UCSC_chrom_sizes()
+
+```{r get_UCSC_chrom_sizes}
+felCat9_chrom_sizes <- get_UCSC_chrom_sizes("felCat9")
+head(felCat9_chrom_sizes)
+```
+
+See `?get_UCSC_chrom_sizes` for more information and additional examples.
+
+## list_UCSC_tracks()
+
+```{r list_UCSC_tracks}
+list_UCSC_tracks("felCat9", group="varRep")
+```
+
+See `?list_UCSC_tracks` for more information and
+additional examples.
+
+## fetch_UCSC_track_data()
+
+```{r fetch_UCSC_track_data}
+mm9_cytoBandIdeo <- fetch_UCSC_track_data("mm9", "cytoBandIdeo")
+head(mm9_cytoBandIdeo)
+```
+
+See `?fetch_UCSC_track_data` for more information and
+additional examples.
+
+## UCSC_dbselect()
+
+Retrieve a full SQL table:
+```{r UCSC_dbselect}
+felCat9_refGene <- UCSC_dbselect("felCat9", "refGene")
+head(felCat9_refGene)
+```
+
+Or retrieve a subset of it:
+```{r UCSC_dbselect2}
+columns <- c("chrom", "strand", "txStart", "txEnd", "exonCount", "name2")
+UCSC_dbselect("felCat9", "refGene", columns=columns, where="chrom='chrA1'")
+```
+
+Note that `UCSC_dbselect` is an alternative to `fetch_UCSC_track_data`
+that is more efficient and gives the user more control on what data to
+retrieve exactly from the server. However, the downside of it is that
+it does not work with all tracks!
+
+See `?UCSC_dbselect` for more information and additional examples.
+
+
+# Session information
+
+```{r}
+sessionInfo()
+```
+

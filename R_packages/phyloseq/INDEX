@@ -1,0 +1,178 @@
+DPCoA                   Calculate Double Principle Coordinate Analysis
+                        (DPCoA) using phylogenetic distance
+UniFrac                 Calculate weighted or unweighted (Fast) UniFrac
+                        distance for all sample pairs.
+[,otu_table,ANY,ANY,ANY-method
+                        Method extensions to extraction operator for
+                        phyloseq objects.
+access                  Universal slot accessor function for
+                        phyloseq-class.
+build_tax_table         Build a 'tax_table' from a named
+                        possibly-jagged list
+data-GlobalPatterns     (Data) Global patterns of 16S rRNA diversity at
+                        a depth of millions of sequences per sample
+                        (2011)
+data-enterotype         (Data) Enterotypes of the human gut microbiome
+                        (2011)
+data-esophagus          (Data) Small example dataset from a human
+                        esophageal community (2004)
+data-soilrep            (Data) Reproducibility of soil microbiome data
+                        (2011)
+dist-class              An S4 placeholder for the 'dist' class.
+distance                Calculate distance, dissimilarity
+distanceMethodList      List of distance method keys supported in
+                        'distance'
+estimate_richness       Summarize alpha diversity
+export_env_file         Export environment (ENV) file for UniFrac
+                        Server.
+export_mothur_dist      Export a distance object as '.names' and
+                        '.dist' files for mothur
+filter_taxa             Filter taxa based on across-sample OTU
+                        abundance criteria
+filterfun_sample        A sample-wise filter function builder analogous
+                        to 'filterfun'.
+gapstat_ord             Estimate the gap statistic on an ordination
+                        result
+genefilter_sample       Filter OTUs with arbitrary function,
+                        sample-wise.
+get_sample              Returns all abundance values for species 'i'.
+get_taxa                Returns all abundance values of sample 'i'.
+get_taxa_unique         Get a unique vector of the observed taxa at a
+                        particular taxonomic rank
+get_variable            Get the values for a particular variable in
+                        sample_data
+getslots.phyloseq       Return the non-empty slot names of a phyloseq
+                        object.
+import                  Universal import method (wrapper) for
+                        phyloseq-package
+import_RDP_cluster      Import RDP cluster file and return otu_table
+                        (abundance table).
+import_RDP_otu          Import new RDP OTU-table format
+import_biom             Import phyloseq data from biom-format file
+import_env_file         Read a UniFrac-formatted ENV file.
+import_mothur           General function for importing mothur data
+                        files into phyloseq.
+import_mothur_dist      Import mothur-formatted distance file
+import_pyrotagger_tab   Imports a tab-delimited version of the
+                        pyrotagger output file.
+import_qiime            Import function to read the now legacy-format
+                        QIIME OTU table.
+import_qiime_otu_tax    Import now legacy-format QIIME OTU table as a
+                        list of two matrices.
+import_qiime_sample_data
+                        Import just 'sample_data' file from QIIME
+                        pipeline.
+import_uparse           Import UPARSE file format
+import_usearch_uc       Import usearch table format ('.uc') to OTU
+                        table
+make_network            Make microbiome network (igraph)
+merge_phyloseq          Merge arguments into one phyloseq object.
+merge_phyloseq_pair     Merge pair of phyloseq component data objects
+                        of the same class.
+merge_samples           Merge samples based on a sample variable or
+                        factor.
+merge_taxa              Merge a subset of the species in 'x' into one
+                        species/taxa/OTU.
+microbio_me_qiime       Import microbio.me/qiime (QIIME-DB) data
+                        package
+mt                      Multiple testing of taxa abundance according to
+                        sample categories/classes
+nodeplotblank           Function to avoid plotting node labels
+nodeplotboot            Generates a function for labeling bootstrap
+                        values on a phylogenetic tree.
+nodeplotdefault         Generates a default node-label function
+nsamples                Get the number of samples.
+ntaxa                   Get the number of taxa/species.
+ordinate                Perform an ordination on phyloseq data
+otu_table               Build or access the otu_table.
+otu_table-class         The S4 class for storing taxa-abundance
+                        information.
+otu_table<-             Assign a new OTU Table to 'x'
+parse_taxonomy_default
+                        Parse elements of a taxonomy vector
+phy_tree                Retrieve phylogenetic tree ('phylo'-class) from
+                        object.
+phy_tree<-              Assign a (new) phylogenetic tree to 'x'
+phylo-class             An S4 placeholder of the main phylogenetic tree
+                        class from the ape package.
+phyloseq                Build phyloseq-class objects from their
+                        components.
+phyloseq-class          The main experiment-level class for phyloseq
+                        data
+phyloseq-deprecated     Depcrecated functions in the phyloseq package.
+phyloseq-package        Handling and analysis of high-throughput
+                        phylogenetic sequence data.
+phyloseq_to_deseq2      Convert phyloseq data to DESeq2 dds object
+phyloseq_to_metagenomeSeq
+                        Convert phyloseq data to MetagenomeSeq
+                        MRexperiment object
+plot_bar                A flexible, informative barplot phyloseq data
+plot_clusgap            Create a ggplot summary of gap statistic
+                        results
+plot_heatmap            Create an ecologically-organized heatmap using
+                        ggplot2 graphics
+plot_net                Microbiome Network Plot using ggplot2
+plot_network            Microbiome Network Plot using ggplot2
+plot_ordination         General ordination plotter based on ggplot2.
+plot_phyloseq           Generic plot defaults for phyloseq.
+plot_richness           Plot alpha diversity, flexibly with ggplot2
+plot_scree              General ordination eigenvalue plotter using
+                        ggplot2.
+plot_tree               Plot a phylogenetic tree with optional
+                        annotations
+prune_samples           Define a subset of samples to keep in a
+                        phyloseq object.
+prune_taxa              Prune unwanted OTUs / taxa from a phylogenetic
+                        object.
+psmelt                  Melt phyloseq data object into large data.frame
+rank_names              Retrieve the names of the taxonomic ranks
+rarefy_even_depth       Resample an OTU table such that all samples
+                        have the same library size.
+read_tree               Somewhat flexible tree-import function
+read_tree_greengenes    Read GreenGenes tree released in annotated
+                        newick format
+refseq                  Retrieve reference sequences
+                        ('XStringSet'-class) from object.
+rm_outlierf             Set to FALSE any outlier species greater than f
+                        fractional abundance.
+sample_data             Build or access sample_data.
+sample_data-class       The S4 for storing sample variables.
+sample_data<-           Assign (new) sample_data to 'x'
+sample_names            Get sample names.
+sample_names<-          Replace OTU identifier names
+sample_sums             Returns the total number of individuals
+                        observed from each sample.
+sample_variables        Get the sample variables present in sample_data
+show,otu_table-method   method extensions to show for phyloseq objects.
+show_mothur_cutoffs     Show cutoff values available in a mothur file.
+subset_ord_plot         Subset points from an ordination-derived ggplot
+subset_samples          Subset samples by sample_data expression
+subset_taxa             Subset species by taxonomic expression
+t                       Transpose 'otu_table-class' or 'phyloseq-class'
+tax_glom                Agglomerate taxa of the same type.
+tax_table               Build or access the taxonomyTable.
+tax_table<-             Assign a (new) Taxonomy Table to 'x'
+taxa_are_rows           Access taxa_are_rows slot from otu_table
+                        objects.
+taxa_are_rows<-         Manually change taxa_are_rows through
+                        assignment.
+taxa_names              Get species / taxa names.
+taxa_names<-            Replace OTU identifier names
+taxa_sums               Returns the total number of individuals
+                        observed from each species/taxa/OTU.
+taxonomyTable-class     An S4 class that holds taxonomic classification
+                        data as a character matrix.
+threshrank              Thresholded rank transformation.
+threshrankfun           A closure version of the 'threshrank' function.
+tip_glom                Agglomerate closely-related taxa using
+                        single-linkage clustering.
+topf                    Make filter fun. that returns the top f
+                        fraction of taxa in a sample.
+topk                    Make filter fun. the most abundant 'k' taxa
+topp                    Make filter fun. that returns the most abundant
+                        'p' fraction of taxa
+transform_sample_counts
+                        Transform abundance data in an 'otu_table',
+                        sample-by-sample.
+tree_layout             Returns a data table defining the line segments
+                        of a phylogenetic tree.

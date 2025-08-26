@@ -1,0 +1,48 @@
+accountUsage            Show Account Usage
+accounts                Account Management Functions
+addAuthorizedUser       Add authorized user to application
+addLinter               Add a Linter
+addServer               Server management
+appDependencies         Detect application dependencies
+applications            List Deployed Applications
+authorizedUsers         (Deprecated) List authorized users for an
+                        application
+configureApp            Configure an Application
+connectApiUser          Register account on Posit Connect
+connectSPCSUser         Register account on Posit Connect in Snowpark
+                        Container Services
+deployAPI               Deploy a Plumber API
+deployApp               Deploy an Application
+deployDoc               Deploy a single document
+deploySite              Deploy a website
+deployTFModel           Deploy a TensorFlow saved model
+deployments             List Application Deployments
+forgetDeployment        Forget Application Deployment
+lint                    Lint a Project
+linter                  Create a Linter
+listAccountEnvVars      Maintain environment variables across multiple
+                        applications
+listDeploymentFiles     Gather files to be bundled with an app
+makeLinterMessage       Construct a Linter Message
+purgeApp                Purge an Application
+removeAuthorizedUser    Remove authorized user from an application
+resendInvitation        Resend invitation for invited users of an
+                        application
+restartApp              Restart an Application
+rpubsUpload             Upload a file to RPubs
+rsconnectOptions        Package Options
+servers                 Server metadata
+setAccountInfo          Register account on shinyapps.io or posit.cloud
+setProperty             Set Application property
+showInvited             List invited users for an application
+showLogs                Show Application Logs
+showMetrics             Show Application Metrics
+showProperties          Show Application property
+showUsage               Show Application Usage
+showUsers               List authorized users for an application
+syncAppMetadata         Update deployment records
+taskLog                 Show task log
+tasks                   List Tasks
+terminateApp            Terminate an Application
+unsetProperty           Unset Application property
+writeManifest           Create a 'manifest.json'

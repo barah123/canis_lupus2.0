@@ -1,0 +1,135 @@
+all_names               Return names of data in [taxonomy()] or
+                        [taxmap()]
+ambiguous_synonyms      Get patterns for ambiguous taxa
+arrange_obs             Sort user data in [taxmap()] objects
+arrange_taxa            Sort the edge list of [taxmap()] objects
+as_phyloseq             Convert taxmap to phyloseq
+branches                Get "branch" taxa
+calc_diff_abund_deseq2
+                        Differential abundance with DESeq2
+calc_group_mean         Calculate means of groups of columns
+calc_group_median       Calculate medians of groups of columns
+calc_group_rsd          Relative standard deviations of groups of
+                        columns
+calc_group_stat         Apply a function to groups of columns
+calc_n_samples          Count the number of samples
+calc_obs_props          Calculate proportions from observation counts
+calc_prop_samples       Calculate the proportion of samples
+classifications         Get classifications of taxa
+compare_groups          Compare groups of samples
+complement              Find complement of sequences
+counts_to_presence      Apply a function to groups of columns
+database_list           Database list
+diverging_palette       The default diverging color palette
+ex_hierarchies          An example hierarchies object
+ex_hierarchy1           An example Hierarchy object
+ex_hierarchy2           An example Hierarchy object
+ex_hierarchy3           An example Hierarchy object
+ex_taxmap               An example taxmap object
+extract_tax_data        Extracts taxonomy info from vectors with regex
+filter_ambiguous_taxa   Filter ambiguous taxon names
+filter_obs              Filter observations with a list of conditions
+filter_taxa             Filter taxa with a list of conditions
+filtering-helpers       Taxonomic filtering helpers
+get_data                Get data in a taxmap object by name
+get_data_frame          Get data in a taxonomy or taxmap object by name
+get_dataset             Get a data set from a taxmap object
+heat_tree               Plot a taxonomic tree
+heat_tree_matrix        Plot a matrix of heat trees
+hierarchies             Make a set of many [hierarchy()] class objects
+hierarchy               The Hierarchy class
+highlight_taxon_ids     Highlight taxon ID column
+hmp_otus                A HMP subset
+hmp_samples             Sample information for HMP subset
+id_classifications      Get ID classifications of taxa
+internodes              Get "internode" taxa
+is_ambiguous            Find ambiguous taxon names
+is_branch               Test if taxa are branches
+is_internode            Test if taxa are "internodes"
+is_leaf                 Test if taxa are leaves
+is_root                 Test if taxa are roots
+is_stem                 Test if taxa are stems
+layout_functions        Layout functions
+leaves                  Get leaf taxa
+leaves_apply            Apply function to leaves of each taxon
+lookup_tax_data         Convert one or more data sets to taxmap
+make_dada2_asv_table    Make a imitation of the dada2 ASV abundance
+                        matrix
+make_dada2_tax_table    Make a imitation of the dada2 taxonomy matrix
+map_data                Create a mapping between two variables
+map_data_               Create a mapping without NSE
+metacoder               Metacoder
+mutate_obs              Add columns to [taxmap()] objects
+n_leaves                Get number of leaves
+n_leaves_1              Get number of leaves
+n_obs                   Count observations in [taxmap()]
+n_obs_1                 Count observation assigned in [taxmap()]
+n_subtaxa               Get number of subtaxa
+n_subtaxa_1             Get number of subtaxa
+n_supertaxa             Get number of supertaxa
+n_supertaxa_1           Get number of supertaxa
+ncbi_taxon_sample       Download representative sequences for a taxon
+obs                     Get data indexes associated with taxa
+obs_apply               Apply function to observations per taxon
+parse_dada2             Convert the output of dada2 to a taxmap object
+parse_greengenes        Parse Greengenes release
+parse_mothur_tax_summary
+                        Parse mothur *.tax.summary Classify.seqs output
+parse_mothur_taxonomy   Parse mothur Classify.seqs *.taxonomy output
+parse_newick            Parse a Newick file
+parse_phylo             Parse a phylo object
+parse_phyloseq          Convert a phyloseq to taxmap
+parse_primersearch      Parse EMBOSS primersearch output
+parse_qiime_biom        Parse a BIOM output from QIIME
+parse_rdp               Parse RDP FASTA release
+parse_silva_fasta       Parse SILVA FASTA release
+parse_tax_data          Convert one or more data sets to taxmap
+parse_ubiome            Converts the uBiome file format to taxmap
+parse_unite_general     Parse UNITE general release FASTA
+primersearch            Use EMBOSS primersearch for in silico PCR
+primersearch_raw        Use EMBOSS primersearch for in silico PCR
+print_tree              Print a text tree
+qualitative_palette     The default qualitative color palette
+quantative_palette      The default quantative color palette
+ranks_ref               Lookup-table for IDs of taxonomic ranks
+rarefy_obs              Calculate rarefied observation counts
+read_fasta              Read a FASTA file
+remove_redundant_names
+                        Remove redundant parts of taxon names
+replace_taxon_ids       Replace taxon ids
+rev_comp                Revere complement sequences
+reverse                 Reverse sequences
+roots                   Get root taxa
+sample_frac_obs         Sample a proportion of observations from
+                        [taxmap()]
+sample_frac_taxa        Sample a proportion of taxa from [taxonomy()]
+                        or [taxmap()]
+sample_n_obs            Sample n observations from [taxmap()]
+sample_n_taxa           Sample n taxa from [taxonomy()] or [taxmap()]
+select_obs              Subset columns in a [taxmap()] object
+stems                   Get stem taxa
+subtaxa                 Get subtaxa
+subtaxa_apply           Apply function to subtaxa of each taxon
+supertaxa               Get all supertaxa of a taxon
+supertaxa_apply         Apply function to supertaxa of each taxon
+taxa                    A class for multiple taxon objects
+taxmap                  Taxmap class
+taxon                   Taxon class
+taxon_database          Taxonomy database class
+taxon_id                Taxon ID class
+taxon_ids               Get taxon IDs
+taxon_indexes           Get taxon indexes
+taxon_name              Taxon name class
+taxon_names             Get taxon names
+taxon_rank              Taxon rank class
+taxon_ranks             Get taxon ranks
+taxonomy                Taxonomy class
+taxonomy_table          Convert taxonomy info to a table
+transmute_obs           Replace columns in [taxmap()] objects
+write_greengenes        Write an imitation of the Greengenes database
+write_mothur_taxonomy   Write an imitation of the Mothur taxonomy file
+write_rdp               Write an imitation of the RDP FASTA database
+write_silva_fasta       Write an imitation of the SILVA FASTA database
+write_unite_general     Write an imitation of the UNITE general FASTA
+                        database
+zero_low_counts         Replace low counts with zero

@@ -1,0 +1,36 @@
+JS                      Create character strings that will be evaluated
+                        as JavaScript
+MisLinks                Les Miserables character links
+MisNodes                Les Miserables character nodes
+SchoolsJournals         Edge list of REF (2014) journal submissions for
+                        Politics and International Relations
+as.radialNetwork        Convert an R hclust or dendrogram object into a
+                        radialNetwork list.
+as_treenetdf            Convert one of numerous data types to
+                        treeNetwork's 'native' treenetdf form
+as_treenetdf.Node       data.tree to 'treenetdf'
+as_treenetdf.data.frame
+                        Convert a data.frame to a 'treenetdf'
+as_treenetdf.hclust     Convert hclust objects to 'treenetdf'
+as_treenetdf.igraph     Convert igraph tree to 'treenetdf'
+as_treenetdf.list       Convert a nested list to 'treenetdf'
+as_treenetdf.phylo      Phylo tree to 'treenetdf'
+as_treenetdf.tbl_graph
+                        tbl_graph_to_treenetdf
+chordNetwork            Create Reingold-Tilford Tree network diagrams.
+chordNetworkOutput      Shiny bindings for networkD3 widgets
+dendroNetwork           Create hierarchical cluster network diagrams.
+diagonalNetwork         Create Reingold-Tilford Tree network diagrams.
+forceNetwork            Create a D3 JavaScript force directed network
+                        graph.
+igraph_to_networkD3     Function to convert igraph graph to a list
+                        suitable for networkD3
+networkD3-package       Tools for Creating D3 Network Graphs from R
+pkg_installed           Check if a package is installed
+radialNetwork           Create Reingold-Tilford Tree network diagrams.
+sankeyNetwork           Create a D3 JavaScript Sankey diagram
+saveNetwork             Save a network graph to an HTML file
+simpleNetwork           Function for creating simple D3 JavaScript
+                        force directed network graphs.
+treeNetwork             Create collapsible tree network diagrams.
+treeNetwork-shiny       Shiny bindings for treeNetwork

@@ -1,0 +1,36 @@
+Package: UCSC.utils
+Title: Low-level utilities to retrieve data from the UCSC Genome
+        Browser
+Description: A set of low-level utilities to retrieve data from the UCSC
+	Genome Browser. Most functions in the package access the data via
+	the UCSC REST API but some of them query the UCSC MySQL server
+	directly. Note that the primary purpose of the package is to support
+	higher-level functionalities implemented in downstream packages
+	like GenomeInfoDb or txdbmaker.
+biocViews: Infrastructure, GenomeAssembly, Annotation,
+        GenomeAnnotation, DataImport
+URL: https://bioconductor.org/packages/UCSC.utils
+BugReports: https://github.com/Bioconductor/UCSC.utils/issues
+Version: 1.2.0
+License: Artistic-2.0
+Encoding: UTF-8
+Authors@R: person("Hervé", "Pagès", role=c("aut", "cre"),
+	          email="hpages.on.github@gmail.com")
+Imports: methods, stats, httr, jsonlite, S4Vectors
+Suggests: DBI, RMariaDB, GenomeInfoDb, testthat, knitr, rmarkdown,
+        BiocStyle
+VignetteBuilder: knitr
+Collate: 00utils.R UCSC.api.url.R REST_API.R list_UCSC_genomes.R
+        get_UCSC_chrom_sizes.R list_UCSC_tracks.R
+        fetch_UCSC_track_data.R UCSC_dbselect.R zzz.R
+git_url: https://git.bioconductor.org/packages/UCSC.utils
+git_branch: RELEASE_3_20
+git_last_commit: d77d73e
+git_last_commit_date: 2024-10-29
+Repository: Bioconductor 3.20
+Date/Publication: 2024-10-29
+NeedsCompilation: no
+Packaged: 2024-10-30 06:13:23 UTC; biocbuild
+Author: Hervé Pagès [aut, cre]
+Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
+Built: R 4.4.1; ; 2024-10-30 16:59:03 UTC; windows
