@@ -1,33 +1,5 @@
 
 
-
-# Specify the custom library path
-custom_lib_path <- file.path(getwd(), "R_packages")
-
-# Add the custom library path to the library search path
-.libPaths(c(custom_lib_path, .libPaths()))
-
-# Install patchwork first
-install.packages("patchwork", lib = custom_lib_path)
-
-# Load patchwork to ensure it's installed correctly
-#library(patchwork, lib.loc = custom_lib_path)
-
-# Install BiocManager if not already installed
-#if (!requireNamespace("BiocManager", quietly = TRUE)) {
-#  install.packages("BiocManager", lib = custom_lib_path)
-#}
-
-
-if (!require("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-BiocManager::install(version = "3.21")
-
-# Install Bioconductor packages
-BiocManager::install(c("phyloseq", "ggtree", "metacoder","plotly", "DT","vegan","ape","ggplot2","tidyverse","networkD3","heatmaply"), lib = custom_lib_path, force = TRUE)
-install.packages("shiny")
-
 # Load the required libraries
 library(shiny, lib.loc = custom_lib_path)
 library(phyloseq, lib.loc = custom_lib_path)
