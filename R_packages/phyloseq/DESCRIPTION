@@ -1,5 +1,5 @@
 Package: phyloseq
-Version: 1.50.0
+Version: 1.52.0
 Date: 2021-11-29
 Title: Handling and analysis of high-throughput microbiome census data
 Description: phyloseq provides a set of classes and tools
@@ -39,11 +39,11 @@ Collate: 'allClasses.R' 'allPackage.R' 'allData.R' 'as-methods.R'
         'extend_metagenomeSeq.R'
 RoxygenNote: 6.1.1
 git_url: https://git.bioconductor.org/packages/phyloseq
-git_branch: RELEASE_3_20
-git_last_commit: 8724974
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: 753032a
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: no
-Packaged: 2024-10-30 04:52:29 UTC; biocbuild
-Built: R 4.4.1; ; 2024-10-30 16:27:58 UTC; windows
+Packaged: 2025-04-16 02:55:25 UTC; biocbuild
+Built: R 4.5.0; ; 2025-04-16 15:08:49 UTC; windows

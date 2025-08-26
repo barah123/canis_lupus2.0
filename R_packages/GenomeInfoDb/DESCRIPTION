@@ -10,7 +10,7 @@ biocViews: Genetics, DataRepresentation, Annotation, GenomeAnnotation
 URL: https://bioconductor.org/packages/GenomeInfoDb
 Video: http://youtu.be/wdEjCYSXa7w
 BugReports: https://github.com/Bioconductor/GenomeInfoDb/issues
-Version: 1.42.3
+Version: 1.44.2
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -24,8 +24,8 @@ Authors@R: c(
 	person("Haleema", "Khan", role="ctb",
 		comment="vignette translation from Sweave to Rmarkdown / HTML"),
 	person("Emmanuel Chigozie", "Elendu", role="ctb"))
-Depends: R (>= 4.0.0), methods, BiocGenerics (>= 0.37.0), S4Vectors (>=
-        0.25.12), IRanges (>= 2.13.12)
+Depends: R (>= 4.0.0), methods, BiocGenerics (>= 0.53.2), S4Vectors (>=
+        0.45.2), IRanges (>= 2.41.1)
 Imports: stats, stats4, utils, UCSC.utils, GenomeInfoDbData
 Suggests: R.utils, data.table, GenomicRanges, Rsamtools,
         GenomicAlignments, GenomicFeatures, BSgenome,
@@ -40,13 +40,13 @@ Collate: utils.R fetch_table_dump_from_Ensembl_FTP.R list_ftp_dir.R
         seqinfo.R Seqinfo-class.R seqlevelsStyle.R seqlevels-wrappers.R
         GenomeDescription-class.R zzz.R
 git_url: https://git.bioconductor.org/packages/GenomeInfoDb
-git_branch: RELEASE_3_20
-git_last_commit: 2f182bf
-git_last_commit_date: 2025-01-23
-Repository: Bioconductor 3.20
-Date/Publication: 2025-01-27
+git_branch: RELEASE_3_21
+git_last_commit: bfeba8e
+git_last_commit_date: 2025-08-18
+Repository: Bioconductor 3.21
+Date/Publication: 2025-08-20
 NeedsCompilation: no
-Packaged: 2025-01-28 00:10:56 UTC; biocbuild
+Packaged: 2025-08-20 21:28:37 UTC; biocbuild
 Author: Sonali Arora [aut],
   Martin Morgan [aut],
   Marc Carlson [aut],
@@ -57,4 +57,4 @@ Author: Sonali Arora [aut],
     HTML),
   Emmanuel Chigozie Elendu [ctb]
 Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
-Built: R 4.4.2; ; 2025-01-28 13:13:16 UTC; windows
+Built: R 4.5.1; ; 2025-08-26 11:03:06 UTC; windows

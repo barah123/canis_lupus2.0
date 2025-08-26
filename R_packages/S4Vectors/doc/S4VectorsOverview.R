@@ -1,7 +1,7 @@
 ## ----install, eval=FALSE------------------------------------------------------
-#  if (!require("BiocManager"))
-#    install.packages("BiocManager")
-#  BiocManager::install("S4Vectors")
+# if (!require("BiocManager"))
+#   install.packages("BiocManager")
+# BiocManager::install("S4Vectors")
 
 ## ----message=FALSE------------------------------------------------------------
 library(S4Vectors)

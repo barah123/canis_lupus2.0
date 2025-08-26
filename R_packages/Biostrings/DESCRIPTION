@@ -7,7 +7,7 @@ biocViews: SequenceMatching, Alignment, Sequencing, Genetics,
         DataImport, DataRepresentation, Infrastructure
 URL: https://bioconductor.org/packages/Biostrings
 BugReports: https://github.com/Bioconductor/Biostrings/issues
-Version: 2.74.1
+Version: 2.76.0
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -33,7 +33,7 @@ Authors@R: c(
 	person("Jen", "Wokaty", role="ctb",
 	       comment="Converted 'matchprobes' vignette from Sweave to RMarkdown"),
 	person("Erik", "Wright", role="ctb"))
-Depends: R (>= 4.0.0), BiocGenerics (>= 0.37.0), S4Vectors (>=
+Depends: R (>= 4.1.0), BiocGenerics (>= 0.37.0), S4Vectors (>=
         0.27.12), IRanges (>= 2.31.2), XVector (>= 0.37.1),
         GenomeInfoDb
 Imports: methods, utils, grDevices, stats, crayon
@@ -62,13 +62,13 @@ Collate: utils.R IUPAC_CODE_MAP.R AMINO_ACID_CODE.R GENETIC_CODE.R
         pmatchPattern.R needwunsQS.R MultipleAlignment.R matchprobes.R
         moved_to_pwalign.R zzz.R
 git_url: https://git.bioconductor.org/packages/Biostrings
-git_branch: RELEASE_3_20
-git_last_commit: b5de574
-git_last_commit_date: 2024-12-14
-Repository: Bioconductor 3.20
-Date/Publication: 2024-12-16
+git_branch: RELEASE_3_21
+git_last_commit: 2e04124
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: yes
-Packaged: 2024-12-16 22:33:52 UTC; biocbuild
+Packaged: 2025-04-15 23:24:00 UTC; biocbuild
 Author: Hervé Pagès [aut, cre],
   Patrick Aboyoun [aut],
   Robert Gentleman [aut],
@@ -90,5 +90,5 @@ Author: Hervé Pagès [aut, cre],
     RMarkdown),
   Erik Wright [ctb]
 Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
-Built: R 4.4.2; x86_64-w64-mingw32; 2024-12-17 12:33:21 UTC; windows
+Built: R 4.5.0; x86_64-w64-mingw32; 2025-04-16 14:00:23 UTC; windows
 Archs: x64

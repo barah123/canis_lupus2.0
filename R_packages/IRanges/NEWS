@@ -1,3 +1,29 @@
+CHANGES IN VERSION 2.42.0
+-------------------------
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o New implementations of the viewMins(), viewMaxs(), viewSums(),
+      viewMeans(), viewWhichMins(), viewWhichMaxs(), viewRangeMins(),
+      and viewRangeMaxs() methods for RleViews objects.
+
+      This is a complete rewrite (including of the C code behind these methods)
+      that addresses many long-standing (and unnoticed-for-years) bugs in the
+      previous implementation. This new implementation can also be significantly
+      faster than the previous one e.g. 5x faster or more for RleViews objects
+      with millions of views.
+
+BUG FIXES
+
+    o Fix multiple bugs in viewMins(), viewMaxs(), viewSums(), viewMeans(),
+      viewWhichMins(), viewWhichMaxs(), viewRangeMins(), and viewRangeMaxs()
+      methods for RleViews objects. See above for the details.
+
+    o Fix bug in disjointBins() method for IntegerRanges derivatives when
+      the input object has names and is not sorted.
+      See https://github.com/Bioconductor/IRanges/issues/54 for the details.
+
+
 CHANGES IN VERSION 2.40.0
 -------------------------
 

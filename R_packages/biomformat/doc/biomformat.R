@@ -54,8 +54,8 @@ y = read_biom(outfile)
 identical(x4, y)
 
 ## ----compare-files-diff, eval=FALSE-------------------------------------------
-#  # On Unix OSes
-#  system(paste0("diff ", rich_sparse_file, outfile))
-#  # On windows
-#  system(paste0("FC ", rich_sparse_file, outfile))
+# # On Unix OSes
+# system(paste0("diff ", rich_sparse_file, outfile))
+# # On windows
+# system(paste0("FC ", rich_sparse_file, outfile))
 

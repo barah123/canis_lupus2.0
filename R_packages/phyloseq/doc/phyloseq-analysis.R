@@ -1,5 +1,5 @@
 ## ----dontrun-basics-vignette, eval=FALSE--------------------------------------
-#  vignette("phyloseq-basics")
+# vignette("phyloseq-basics")
 
 ## ----load-packages, message=FALSE, warning=FALSE------------------------------
 library("phyloseq")
@@ -69,21 +69,21 @@ data(enterotype)
 plot_net(enterotype, maxdist=0.4, color="SeqTech", shape="Enterotype")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  my.physeq <- import("Biom", BIOMfilename="myBiomFile.biom")
-#  my.ord    <- ordinate(my.physeq)
-#  plot_ordination(my.physeq, my.ord, color="myFavoriteVarible")
+# my.physeq <- import("Biom", BIOMfilename="myBiomFile.biom")
+# my.ord    <- ordinate(my.physeq)
+# plot_ordination(my.physeq, my.ord, color="myFavoriteVarible")
 
 ## ----help-import, eval=FALSE--------------------------------------------------
-#  help(import)
-#  help(ordinate)
-#  help(distance)
-#  help(plot_ordination)
+# help(import)
+# help(ordinate)
+# help(distance)
+# help(plot_ordination)
 
 ## ----GP-data-load-------------------------------------------------------------
 data(GlobalPatterns)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  GPUF <- UniFrac(GlobalPatterns)
+# GPUF <- UniFrac(GlobalPatterns)
 
 ## ----load-precomputed-UF------------------------------------------------------
 load(system.file("doc", "Unweighted_UniFrac.RData", package="phyloseq"))
@@ -200,9 +200,9 @@ distance(esophagus, "jaccard") # vegdist jaccard
 distance(esophagus, "g") # betadiver method option "g"
 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-#  data(esophagus)
-#  distance(esophagus, "wUniFrac")
-#  distance(esophagus, "uUniFrac")
+# data(esophagus)
+# distance(esophagus, "wUniFrac")
+# distance(esophagus, "uUniFrac")
 
 ## -----------------------------------------------------------------------------
 # (Re)load UniFrac distance matrix and GlobalPatterns data

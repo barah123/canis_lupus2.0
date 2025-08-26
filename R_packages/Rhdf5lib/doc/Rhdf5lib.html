@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2024-10-30" />
+<meta name="date" content="2025-04-15" />
 
 <title>Linking to Rhdf5lib</title>
 
@@ -706,9 +706,9 @@ function toggle_visibility(id1) {
 <h1 class="title toc-ignore">Linking to Rhdf5lib</h1>
 <p class="author-name">Mike L. Smith<span class="affil-mark">1</span></p>
 <p class="author-affiliation"><span class="affil-mark">1</span>de.NBI & EMBL Heidelberg</p>
-<h4 class="date">30 October 2024</h4>
+<h4 class="date">15 April 2025</h4>
 <h4 class="package">Package</h4>
-<p>Rhdf5lib 1.28.0</p>
+<p>Rhdf5lib 1.30.0</p>
 
 </div>
 
@@ -732,7 +732,7 @@ function toggle_visibility(id1) {
 
 <div id="motivation" class="section level1">
 <h1><span class="header-section-number">1</span> Motivation</h1>
-<p><em><a href="https://bioconductor.org/packages/3.20/Rhdf5lib">Rhdf5lib</a></em> provides versions of the C and C++ HDF5 libraries. It is primarily useful to developers of other R packages who want to make use of the capabilities of the HDF5 library directly in the C or C++ code of their own packages, rather than using a higher level interface such as the <a href="http://bioconductor.org/packages/rhdf5/"><strong>rhdf5</strong></a> package. Using <strong>Rhdf5lib</strong> makes life easier for users, as they do not have to worry about installing libraries at a system level, and for developers since they can work with a defined version of the library rather than developing strategies to cope with the potential for multiple versions.</p>
+<p><em><a href="https://bioconductor.org/packages/3.21/Rhdf5lib">Rhdf5lib</a></em> provides versions of the C and C++ HDF5 libraries. It is primarily useful to developers of other R packages who want to make use of the capabilities of the HDF5 library directly in the C or C++ code of their own packages, rather than using a higher level interface such as the <a href="http://bioconductor.org/packages/rhdf5/"><strong>rhdf5</strong></a> package. Using <strong>Rhdf5lib</strong> makes life easier for users, as they do not have to worry about installing libraries at a system level, and for developers since they can work with a defined version of the library rather than developing strategies to cope with the potential for multiple versions.</p>
 <p><strong>Rhdf5lib</strong> is very much inspired by the <a href="http://bioconductor.org/packages/zlibbioc/"><strong>zlibbioc</strong></a> and <a href="http://bioconductor.org/packages/Rhtslib/"><strong>Rhtslib</strong></a> packages.</p>
 </div>
 <div id="usage" class="section level1">
@@ -747,6 +747,10 @@ demonstrates how packages should link to <strong>Rhdf5lib</strong>.</p>
 <pre><code>RHDF5_LIBS=$(shell &quot;${R_HOME}/bin${R_ARCH_BIN}/Rscript&quot; -e \ 
     &#39;Rhdf5lib::pkgconfig(&quot;PKG_C_LIBS&quot;)&#39;) 
 PKG_LIBS=$(RHDF5_LIBS)</code></pre>
+<p>Alternatively if using the C++ interface, please add the following lines instead:</p>
+<pre><code>RHDF5_LIBS=$(shell &quot;${R_HOME}/bin${R_ARCH_BIN}/Rscript&quot; -e \ 
+    &#39;Rhdf5lib::pkgconfig(&quot;PKG_CXX_LIBS&quot;)&#39;) 
+PKG_LIBS=$(RHDF5_LIBS)</code></pre>
 <p>The statement for each platform modifies the <code>$PKG_LIBS</code> variable. If your package needs to add additional information to the <code>$PKG_LIBS</code> variable, do so by adding to the <code>PKG_LIBS=$(RHDF5_LIBS)</code> line, e.g.,</p>
 <pre><code>PKG_LIBS=$(RHDF5_LIBS) -L/path/to/foolib -lfoo</code></pre>
 <p><em>Note that the use of <code>$(shell ...)</code> necessitates using GNU Make, and you need to make this requirement explicit in your package’s DESCRIPTION file via the entry:</em></p>
@@ -760,7 +764,7 @@ PKG_LIBS=$(RHDF5_LIBS)</code></pre>
 <pre><code>LinkingTo: Rhdf5lib</code></pre>
 <p>In you C or C++ code files, you can then use the standard include techniques, e.g., <code>#include &quot;hdf5.h&quot;</code> or <code>#include &quot;H5Cpp.h&quot;</code>. You can inspect the header files manually to check their names and declared functions. To find their location on your system you can use the following code:</p>
 <pre class="r"><code>system.file(package=&quot;Rhdf5lib&quot;, &quot;include&quot;)</code></pre>
-<pre><code>## [1] &quot;F:/biocbuild/bbs-3.20-bioc/tmpdir/RtmpElgIii/Rinst133103ebc5981/Rhdf5lib/include&quot;</code></pre>
+<pre><code>## [1] &quot;E:/biocbuild/bbs-3.21-bioc/tmpdir/RtmpaOpZIJ/Rinste45433c48cf/Rhdf5lib/include&quot;</code></pre>
 </div>
 </div>
 <div id="configuration-arguments-for-non-standard-system-setups" class="section level1">
@@ -790,12 +794,12 @@ PKG_LIBS=$(RHDF5_LIBS)</code></pre>
 </div>
 <div id="session-info" class="section level1 unnumbered">
 <h1>Session info</h1>
-<pre><code>## R version 4.4.1 (2024-06-14 ucrt)
+<pre><code>## R version 4.5.0 RC (2025-04-04 r88126 ucrt)
 ## Platform: x86_64-w64-mingw32/x64
 ## Running under: Windows Server 2022 x64 (build 20348)
 ## 
 ## Matrix products: default
-## 
+##   LAPACK version 3.12.1
 ## 
 ## locale:
 ## [1] LC_COLLATE=C                          
@@ -811,16 +815,16 @@ PKG_LIBS=$(RHDF5_LIBS)</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] BiocStyle_2.34.0
+## [1] BiocStyle_2.36.0
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.37       R6_2.5.1            bookdown_0.41      
-##  [4] fastmap_1.2.0       xfun_0.48           cachem_1.1.0       
-##  [7] knitr_1.48          htmltools_0.5.8.1   rmarkdown_2.28     
-## [10] lifecycle_1.0.4     cli_3.6.3           sass_0.4.9         
-## [13] jquerylib_0.1.4     compiler_4.4.1      tools_4.4.1        
-## [16] evaluate_1.0.1      bslib_0.8.0         yaml_2.3.10        
-## [19] BiocManager_1.30.25 jsonlite_1.8.9      rlang_1.1.4</code></pre>
+##  [1] digest_0.6.37       R6_2.6.1            bookdown_0.43      
+##  [4] fastmap_1.2.0       xfun_0.52           cachem_1.1.0       
+##  [7] knitr_1.50          htmltools_0.5.8.1   rmarkdown_2.29     
+## [10] lifecycle_1.0.4     cli_3.6.4           sass_0.4.10        
+## [13] jquerylib_0.1.4     compiler_4.5.0      tools_4.5.0        
+## [16] evaluate_1.0.3      bslib_0.9.0         yaml_2.3.10        
+## [19] BiocManager_1.30.25 jsonlite_2.0.0      rlang_1.1.6</code></pre>
 </div>
 
 

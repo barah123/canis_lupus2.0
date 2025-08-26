@@ -36,6 +36,7 @@ image                   Display a color image
 is.unsorted             Test if a vector-like object is not sorted
 lapply                  Apply a function over a list-like or
                         vector-like object
+longForm                Turn object into long form
 mad                     Median Absolute Deviation
 mapply                  Apply a function to multiple list-like or
                         vector-like arguments
@@ -47,6 +48,7 @@ nrow                    The number of rows/columns of an array-like
 order                   Ordering permutation
 organism_species        Organism and species accessors
 paste                   Concatenate strings
+paste2                  Concatenate strings (binary form)
 path                    Accessing the path of an object
 plotMA                  MA-plot: plot differences versus averages for
                         high-throughput data
@@ -58,7 +60,7 @@ residuals               Extract model residuals
 row+colnames            Row and column names
 saveRDS                 The saveRDS() S4 generic and default method
 score                   Score accessor
-sets                    Set operations
+setops                  Set operations
 sort                    Sorting a vector-like object
 start                   The start(), end(), width(), and pos() generic
                         getters and setters

@@ -5,7 +5,7 @@ Description: Functions that are needed by many other packages or which
 biocViews: Infrastructure
 URL: https://bioconductor.org/packages/Biobase
 BugReports: https://github.com/Bioconductor/Biobase/issues
-Version: 2.66.0
+Version: 2.68.0
 License: Artistic-2.0
 Authors@R: c(
     person("R.", "Gentleman", role="aut"),
@@ -36,13 +36,13 @@ Collate: tools.R strings.R environment.R vignettes.R packages.R
         methods-NChannelSet.R anyMissing.R rowOp-methods.R
         updateObjectTo.R methods-ScalarObject.R zzz.R
 git_url: https://git.bioconductor.org/packages/Biobase
-git_branch: RELEASE_3_20
-git_last_commit: 2cd604f
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: 9fd33ea
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: yes
-Packaged: 2024-10-30 01:20:05 UTC; biocbuild
+Packaged: 2025-04-15 23:17:29 UTC; biocbuild
 Author: R. Gentleman [aut],
   V. Carey [aut],
   M. Morgan [aut],
@@ -51,5 +51,5 @@ Author: R. Gentleman [aut],
     translation from Sweave to Rmarkdown / HTML),
   Bioconductor Package Maintainer [cre]
 Maintainer: Bioconductor Package Maintainer <maintainer@bioconductor.org>
-Built: R 4.4.1; x86_64-w64-mingw32; 2024-10-30 15:29:00 UTC; windows
+Built: R 4.5.0; x86_64-w64-mingw32; 2025-04-16 13:58:04 UTC; windows
 Archs: x64

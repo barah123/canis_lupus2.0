@@ -29,6 +29,7 @@ XStringSetList-class    XStringSetList objects
 XStringViews-class      The XStringViews class
 chartr                  Replace letters in a sequence or set of
                         sequences
+coloring                XString Display Colors
 detail                  Show (display) detailed object content
 dinucleotideFrequencyTest
                         Pearson's chi-squared Test and G-tests for

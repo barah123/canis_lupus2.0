@@ -1,7 +1,7 @@
 Package: zlibbioc
 Type: Package
 Title: An R packaged zlib-1.2.5
-Version: 1.52.0
+Version: 1.54.0
 Author: Martin Morgan
 Maintainer: Bioconductor Package Maintainer <maintainer@bioconductor.org>
 Description: This package uses the source code of zlib-1.2.5 to create
@@ -18,12 +18,12 @@ LazyLoad: yes
 VignetteBuilder: knitr
 PackageStatus: Deprecated
 git_url: https://git.bioconductor.org/packages/zlibbioc
-git_branch: RELEASE_3_20
-git_last_commit: 88140a7
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: cbbff22
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: yes
-Packaged: 2024-10-30 06:21:26 UTC; biocbuild
-Built: R 4.4.1; x86_64-w64-mingw32; 2024-10-30 17:01:45 UTC; windows
+Packaged: 2025-04-16 04:28:03 UTC; biocbuild
+Built: R 4.5.0; x86_64-w64-mingw32; 2025-04-16 15:49:29 UTC; windows
 Archs: x64

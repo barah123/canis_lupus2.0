@@ -1,5 +1,7 @@
 BiocGenerics-package	BiocGenerics-package
 %in%	match
+add_prefix	paste2
+add_suffix	paste2
 annotation	annotation
 annotation<-	annotation
 anyDuplicated	duplicated
@@ -75,12 +77,13 @@ grepl	grep
 gzcon-class	S3-classes-as-S4-classes
 gzfile-class	S3-classes-as-S4-classes
 image	image
-intersect	sets
+intersect	setops
 invertStrand	strand
 invertStrand,ANY-method	strand
 IQR	IQR
 is.unsorted	is.unsorted
 lapply	lapply
+longForm	longForm
 mad	mad
 Map	funprog
 mapply	mapply
@@ -102,6 +105,11 @@ organism_species	organism_species
 OutOfMemoryObject	containsOutOfMemoryData
 OutOfMemoryObject-class	containsOutOfMemoryData
 paste	paste
+paste2	paste2
+paste2,ANY,ANY-method	paste2
+paste2,ANY,array-method	paste2
+paste2,array,ANY-method	paste2
+paste2,array,array-method	paste2
 path	path
 path<-	path
 pipe-class	S3-classes-as-S4-classes
@@ -131,8 +139,10 @@ saveRDS,ANY-method	saveRDS
 score	score
 score<-	score
 sd	var
-setdiff	sets
-sets	sets
+setdiff	setops
+setequal	setops
+setops	setops
+sets	setops
 sizeFactors	dge
 sizeFactors<-	dge
 sockconn-class	S3-classes-as-S4-classes
@@ -159,7 +169,7 @@ type,vector-method	type
 type<-	type
 type<-,array-method	type
 type<-,vector-method	type
-union	sets
+union	setops
 unique	unique
 unlist	unlist
 unsplit	unsplit

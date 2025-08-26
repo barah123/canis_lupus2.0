@@ -1,7 +1,7 @@
 Package: Rhdf5lib
 Type: Package
 Title: hdf5 library as an R package
-Version: 1.28.0
+Version: 1.30.0
 Authors@R: c(
             person(
               "Mike", "Smith", 
@@ -20,22 +20,22 @@ LazyLoad: true
 VignetteBuilder: knitr
 Depends: R (>= 4.2.0)
 Suggests: BiocStyle, knitr, rmarkdown, tinytest, mockery
-URL: https://github.com/grimbough/Rhdf5lib
-BugReports: https://github.com/grimbough/Rhdf5lib
+URL: https://github.com/Huber-group-EMBL/Rhdf5lib
+BugReports: https://github.com/Huber-group-EMBL/Rhdf5lib/issues
 SystemRequirements: GNU make
 Encoding: UTF-8
 biocViews: Infrastructure
 RoxygenNote: 7.1.2
 git_url: https://git.bioconductor.org/packages/Rhdf5lib
-git_branch: RELEASE_3_20
-git_last_commit: f37cb76
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: e60e82a
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: yes
-Packaged: 2024-10-30 05:10:31 UTC; biocbuild
-Author: Mike Smith [ctb, cre] (<https://orcid.org/0000-0002-7800-3848>),
+Packaged: 2025-04-16 03:14:42 UTC; biocbuild
+Author: Mike Smith [ctb, cre] (ORCID: <https://orcid.org/0000-0002-7800-3848>),
   The HDF Group [cph]
 Maintainer: Mike Smith <grimbough@gmail.com>
-Built: R 4.4.1; x86_64-w64-mingw32; 2024-10-30 16:37:03 UTC; windows
+Built: R 4.5.0; x86_64-w64-mingw32; 2025-04-16 15:19:26 UTC; windows
 Archs: x64

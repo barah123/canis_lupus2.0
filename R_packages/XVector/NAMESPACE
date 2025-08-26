@@ -4,7 +4,6 @@ import(methods)
 importFrom(utils, relist, download.file)
 importFrom(tools, file_path_as_absolute)
 
-import(zlibbioc)
 import(BiocGenerics)
 import(S4Vectors)
 import(IRanges)

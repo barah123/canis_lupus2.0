@@ -66,6 +66,11 @@ DEFINE_NOVALUE_CCALLABLE_STUB(filexp_putc,
 	(     filexp,     c)
 )
 
+DEFINE_CCALLABLE_STUB(size_t, filexp_fwrite,
+	(SEXP filexp, const void *data_ptr, size_t size, size_t nitems),
+	(     filexp,             data_ptr,        size,        nitems)
+)
+
 DEFINE_CCALLABLE_STUB(int, delete_trailing_LF_or_CRLF,
 	(const char *buf, int buf_len),
 	(            buf,     buf_len)

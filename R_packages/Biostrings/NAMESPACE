@@ -70,7 +70,10 @@ export(
     BStringSetList, DNAStringSetList, RNAStringSetList, AAStringSetList,
 
     ## xscat.R:
-    xscat
+    xscat,
+
+    ## coloring.R:
+    update_DNA_palette, update_RNA_palette, update_AA_palette, update_B_palette
 )
 
 exportMethods(
@@ -310,7 +313,7 @@ exportClasses(
 
 export(
     ## XStringPartialMatches-class.R:
-    subpatterns, pattern,
+    subpatterns,
 
     ## XStringQuality-class.R:
     PhredQuality, SolexaQuality, IlluminaQuality,
@@ -350,7 +353,7 @@ exportMethods(
     show, summary,
     start, end, width,
     Views,
-    subpatterns, pattern,
+    subpatterns,
     quality, encoding,
     parallel_slot_names,
     parallelVectorNames,
@@ -391,7 +394,7 @@ export(
 
     insertion, deletion,
     unaligned, aligned, indel, nindel,
-    PairwiseAlignments, alignedPattern, alignedSubject,
+    PairwiseAlignments, pattern, alignedPattern, alignedSubject,
     PairwiseAlignmentsSingleSubject,
     nedit,
     mismatchTable, mismatchSummary,

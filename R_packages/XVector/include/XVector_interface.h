@@ -49,6 +49,13 @@ void filexp_putc(
 	int c
 );
 
+size_t filexp_fwrite(
+	SEXP filexp,
+	const void *data_ptr,
+	size_t size,
+	size_t nitems
+);
+
 int delete_trailing_LF_or_CRLF(
 	const char *buf,
 	int buf_len

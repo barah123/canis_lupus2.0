@@ -2,8 +2,8 @@
 title: "The _UCSC.utils_ package"
 author:
 - name: Hervé Pagès
-  affiliation: Fred Hutchinson Cancer Research Center, Seattle, WA
-date: "Compiled `r doc_date()`; Modified 16 April 2024"
+  affiliation: Fred Hutch Cancer Center, Seattle, WA
+date: "Compiled `r doc_date()`; Modified 14 January 2025"
 package: UCSC.utils
 vignette: |
   %\VignetteIndexEntry{The UCSC.utils package}

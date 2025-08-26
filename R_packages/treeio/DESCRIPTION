@@ -1,7 +1,7 @@
 Package: treeio
 Title: Base Classes and Functions for Phylogenetic Tree Input and
         Output
-Version: 1.30.0
+Version: 1.32.0
 Authors@R: c(
     person("Guangchuang", "Yu",     email = "guangchuangyu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6485-8781")),
     person("Tommy Tsan-Yuk", "Lam", email = "tylam.tommy@gmail.com",   role = c("ctb", "ths")),
@@ -12,7 +12,7 @@ Authors@R: c(
     person("Konstantinos", "Geles", email = "konstantinos.geles@studenti.unicz.it", role = "ctb")
 	  )
 Description: 'treeio' is an R package to make it easier to import and store phylogenetic tree with associated data; and to link external data from different sources to phylogeny. It also supports exporting phylogenetic tree with heterogeneous associated data to a single tree file and can be served as a platform for merging tree with associated data and converting file formats.
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.1.0)
 Imports: ape, dplyr, jsonlite, magrittr, methods, rlang, stats, tibble,
         tidytree (>= 0.4.5), utils, yulab.utils (>= 0.1.6)
 Suggests: Biostrings, cli, ggplot2, ggtree, igraph, knitr, rmarkdown,
@@ -28,19 +28,20 @@ biocViews: Software, Annotation, Clustering, DataImport,
         Phylogenetics
 RoxygenNote: 7.3.2
 git_url: https://git.bioconductor.org/packages/treeio
-git_branch: RELEASE_3_20
-git_last_commit: c824ca4
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: 3a8ed45
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: no
-Packaged: 2024-10-30 06:10:07 UTC; biocbuild
-Author: Guangchuang Yu [aut, cre] (<https://orcid.org/0000-0002-6485-8781>),
+Packaged: 2025-04-16 04:16:00 UTC; biocbuild
+Author: Guangchuang Yu [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-6485-8781>),
   Tommy Tsan-Yuk Lam [ctb, ths],
-  Shuangbin Xu [ctb] (<https://orcid.org/0000-0003-3513-5362>),
+  Shuangbin Xu [ctb] (ORCID: <https://orcid.org/0000-0003-3513-5362>),
   Bradley Jones [ctb],
   Casey Dunn [ctb],
   Tyler Bradley [ctb],
   Konstantinos Geles [ctb]
 Maintainer: Guangchuang Yu <guangchuangyu@gmail.com>
-Built: R 4.4.1; ; 2024-10-30 16:57:52 UTC; windows
+Built: R 4.5.0; ; 2025-04-16 15:45:15 UTC; windows

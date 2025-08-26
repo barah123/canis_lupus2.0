@@ -1,7 +1,7 @@
 Package: ggtree
 Type: Package
 Title: an R package for visualization of tree and annotation data
-Version: 3.14.0
+Version: 3.16.3
 Authors@R: c(
        person("Guangchuang", "Yu",     email = "guangchuangyu@gmail.com", role = c("aut", "cre", "cph"), 
             comment = c(ORCID = "0000-0002-6485-8781")),
@@ -36,27 +36,27 @@ URL:
         http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12628
         (paper)
 BugReports: https://github.com/YuLab-SMU/ggtree/issues
-Packaged: 2024-10-30 03:02:00 UTC; biocbuild
+Packaged: 2025-07-14 23:25:32 UTC; biocbuild
 biocViews: Alignment, Annotation, Clustering, DataImport,
         MultipleSequenceAlignment, Phylogenetics, ReproducibleResearch,
         Software, Visualization
 RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 git_url: https://git.bioconductor.org/packages/ggtree
-git_branch: RELEASE_3_20
-git_last_commit: a309078
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: 19798cf
+git_last_commit_date: 2025-07-11
+Repository: Bioconductor 3.21
+Date/Publication: 2025-07-14
 NeedsCompilation: no
-Author: Guangchuang Yu [aut, cre, cph]
-    (<https://orcid.org/0000-0002-6485-8781>),
+Author: Guangchuang Yu [aut, cre, cph] (ORCID:
+    <https://orcid.org/0000-0002-6485-8781>),
   Tommy Tsan-Yuk Lam [aut, ths],
-  Shuangbin Xu [aut] (<https://orcid.org/0000-0003-3513-5362>),
+  Shuangbin Xu [aut] (ORCID: <https://orcid.org/0000-0003-3513-5362>),
   Lin Li [ctb],
   Bradley Jones [ctb],
   Justin Silverman [ctb],
   Watal M. Iwasaki [ctb],
   Yonghe Xia [ctb],
   Ruizhu Huang [ctb]
-Built: R 4.4.1; ; 2024-10-30 15:59:32 UTC; windows
+Built: R 4.5.1; ; 2025-07-15 13:15:26 UTC; windows

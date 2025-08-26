@@ -705,9 +705,9 @@ function toggle_visibility(id1) {
 <h1 class="title toc-ignore"><em>Biobase</em> development and the new <code>eSet</code></h1>
 <p class="author-name">Martin T. Morgan and H. Khan<span class="affil-mark">1</span></p>
 <p class="author-affiliation"><span class="affil-mark">1</span>Vignette translation from Sweave to Rmarkdown / HTML</p>
-<h4 class="date">29 October, 2024</h4>
+<h4 class="date">15 April, 2025</h4>
 <h4 class="package">Package</h4>
-<p>Biobase 2.66.0</p>
+<p>Biobase 2.68.0</p>
 
 </div>
 
@@ -956,7 +956,7 @@ of <em>MIAxE</em>.</p>
 ##         TRUE
 ##     else msg
 ## }
-## &lt;bytecode: 0x0000028e4362b220&gt;
+## &lt;bytecode: 0x0000023891672b50&gt;
 ## &lt;environment: namespace:Biobase&gt;</code></pre>
 <p>The validity methods for <code>eSet</code> reflect our design goals. All <code>assayData</code> members must have identical row and column dimensions and <code>featureNames</code>. The names and numbers of samples must be the same in <code>assayData</code> and <code>phenoData</code> slots. Validity methods are defined for the classes underlying each slot as well. For instance, the validity methods for <code>AnnotatedDataFrame</code> check that variables used in <code>pData</code> are at least minimally described in <code>varMetadata</code>.</p>
 </div>
@@ -1050,7 +1050,7 @@ storageMode(sample.ExpressionSet) </code></pre>
 ##         TRUE
 ##     else msg
 ## }
-## &lt;bytecode: 0x0000028e43b9cdf8&gt;
+## &lt;bytecode: 0x000002388c5a2ca8&gt;
 ## &lt;environment: namespace:Biobase&gt;</code></pre>
 <p>The data structure of an <code>ExpressionSet</code> is identical to that of <code>eSet</code>, and in fact is inherited (without additional slot creation) from <code>eSet</code>. The main difference is that the validity methods of <code>eSet</code> are augmented by a method to check that the <code>assayData</code> slot contains an entity named <code>&quot;exprs&quot;</code>. A valid <code>ExpressionSet</code> object must also satisfy all the validity requirements of <code>eSet</code>, but the developer does not explicitly invoke validity checking of the parts of the data structure inherited from <code>eSet</code>.</p>
 <div id="implementing-a-new-class-a-swirlset-example" class="section level2">
@@ -1128,7 +1128,7 @@ storageMode(sample.ExpressionSet) </code></pre>
 <div id="versioned" class="section level1">
 <h1><span class="header-section-number">6</span> <em>Versioned</em></h1>
 <p>One problem encountered in the Bioconductor project is that data objects stored to disk become invalid as the underlying class definition changes. For instance, earlier releases of <em>Biobase</em> contain a sample <em>eSet</em> object. But under the changes discussed here, <code>eSet</code> is virtual and the stored object is no longer valid. The challenge is to easily identify invalid objects, and to provide a mechanism for updating old objects to their new representation.</p>
-<p><em>Biobase</em> introduces the <em>Versioned</em> and <em>VersionedBiobase</em> classes to facilitate this. These classes are incorporated into key <em>Biobase</em>class definitions.<em>Biobase</em> also defines <code>updateObject</code> methods (the <code>updateObject</code> generic function is defined in the <em><a href="https://bioconductor.org/packages/3.20/BiocGenerics">BiocGenerics</a></em> package) for conveniently updating old objects to their new representation.</p>
+<p><em>Biobase</em> introduces the <em>Versioned</em> and <em>VersionedBiobase</em> classes to facilitate this. These classes are incorporated into key <em>Biobase</em>class definitions.<em>Biobase</em> also defines <code>updateObject</code> methods (the <code>updateObject</code> generic function is defined in the <em><a href="https://bioconductor.org/packages/3.21/BiocGenerics">BiocGenerics</a></em> package) for conveniently updating old objects to their new representation.</p>
 <pre class="r"><code>data(sample.ExpressionSet) 
 classVersion(sample.ExpressionSet) </code></pre>
 <pre><code>##             R       Biobase          eSet ExpressionSet 
@@ -1146,7 +1146,7 @@ classVersion(sample.ExpressionSet) </code></pre>
 obj &lt;- new(&quot;MySet&quot;)
 classVersion(obj)</code></pre>
 <pre><code>##        R  Biobase     eSet    MySet 
-##  &quot;4.4.1&quot; &quot;2.66.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;</code></pre>
+##  &quot;4.5.0&quot; &quot;2.68.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;</code></pre>
 <p>This is a new class, and might undergo changes in its structure at some point in the future. When these changes are introduced, the developer will change the version number of the class in its prototype (the last line, below):</p>
 <pre class="r"><code> setClass(&quot;MySet&quot;,
           contains = &quot;eSet&quot;,
@@ -1184,7 +1184,7 @@ isCurrent(obj)</code></pre>
 <p>The code after <code>if(!isVersioned)</code> illustrates one way of performing ’radical surgery, creating a new up-to-date instance by updating all slots. The <code>else</code> clause represents more modest changes, using methods to update stale information. <code>updateObject</code> then returns a new, enhanced object:</p>
 <pre class="r"><code>classVersion(updateObject(obj))</code></pre>
 <pre><code>##        R  Biobase     eSet    MySet 
-##  &quot;4.4.1&quot; &quot;2.66.0&quot;  &quot;1.3.0&quot;  &quot;1.0.1&quot;</code></pre>
+##  &quot;4.5.0&quot; &quot;2.68.0&quot;  &quot;1.3.0&quot;  &quot;1.0.1&quot;</code></pre>
 <p>As in the example, versioning helps in choosing which modifications to perform – minor changes for a slightly out-of-date object, radical surgery for something more ancient. Version information might also be used in methods, where changing class representation might facilitate more efficient routines.</p>
 <div id="versioned-versus-versionedbiobase" class="section level2">
 <h2><span class="header-section-number">6.1</span> <em>Versioned</em> versus <em>VersionedBiobase</em></h2>
@@ -1203,17 +1203,17 @@ isCurrent(obj)</code></pre>
                  versions=c(classVersion(&quot;eSet&quot;), SwirlSet=&quot;1.0.0&quot;))))
 classVersion(new(&quot;SwirlSet&quot;))</code></pre>
 <pre><code>##        R  Biobase     eSet SwirlSet 
-##  &quot;4.4.1&quot; &quot;2.66.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;</code></pre>
+##  &quot;4.5.0&quot; &quot;2.68.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;</code></pre>
 <p>See additional examples in the <em>Versioned</em> help page.</p>
 <p>It is also possible to add arbitrary information to particular instances.</p>
 <pre class="r"><code>obj &lt;- new(&quot;SwirlSet&quot;)
 classVersion(obj)[&quot;MyID&quot;] &lt;- &quot;0.0.1&quot;
 classVersion(obj)</code></pre>
 <pre><code>##        R  Biobase     eSet SwirlSet     MyID 
-##  &quot;4.4.1&quot; &quot;2.66.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;  &quot;0.0.1&quot;</code></pre>
+##  &quot;4.5.0&quot; &quot;2.68.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;  &quot;0.0.1&quot;</code></pre>
 <pre class="r"><code> classVersion(updateObject(obj))</code></pre>
 <pre><code>##        R  Biobase     eSet SwirlSet     MyID 
-##  &quot;4.4.1&quot; &quot;2.66.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;  &quot;0.0.1&quot;</code></pre>
+##  &quot;4.5.0&quot; &quot;2.68.0&quot;  &quot;1.3.0&quot;  &quot;1.0.0&quot;  &quot;0.0.1&quot;</code></pre>
 <p>There is additional documentation about these classes and methods in <em>Biobase</em>.</p>
 </div>
 </div>
@@ -1225,12 +1225,12 @@ classVersion(obj)</code></pre>
 <h1><span class="header-section-number">8</span> Session Information</h1>
 <p>The version number of <span class="sans-serif">R</span> and packages loaded for generating the vignette were:</p>
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>## R version 4.4.1 (2024-06-14 ucrt)
+<pre><code>## R version 4.5.0 RC (2025-04-04 r88126 ucrt)
 ## Platform: x86_64-w64-mingw32/x64
 ## Running under: Windows Server 2022 x64 (build 20348)
 ## 
 ## Matrix products: default
-## 
+##   LAPACK version 3.12.1
 ## 
 ## locale:
 ## [1] LC_COLLATE=C                          
@@ -1246,16 +1246,17 @@ classVersion(obj)</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] Biobase_2.66.0      BiocGenerics_0.52.0 BiocStyle_2.34.0   
+## [1] Biobase_2.68.0      BiocGenerics_0.54.0 generics_0.1.3     
+## [4] BiocStyle_2.36.0   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.37       R6_2.5.1            bookdown_0.41      
-##  [4] fastmap_1.2.0       xfun_0.48           cachem_1.1.0       
-##  [7] knitr_1.48          htmltools_0.5.8.1   rmarkdown_2.28     
-## [10] lifecycle_1.0.4     cli_3.6.3           sass_0.4.9         
-## [13] jquerylib_0.1.4     compiler_4.4.1      tools_4.4.1        
-## [16] evaluate_1.0.1      bslib_0.8.0         yaml_2.3.10        
-## [19] BiocManager_1.30.25 jsonlite_1.8.9      rlang_1.1.4</code></pre>
+##  [1] digest_0.6.37       R6_2.6.1            bookdown_0.43      
+##  [4] fastmap_1.2.0       xfun_0.52           cachem_1.1.0       
+##  [7] knitr_1.50          htmltools_0.5.8.1   rmarkdown_2.29     
+## [10] lifecycle_1.0.4     cli_3.6.4           sass_0.4.10        
+## [13] jquerylib_0.1.4     compiler_4.5.0      tools_4.5.0        
+## [16] evaluate_1.0.3      bslib_0.9.0         yaml_2.3.10        
+## [19] BiocManager_1.30.25 jsonlite_2.0.0      rlang_1.1.6</code></pre>
 </div>
 
 

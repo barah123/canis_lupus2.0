@@ -1,7 +1,7 @@
 ## ----eval=FALSE---------------------------------------------------------------
-#  if (!require("BiocManager", quietly=TRUE))
-#      install.packages("BiocManager")
-#  BiocManager::install("UCSC.utils")
+# if (!require("BiocManager", quietly=TRUE))
+#     install.packages("BiocManager")
+# BiocManager::install("UCSC.utils")
 
 ## ----list_UCSC_genomes--------------------------------------------------------
 suppressPackageStartupMessages(library(UCSC.utils))

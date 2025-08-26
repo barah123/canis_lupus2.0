@@ -6,11 +6,11 @@ filepath = system.file("extdata", "study_1457_split_library_seqs_and_mapping.zip
 kostic = microbio_me_qiime(filepath)
 
 ## ----example-path-local, eval=FALSE-------------------------------------------
-#  filepath = "~/Downloads/study_1457_split_library_seqs_and_mapping.zip"
-#  kostic = microbio_me_qiime(filepath)
+# filepath = "~/Downloads/study_1457_split_library_seqs_and_mapping.zip"
+# kostic = microbio_me_qiime(filepath)
 
 ## ----example-path-remote, eval=FALSE------------------------------------------
-#  kostic = microbio_me_qiime(1457)
+# kostic = microbio_me_qiime(1457)
 
 ## ----show-variables-----------------------------------------------------------
 kostic

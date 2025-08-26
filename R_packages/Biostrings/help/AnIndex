@@ -221,6 +221,7 @@ colmask,MultipleAlignment-method	MultipleAlignment-class
 colmask<-	MultipleAlignment-class
 colmask<-,MultipleAlignment,ANY-method	MultipleAlignment-class
 colmask<-,MultipleAlignment,NULL-method	MultipleAlignment-class
+coloring	coloring
 compareStrings	moved_to_pwalign
 complement	reverseComplement
 complement,DNAString-method	reverseComplement
@@ -552,8 +553,7 @@ PAM30	predefined_scoring_matrices
 PAM40	predefined_scoring_matrices
 PAM70	predefined_scoring_matrices
 parallel_slot_names,QualityScaledXStringSet-method	QualityScaledXStringSet-class
-pattern	XStringPartialMatches-class
-pattern,XStringPartialMatches-method	XStringPartialMatches-class
+pattern	moved_to_pwalign
 patternFrequency	PDict-class
 patternFrequency,PDict-method	PDict-class
 pcompare,ANY,XStringSet-method	XStringSet-comparison
@@ -742,8 +742,15 @@ unmasked	MaskedXString-class
 unmasked,MaskedXString-method	MaskedXString-class
 unmasked,MultipleAlignment-method	MultipleAlignment-class
 unmasked,XString-method	MaskedXString-class
+updateObject,AAString-method	XString-class
+updateObject,AAStringSet-method	XStringSet-class
 updateObject,XString-method	XString-class
 updateObject,XStringSet-method	XStringSet-class
+update_AA_palette	coloring
+update_B_palette	coloring
+update_DNA_palette	coloring
+update_RNA_palette	coloring
+update_X_palette	coloring
 vcountPattern	matchPattern
 vcountPattern,character-method	matchPattern
 vcountPattern,MaskedXString-method	matchPattern

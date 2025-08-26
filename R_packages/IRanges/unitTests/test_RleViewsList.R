@@ -23,8 +23,8 @@ test_RleViewsList <- function() {
     checkIdentical(c("a", "b"), names(viewMeans(xRleViewsList)))
     checkIdentical(c("a", "b"), names(viewWhichMins(xRleViewsList)))
     checkIdentical(c("a", "b"), names(viewWhichMaxs(xRleViewsList)))
-    checkIdentical(c("a", "b"), names(viewRangeMins(xRleViewsList, na.rm = TRUE)))
-    checkIdentical(c("a", "b"), names(viewRangeMaxs(xRleViewsList, na.rm = TRUE)))
+    checkIdentical(c("a", "b"), names(viewRangeMins(xRleViewsList)))
+    checkIdentical(c("a", "b"), names(viewRangeMaxs(xRleViewsList)))
 
     checkEqualsNumeric(unlist(lapply(xList, lapply, min)), unlist(viewMins(xRleViewsList)))
     checkEqualsNumeric(unlist(lapply(xList, lapply, min)), unlist(viewApply(xRleViewsList, min)))

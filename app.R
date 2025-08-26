@@ -18,6 +18,12 @@ install.packages("patchwork", lib = custom_lib_path)
 #  install.packages("BiocManager", lib = custom_lib_path)
 #}
 
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install(version = "3.21")
+
 # Install Bioconductor packages
 BiocManager::install(c("phyloseq", "ggtree", "metacoder","plotly", "DT","vegan","ape","ggplot2","tidyverse","networkD3","heatmaply"), lib = custom_lib_path, force = TRUE)
 install.packages("shiny")

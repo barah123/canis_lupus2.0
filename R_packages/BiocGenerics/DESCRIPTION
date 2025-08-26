@@ -4,36 +4,60 @@ Description: The package defines many S4 generic functions used in Bioconductor.
 biocViews: Infrastructure
 URL: https://bioconductor.org/packages/BiocGenerics
 BugReports: https://github.com/Bioconductor/BiocGenerics/issues
-Version: 0.52.0
+Version: 0.54.0
 License: Artistic-2.0
 Encoding: UTF-8
-Author: The Bioconductor Dev Team
-Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
-Depends: R (>= 4.0.0), methods, utils, graphics, stats
+Authors@R: c(
+	person("The Bioconductor Dev Team", role="aut"),
+	person("Hervé", "Pagès", role=c("aut", "cre"),
+		email="hpages.on.github@gmail.com",
+		comment=c(ORCID="0009-0002-8272-4522")),
+	person("Laurent", "Gatto", role="ctb",
+		email="laurent.gatto@uclouvain.be",
+		comment=c(ORCID="0000-0002-1520-2268")),
+	person("Nathaniel", "Hayden", role="ctb"),
+	person("James", "Hester", role="ctb"),
+	person("Wolfgang", "Huber", role="ctb"),
+	person("Michael", "Lawrence", role="ctb"),
+	person("Martin", "Morgan", role="ctb",
+		email="mtmorgan.xyz@gmail.com",
+		comment=c(ORCID="0000-0002-5874-8148")),
+	person("Valerie", "Obenchain", role="ctb"))
+Depends: R (>= 4.0.0), methods, utils, graphics, stats, generics
 Imports: methods, utils, graphics, stats
 Suggests: Biobase, S4Vectors, IRanges, S4Arrays, SparseArray,
         DelayedArray, HDF5Array, GenomicRanges, pwalign, Rsamtools,
         AnnotationDbi, affy, affyPLM, DESeq2, flowClust, MSnbase,
-        annotate, RUnit
+        annotate, MultiAssayExperiment, RUnit
 Collate: S3-classes-as-S4-classes.R utils.R normarg-utils.R
         replaceSlots.R aperm.R append.R as.data.frame.R as.list.R
         as.vector.R cbind.R do.call.R duplicated.R eval.R Extremes.R
         format.R funprog.R get.R grep.R is.unsorted.R lapply.R mapply.R
         match.R mean.R nrow.R order.R paste.R rank.R rep.R
-        row_colnames.R saveRDS.R sets.R sort.R start.R subset.R t.R
-        table.R tapply.R unique.R unlist.R unsplit.R relist.R var.R
-        which.R which.min.R boxplot.R image.R density.R IQR.R mad.R
-        residuals.R weights.R xtabs.R annotation.R combine.R
+        row_colnames.R saveRDS.R sort.R start.R subset.R t.R table.R
+        tapply.R unique.R unlist.R unsplit.R which.R which.min.R
+        relist.R boxplot.R image.R density.R IQR.R mad.R residuals.R
+        var.R weights.R xtabs.R setops.R annotation.R combine.R
         containsOutOfMemoryData.R dbconn.R dge.R dims.R fileName.R
-        normalize.R Ontology.R organism_species.R path.R plotMA.R
-        plotPCA.R score.R strand.R toTable.R type.R updateObject.R
-        testPackage.R zzz.R
+        longForm.R normalize.R Ontology.R organism_species.R paste2.R
+        path.R plotMA.R plotPCA.R score.R strand.R toTable.R type.R
+        updateObject.R testPackage.R zzz.R
 git_url: https://git.bioconductor.org/packages/BiocGenerics
-git_branch: RELEASE_3_20
-git_last_commit: 1422115
-git_last_commit_date: 2024-10-29
-Repository: Bioconductor 3.20
-Date/Publication: 2024-10-29
+git_branch: RELEASE_3_21
+git_last_commit: 75c4815
+git_last_commit_date: 2025-04-15
+Repository: Bioconductor 3.21
+Date/Publication: 2025-04-15
 NeedsCompilation: no
-Packaged: 2024-10-30 01:20:48 UTC; biocbuild
-Built: R 4.4.1; ; 2024-10-30 15:29:27 UTC; windows
+Packaged: 2025-04-15 23:17:56 UTC; biocbuild
+Author: The Bioconductor Dev Team [aut],
+  Hervé Pagès [aut, cre] (ORCID: <https://orcid.org/0009-0002-8272-4522>),
+  Laurent Gatto [ctb] (ORCID: <https://orcid.org/0000-0002-1520-2268>),
+  Nathaniel Hayden [ctb],
+  James Hester [ctb],
+  Wolfgang Huber [ctb],
+  Michael Lawrence [ctb],
+  Martin Morgan [ctb] (ORCID: <https://orcid.org/0000-0002-5874-8148>),
+  Valerie Obenchain [ctb]
+Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
+Built: R 4.5.0; ; 2025-04-16 13:58:14 UTC; windows

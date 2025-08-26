@@ -8,13 +8,13 @@ getClass("eSet")
 getValidity(getClass("eSet"))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  obj <- new("ExpressionSet",
-#             phenoData = new("AnnotatedDataFrame"),
-#             experimentData = new("MIAME"), annotation = character(),
-#             exprs = new("matrix"))
+# obj <- new("ExpressionSet",
+#            phenoData = new("AnnotatedDataFrame"),
+#            experimentData = new("MIAME"), annotation = character(),
+#            exprs = new("matrix"))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  assayDataNew("environment", elt)
+# assayDataNew("environment", elt)
 
 ## ----warning=FALSE------------------------------------------------------------
 data(sample.ExpressionSet)
@@ -23,7 +23,7 @@ tryCatch(assayData(sample.ExpressionSet)$exprs <- log(exprs(sample.ExpressionSet
     error=function(err) cat(conditionMessage(err))) 
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  exprs(sample.ExpressionSet) <- log(exprs(sample.ExpressionSet))`
+# exprs(sample.ExpressionSet) <- log(exprs(sample.ExpressionSet))`
 
 ## -----------------------------------------------------------------------------
 getClass("ExpressionSet") 
@@ -63,13 +63,13 @@ setMethod("initialize", "SwirlSet",
           })
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  new("SwirlSet")
+# new("SwirlSet")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  setMethod("initialize", "MySet",
-#            function(.Object, ...) {
-#                .Object <- callNextMethod(.Object, ...)
-#            })
+# setMethod("initialize", "MySet",
+#           function(.Object, ...) {
+#               .Object <- callNextMethod(.Object, ...)
+#           })
 
 ## -----------------------------------------------------------------------------
 setValidity("SwirlSet", function(object) {
@@ -77,12 +77,12 @@ setValidity("SwirlSet", function(object) {
 })
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  myFancyFunction <- function(obj) {
-#      assayData(obj) <- fancyAssaydData # obj invalid...
-#      phenoData(obj) <- justAsFancyPhenoData # but now valid
-#      validObject(obj)
-#      (obj)
-#  }
+# myFancyFunction <- function(obj) {
+#     assayData(obj) <- fancyAssaydData # obj invalid...
+#     phenoData(obj) <- justAsFancyPhenoData # but now valid
+#     validObject(obj)
+#     (obj)
+# }
 
 ## -----------------------------------------------------------------------------
 data(sample.ExpressionSet) 
