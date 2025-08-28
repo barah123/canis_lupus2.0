@@ -5,11 +5,10 @@
 
 **A **Shiny-based interactive dashboard** for visualizing and analyzing microbiome data.**
 **Built with **R, Shiny, phyloseq, and Docker** for reproducibility and ease of use.**
+
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own data (ASV tables, taxonomy, metadata, and phylogenetic trees) and perform comprehensive analyses.
 
-
 ---
-
 ## **Features**
 ✅ **Data Upload**: Upload ASV, taxonomy, metadata, and phylogenetic tree files.
 ✅ **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, and phylogenetic trees.
