@@ -1,4 +1,4 @@
-
+# Set the working directory
 
 # Remove the existing R_packages directory if it exists
 if (dir.exists("R_packages")) {
@@ -28,8 +28,6 @@ library(patchwork, lib.loc = custom_lib_path)
 # Install Bioconductor packages
 BiocManager::install(c("phyloseq", "ggtree", "metacoder","plotly", "DT","vegan","ape","ggplot2","tidyverse","networkD3","heatmaply"), lib = custom_lib_path, force = TRUE)
 
-
-
 # Load the required libraries
 library(shiny, lib.loc = custom_lib_path)
 library(phyloseq, lib.loc = custom_lib_path)
@@ -43,9 +41,6 @@ library(tidyverse, lib.loc = custom_lib_path)
 library(metacoder, lib.loc = custom_lib_path)
 library(networkD3, lib.loc = custom_lib_path)
 library(heatmaply, lib.loc = custom_lib_path)
-library(patchwork, lib.loc = custom_lib_path)
-
-
 
 ui <- fluidPage(
   # Custom CSS for styling with wolf-inspired color scheme
