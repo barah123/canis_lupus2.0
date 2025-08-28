@@ -1,7 +1,7 @@
 # canis_lupus2.0
 # CanisLupus2.0: Microbiome Analysis Dashboard
 
-![CanisLupus Logo](canis_lupus.png)
+![CanisLupus Logo](canis1.png)
 
 A **Shiny-based interactive dashboard** for visualizing and analyzing microbiome data.
 Built with **R, Shiny, phyloseq, and Docker** for reproducibility and ease of use.
@@ -17,4 +17,4 @@ Built with **R, Shiny, phyloseq, and Docker** for reproducibility and ease of us
 
 ---
 
-## **Installation**
+
