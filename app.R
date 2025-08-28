@@ -1,46 +1,31 @@
-
-
-# Remove the existing R_packages directory if it exists
-if (dir.exists("R_packages")) {
-  unlink("R_packages", recursive = TRUE)
-}
-
-# Create a new directory for R packages
-dir.create("R_packages", recursive = TRUE)
-
-# Specify the custom library path
-custom_lib_path <- file.path(getwd(), "R_packages")
-
-# Add the custom library path to the library search path
-.libPaths(c(custom_lib_path, .libPaths()))
-
-# Install patchwork first
-install.packages("patchwork", lib = custom_lib_path)
-
-# Load patchwork to ensure it's installed correctly
-library(patchwork, lib.loc = custom_lib_path)
+# Set the working directory to your local project folder
+#setwd("C:/Users/YourName/Documents/canis_lupus1")   # adjust this path!
 
 # Install BiocManager if not already installed
-#if (!requireNamespace("BiocManager", quietly = TRUE)) {
-#  install.packages("BiocManager", lib = custom_lib_path)
-#}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
 
-# Install Bioconductor packages
-BiocManager::install(c("phyloseq", "ggtree", "metacoder","plotly", "DT","vegan","ape","ggplot2","tidyverse","networkD3","heatmaply"), lib = custom_lib_path, force = TRUE)
+# Install Bioconductor + CRAN packages
+BiocManager::install(c(
+  "phyloseq", "ggtree", "metacoder", "plotly", "DT",
+  "vegan", "ape", "ggplot2", "tidyverse", "networkD3", "heatmaply","patchwork"
+), force = TRUE)
 
 # Load the required libraries
-library(shiny, lib.loc = custom_lib_path)
-library(phyloseq, lib.loc = custom_lib_path)
-library(plotly, lib.loc = custom_lib_path)
-library(DT, lib.loc = custom_lib_path)
-library(vegan, lib.loc = custom_lib_path)
-library(ape, lib.loc = custom_lib_path)
-library(ggtree, lib.loc = custom_lib_path)
-library(ggplot2, lib.loc = custom_lib_path)
-library(tidyverse, lib.loc = custom_lib_path)
-library(metacoder, lib.loc = custom_lib_path)
-library(networkD3, lib.loc = custom_lib_path)
-library(heatmaply, lib.loc = custom_lib_path)
+library(shiny)
+library(phyloseq)
+library(plotly)
+library(DT)
+library(vegan)
+library(ape)
+library(ggtree)
+library(ggplot2)
+library(tidyverse)
+library(metacoder)
+library(networkD3)
+library(heatmaply)
+library(patchwork)
 
 ui <- fluidPage(
   # Custom CSS for styling with wolf-inspired color scheme
@@ -895,3 +880,4 @@ server <- function(input, output, session) {
 
 
 shinyApp(ui = ui, server = server)
+
