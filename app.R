@@ -1,4 +1,4 @@
-# Set the working directory
+
 
 # Remove the existing R_packages directory if it exists
 if (dir.exists("R_packages")) {
