@@ -1,7 +1,0 @@
-fetch_UCSC_track_data	fetch_UCSC_track_data
-get_organism_for_UCSC_genome	list_UCSC_genomes
-get_UCSC_chrom_sizes	get_UCSC_chrom_sizes
-list_UCSC_genomes	list_UCSC_genomes
-list_UCSC_tracks	list_UCSC_tracks
-UCSC.api.url	UCSC.api.url
-UCSC_dbselect	UCSC_dbselect
