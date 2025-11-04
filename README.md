@@ -48,8 +48,8 @@ Install and load these libraries your R environment:
 
 ---
 # Load the required libraries
--library(shiny)
--library(phyloseq)
+-`library(shiny)`
+-`library(phyloseq)`
 -library(plotly)
 -library(DT)
 -library(vegan)
