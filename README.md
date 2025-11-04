@@ -4,10 +4,10 @@
 
 
 ## 📌 Table of Contents
-- [Project Overview](#Project Overview)
+- [Project Overview](#Project_Overview)
 - [Features](#features)
-- [How to Use](#How to Use)
-- [ Key Analyses](#usage)
+- [How to Use](#How_to_Use)
+- [ Key Analyses](#Key_Analyses)
 - [License](#License)
 - [Contact](#Contact)
 
