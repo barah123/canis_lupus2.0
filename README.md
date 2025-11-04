@@ -18,7 +18,7 @@
 
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own data (ASV tables, taxonomy, metadata, and phylogenetic trees) and perform comprehensive analyses.
 
-## 📂 Project Overview
+## 🧪 Project Overview
 - **Author**: Philip Yamoah Appiah
 - **Afilliated Institution**: Student  at George Washington University – MS Health Data Science
 - **Tools**: R Shinny, 
@@ -36,7 +36,7 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ✅ **Docker Support**: Pre-configured Docker image for easy deployment.
 
 ---
-## 📁 How to Use
+## 🧪  How to Use
 
 1. Run `app.R` in R.
 2. Upload ASV, taxonomy, metadata, and phylogenetic tree files. You can find sample dataset here in the![skin_data] folder.
