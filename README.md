@@ -46,19 +46,19 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 - `Bioconductor-Physoseq`
 Install and load these libraries your R environment:
 # Load the required libraries
-library(shiny)
-library(phyloseq)
-library(plotly)
-library(DT)
-library(vegan)
-library(ape)
-library(ggtree)
-library(ggplot2)
-library(tidyverse)
-library(metacoder)
-library(networkD3)
-library(heatmaply)
-library(patchwork)
+-library(shiny)
+-library(phyloseq)
+-library(plotly)
+-library(DT)
+-library(vegan)
+-library(ape)
+-library(ggtree)
+-library(ggplot2)
+-library(tidyverse)
+-library(metacoder)
+-library(networkD3)
+-library(heatmaply)
+-library(patchwork)
 
 ## 🔒 License
 
