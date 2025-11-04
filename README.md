@@ -2,6 +2,17 @@
 # CanisLupus2.0: Microbiome Analysis Dashboard
 ---
 
+
+## 📌 Table of Contents
+- [Project Overview](#Project Overview)
+- [Features](#features)
+- [How to Use](#How to Use)
+- [ Key Analyses](#usage)
+- [License](#License)
+- [Contact](#Contact)
+
+---
+
 **A **Shiny-based interactive dashboard** for visualizing and analyzing microbiome data.**
 **Built with **R, Shiny, phyloseq, and Docker** for reproducibility and ease of use.**
 
@@ -44,10 +55,9 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ## 💻 Technologies Used
 - `R shinny`
 - `Bioconductor-Physoseq`
-Install and load these libraries your R environment:
 
----
-# Load the required libraries
+## Install and load these libraries your R environment:
+Load the required libraries
 library(shiny)
 library(phyloseq)
 library(plotly)
