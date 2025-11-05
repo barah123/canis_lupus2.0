@@ -19,7 +19,7 @@
 
 ---
 
-## 🧪 Project Overview
+## 🧪 Project Overview <a name="project-overview"></a>
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own data (ASV tables, taxonomy, metadata, and phylogenetic trees) and perform comprehensive analyses.
 
 - **Author**: Philip Yamoah Appiah
@@ -28,7 +28,7 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 
 ---
 
-## 🚀 Features
+## 🚀 Features <a name="features"></a>
 - ✅ **Open the app in R**: Run the `app.R` file in R and the Shiny app will open in a browser
 - ✅ **Data Upload**: Upload ASV, taxonomy, metadata, and phylogenetic tree files
 - ✅ **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, and phylogenetic trees
@@ -38,7 +38,7 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 
 ---
 
-## 📖 How to Use
+## 📖 How to Use <a name="how-to-use"></a>
 1. Run `app.R` in R
 2. Upload ASV, taxonomy, metadata, and phylogenetic tree files (sample dataset available in the `skin_data` folder)
 3. Click on the **Load** button and wait for the summary statistics
@@ -51,15 +51,9 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot3.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot4.png" width="45%" />
 </div>
-
-
-
-
-![App Interface](https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.png)
-
 ---
 
-## 🔬 Key Analyses
+## 🔬 Key Analyses <a name="key-analyses"></a
 - ✅ Taxonomic profiling at phylum/genus levels
 - ✅ Alpha diversity (Shannon, Simpson indices)
 - ✅ Beta diversity (Bray-Curtis distance, PCoA plots)
@@ -67,11 +61,6 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 - ✅ Sample clustering and dendrograms
 
 ---
-
-## 💻 Technologies Used
-- `R Shiny`
-- `Bioconductor-phyloseq`
-- `Docker`
 
 ### Required R Libraries
 To run CanisLupus2.0, ensure the following libraries are installed in your R environment:
