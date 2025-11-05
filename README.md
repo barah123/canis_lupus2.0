@@ -89,6 +89,7 @@ For questions or collaboration, please contact:
 Philip Yamoah Appiah
 📧 [pyappiah561@gmail.com
 
----
 
-                      ![App logo_2](https://github.com/barah123/canis_lupus2.0/blob/main/www/canis_logo.png)
+![App logo_2](https://github.com/barah123/canis_lupus2.0/blob/main/www/canis_logo.png)
+
+                      
