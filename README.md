@@ -44,7 +44,7 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 
 1. Run `app.R` in R
 
-![www/Screenshot 2025-11-04 134710.png]
+![https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.pn]
 3. Upload ASV, taxonomy, metadata, and phylogenetic tree files (sample dataset available in the `skin_data` folder)
 4. Click on the Load button and wait for the summary statistics
 5. Explore the Visual Exploration, Community Profile and Network Analysis with different taxonomic levels and features
