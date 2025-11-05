@@ -1,6 +1,6 @@
 # 🧬 CanisLupus2.0: Microbiome Analysis Dashboard
 
-![CanisLupus Logo](canis1.png)
+![CanisLupus Logo](canis_logo.png)
 
 **A Shiny-based interactive dashboard for visualizing and analyzing microbiome data.**
 **Built with R, Shiny, phyloseq, and Docker for reproducibility and ease of use.**
@@ -43,6 +43,17 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 2. Upload ASV, taxonomy, metadata, and phylogenetic tree files (sample dataset available in the `skin_data` folder)
 3. Click on the **Load** button and wait for the summary statistics
 4. Explore the **Visual Exploration**, **Community Profile**, and **Network Analysis** with different taxonomic levels and features
+
+
+<div align="center">
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot2.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot3.png" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot4.png" />
+</div>
+
+
+
 
 ![App Interface](https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.png)
 
