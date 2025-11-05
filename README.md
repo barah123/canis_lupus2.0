@@ -46,7 +46,10 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 
 ## 🧪 Key Analyses
 
-- ✅ Taxonomic profiling at phylum/genus levels  
+- ✅ Taxonomic profiling at phylum/genus levels
+
+![Screenshot 2025-11-04 134710.png](Screenshot 2025-11-04 134710.png)
+  
 - ✅ Alpha diversity (Shannon, Simpson indices)  
 - ✅ Beta diversity (Bray-Curtis distance, PCoA plots)  
 - ✅ Visualization of taxa abundance (bar plots, heatmaps)  
