@@ -1,6 +1,6 @@
 # 🧬 CanisLupus2.0: Microbiome Analysis Dashboard
 
-![App logo](https://github.com/barah123/canis_lupus2.0/blob/main/www/canis_logo.png)
+![App logo](https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-09-04%20223841.png)
 
 **A Shiny-based interactive dashboard for analyzing and visualizing microbiome data.**
 **Built with R, Shiny, phyloseq, and Dockerised for reproducibility and ease of use.**
@@ -83,10 +83,12 @@ library(patchwork)
 🔒 License <a name="License"></a>
 ---
 This project is licensed under the MIT License.
-
+          
 ### ✉️ Contact <a name="Contact"></a>
 For questions or collaboration, please contact:
 Philip Yamoah Appiah
 📧 [pyappiah561@gmail.com
 
 ---
+
+                      ![App logo_2](https://github.com/barah123/canis_lupus2.0/blob/main/www/canis_logo.png)
