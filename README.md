@@ -25,8 +25,8 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ---
 ## **Features**
 ✅ **Open the app in R**: Run the app.R file in R and the Shinny app will open in a browser.
-✅ **Data Upload**: Upload ASV, taxonomy, metadata, and phylogenetic tree files. You can find sample data here in the![skin_data] folder.
-
+✅ **Data Upload**: Upload ASV, taxonomy, metadata, and phylogenetic tree files.
+You can find sample data here in the![skin_data] folder.
 ✅ **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, and phylogenetic trees.
 
 ✅ **Community Analysis**: Alpha/beta diversity, core microbiome, and correlation networks.
@@ -47,9 +47,6 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ## 🧪 Key Analyses
 
 - ✅ Taxonomic profiling at phylum/genus levels
-
-![Screenshot 2025-11-04 134710.png](Screenshot 2025-11-04 134710.png)
-  
 - ✅ Alpha diversity (Shannon, Simpson indices)  
 - ✅ Beta diversity (Bray-Curtis distance, PCoA plots)  
 - ✅ Visualization of taxa abundance (bar plots, heatmaps)  
