@@ -12,8 +12,6 @@
 - [Features](#features)
 - [How to Use](#how-to-use)
 - [Key Analyses](#key-analyses)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
 - [License](#license)
 - [Contact](#contact)
 
@@ -53,7 +51,7 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 </div>
 ---
 
-## 🔬 Key Analyses <a name="key-analyses"></a
+## 🔬 Key Analyses <a name="key-analyses"></a>
 - ✅ Taxonomic profiling at phylum/genus levels
 - ✅ Alpha diversity (Shannon, Simpson indices)
 - ✅ Beta diversity (Bray-Curtis distance, PCoA plots)
@@ -78,3 +76,17 @@ library(metacoder)
 library(networkD3)
 library(heatmaply)
 library(patchwork)
+```
+---
+
+
+###🔒 License <a name="License"></a>
+---
+This project is licensed under the MIT License.
+
+### ✉️ Contact <a name="Contact"></a>
+For questions or collaboration, please contact:
+Philip Yamoah Appiah
+📧 [pyappiah561@gmail.com
+
+---
