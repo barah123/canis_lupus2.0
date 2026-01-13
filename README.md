@@ -79,12 +79,17 @@ library(patchwork)
 ```
 ---
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
+Copyright (c) [2025] [Philip Y. Appiah]
+
+This project is licensed under the terms of the MIT license.
+You are free to use, modify, and distribute this work, subject to the
+conditions specified in the LICENSE file.
 ---
 
           
 ### ✉️ Contact <a name="Contact"></a>
 For questions or collaboration, please contact:
-Philip Yamoah Appiah
 📧 [pyappiah561@gmail.com
 
 
