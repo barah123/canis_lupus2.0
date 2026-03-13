@@ -48,6 +48,8 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot2.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot3.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot4.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot13.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot11.png" width="45%" />
 </div>
 ---
 
@@ -63,19 +65,28 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ### Required R Libraries
 To run CanisLupus2.0, ensure the following libraries are installed in your R environment:
 ```r
-library(shiny)
-library(phyloseq)
-library(plotly)
-library(DT)
-library(vegan)
-library(ape)
-library(ggtree)
-library(ggplot2)
-library(tidyverse)
-library(metacoder)
-library(networkD3)
-library(heatmaply)
-library(patchwork)
+  library(shiny)
+  library(phyloseq)
+  library(microbiome)
+  library(plotly)
+  library(DT)
+  library(vegan)
+  library(ape)
+  library(ggtree)
+  library(ggplot2)
+  library(tidyverse)
+  library(metacoder)
+  library(networkD3)
+  library(heatmaply)
+  library(patchwork)
+  library(RColorBrewer)
+  library(viridis)
+  library(igraph)
+  library(cowplot)
+  library(ggdendro)
+  library(dendextend)
+  library(reshape2)
+  library(scales)
 ```
 ---
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
