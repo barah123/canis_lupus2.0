@@ -48,8 +48,10 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot2.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot3.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot4.png" width="45%" />
-  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot13.png" width="45%" />
-  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot11.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot (13).png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot (11).png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot 2026-03-12 210309.png" width="45%" />
+  <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot 2026-03-12 210529.png" width="45%" />
 </div>
 ---
 
