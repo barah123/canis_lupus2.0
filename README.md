@@ -91,6 +91,16 @@ To run CanisLupus2.0, ensure the following libraries are installed in your R env
   library(scales)
 ```
 ---
+## Recognition
+
+- 🏆 **1st Place, George Washington University Open Source Software Awards**
+- 🎤 Presented at the **GW Open Source Program Office (OSPO) Conference**, 2026
+- 📋 Accepted as a **poster presentation** at **ISMB 2026** (Intelligent Systems
+  for Molecular Biology), Microbiome COSI track, hosted by the International
+  Society for Computational Biology — Washington, D.C.
+---
+
+---
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
 Copyright (c) [2025] [Philip Y. Appiah]
