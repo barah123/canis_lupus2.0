@@ -9,6 +9,8 @@ authors:
     affiliation: "Department of Biostatistics and Bioinformatics, George Washington University"
 repository-code: "https://github.com/barah123/canis_lupus2.0"
 license: MIT
+version: 2.0.0
+date-released: "2026-07-09"
 keywords:
   - R
   - Shiny
