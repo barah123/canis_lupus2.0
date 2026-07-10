@@ -5,6 +5,8 @@
 **A Shiny-based interactive dashboard for analyzing and visualizing microbiome data.**
 **Built with R, Shiny, phyloseq, and Dockerised for reproducibility and ease of use.**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21287079.svg)](https://doi.org/10.5281/zenodo.21287079)
+
 ---
 
 ## 📌 Table of Contents
