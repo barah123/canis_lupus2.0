@@ -1,0 +1,48 @@
+name: R tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::testthat
+            any::shiny
+            any::plotly
+            any::DT
+            any::vegan
+            any::ape
+            any::ggplot2
+            any::tidyverse
+            any::networkD3
+            any::heatmaply
+            any::patchwork
+            any::RColorBrewer
+            any::viridis
+            any::igraph
+            any::cowplot
+            any::ggdendro
+            any::dendextend
+            any::reshape2
+            any::scales
+            bioc::phyloseq
+            bioc::microbiome
+            bioc::ggtree
+            bioc::metacoder
+          needs: check
+
+      - name: Run tests
+        run: Rscript -e 'testthat::test_dir("tests/testthat", reporter = "summary", stop_on_failure = TRUE)'

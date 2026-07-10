@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis"
+type: software
+authors:
+  - family-names: Appiah
+    given-names: "Philip Yamoah"
+    orcid: "https://orcid.org/0009-0002-0706-2506"
+    affiliation: "Department of Biostatistics and Bioinformatics, George Washington University"
+repository-code: "https://github.com/barah123/canis_lupus2.0"
+license: MIT
+keywords:
+  - R
+  - Shiny
+  - microbiome
+  - bioinformatics
+  - amplicon sequencing
+  - diversity analysis

@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+R_packages/
+paper/paper.pdf
+paper/jats/
