@@ -9,7 +9,7 @@
 
 ---
 
-### 📌 Table of Contents Alaa 
+### 📌 Table of Contents 
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [How to Use](#how-to-use)
