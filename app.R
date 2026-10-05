@@ -395,23 +395,52 @@ input_chr <- function(x, default) {
 # Okabe-Ito: the standard colourblind-safe qualitative palette for scientific
 # figures, extended with further distinguishable hues for taxa-heavy plots.
 canis_categorical <- c(
-  "#0072B2", "#E69F00", "#009E73", "#CC79A7", "#56B4E9",
-  "#D55E00", "#F0E442", "#5D3A9B", "#117733", "#882255",
+  "#009E73", "#E69F00", "#CC79A7", "#56B4E9", "#0072B2",
+  "#D55E00", "#5D3A9B", "#117733", "#882255", "#F0E442",
   "#44AA99", "#DDCC77", "#AA4499", "#88CCEE", "#999933",
   "#661100", "#6699CC", "#332288", "#AA7744", "#BBBBBB"
 )
 
+# Colours assigned by function rather than by taste, so each one has exactly
+# one job and the interface cannot drift into clutter. Neither pure white nor
+# pure black is used: both strain the eye at length.
+#
+# The accents are Okabe-Ito colours, the standard colourblind-safe scientific
+# set, so the chrome is accessible by construction and agrees with the charts.
+# Anthocyanin - indigo violet shading to magenta
+# Named for the pigment whose colour shifts with pH. Assertive and modern, and the cleanest separation from the chart palette.
 canis_ui <- list(
-  primary   = "#0B6E4F",
-  secondary = "#14746F",
-  accent    = "#E9C46A",
-  ink       = "#1B2A33",
-  muted     = "#5A6C77",
-  surface   = "#FFFFFF",
-  canvas    = "#F5F7F9",
-  border    = "#DFE5EA",
-  danger    = "#B00020"
+  primary       = "#4B3E9E",
+  secondary     = "#6B6480",
+  accent        = "#A31E78",
+  success       = "#16613F",
+  danger        = "#BF2C30",
+  ink           = "#1E1B30",
+  muted         = "#63607A",
+  surface       = "#FDFDFF",
+  canvas        = "#F6F5FB",
+  border        = "#E2DFEF",
+  border_strong = "#938FA6"
 )
+
+# Dark-mode counterparts. Surfaces lift slightly off the background so cards
+# stay legible as distinct planes without needing borders.
+canis_dark <- list(
+  ink        = "#E7E4F2",
+  muted      = "#9C98B8",
+  surface    = "#1A182C",
+  canvas     = "#100E1F",
+  border     = "#2C2942",
+  primary    = "#A99BF5",
+  on_primary = "#120E24"
+)
+
+#' Hex to an rgba() string, so derived colours track the palette instead of
+#' being hardcoded and silently left behind when the theme changes.
+hex_rgba <- function(hex, alpha) {
+  v <- strtoi(substring(sub("#", "", hex), c(1, 3, 5), c(2, 4, 6)), 16L)
+  sprintf("rgba(%d,%d,%d,%s)", v[1], v[2], v[3], alpha)
+}
 
 #' Categorical colours, recycled smoothly when a plot needs more than the set.
 canis_colors <- function(n) {
@@ -428,24 +457,29 @@ scale_color_canis <- function(...) {
 }
 
 #' Shared plot theme: light, uncluttered, and readable at publication size.
-theme_canis <- function(base_size = 13) {
+theme_canis <- function(base_size = 13, dark = FALSE) {
+  ink     <- if (dark) canis_dark$ink     else canis_ui$ink
+  muted   <- if (dark) canis_dark$muted   else canis_ui$muted
+  surface <- if (dark) canis_dark$surface else canis_ui$surface
+  border  <- if (dark) canis_dark$border  else canis_ui$border
+
   ggplot2::theme_minimal(base_size = base_size) +
     ggplot2::theme(
-      text             = ggplot2::element_text(colour = canis_ui$ink),
+      text             = ggplot2::element_text(colour = ink),
       plot.title       = ggplot2::element_text(face = "bold", size = base_size * 1.1,
-                                               colour = canis_ui$ink,
+                                               colour = ink,
                                                margin = ggplot2::margin(b = 8)),
-      plot.subtitle    = ggplot2::element_text(colour = canis_ui$muted, size = base_size * 0.9),
-      axis.title       = ggplot2::element_text(colour = canis_ui$muted, size = base_size * 0.9),
-      axis.text        = ggplot2::element_text(colour = canis_ui$muted, size = base_size * 0.82),
-      panel.grid.major = ggplot2::element_line(colour = canis_ui$border, linewidth = 0.35),
+      plot.subtitle    = ggplot2::element_text(colour = muted, size = base_size * 0.9),
+      axis.title       = ggplot2::element_text(colour = muted, size = base_size * 0.9),
+      axis.text        = ggplot2::element_text(colour = muted, size = base_size * 0.82),
+      panel.grid.major = ggplot2::element_line(colour = border, linewidth = 0.35),
       panel.grid.minor = ggplot2::element_blank(),
-      panel.background = ggplot2::element_rect(fill = canis_ui$surface, colour = NA),
-      plot.background  = ggplot2::element_rect(fill = canis_ui$surface, colour = NA),
-      strip.text       = ggplot2::element_text(face = "bold", colour = canis_ui$ink,
+      panel.background = ggplot2::element_rect(fill = surface, colour = NA),
+      plot.background  = ggplot2::element_rect(fill = surface, colour = NA),
+      strip.text       = ggplot2::element_text(face = "bold", colour = ink,
                                                size = base_size * 0.88),
       legend.position  = "right",
-      legend.title     = ggplot2::element_text(colour = canis_ui$muted, size = base_size * 0.85),
+      legend.title     = ggplot2::element_text(colour = muted, size = base_size * 0.85),
       legend.text      = ggplot2::element_text(size = base_size * 0.82),
       plot.margin      = ggplot2::margin(12, 12, 12, 12)
     )
@@ -471,7 +505,8 @@ wolf_pal <- canis_categorical
 ui <- bslib::page_navbar(
   title = div(
     class = "cl-brand",
-    span(class = "cl-brand-mark", "CL"),
+    img(src = "canis_logo_128.png", class = "cl-brand-mark",
+        alt = "CanisLupus: a wolf's head in a gold ring"),
     div(
       span(class = "cl-brand-name", "CanisLupus"),
       span(class = "cl-brand-sub", "Microbiome Analysis Platform")
@@ -479,26 +514,39 @@ ui <- bslib::page_navbar(
   ),
   window_title = "CanisLupus 2.0",
   id = "mainTabs",
-  fillable = FALSE,
+  # Per the filling-layouts guidance: fill the tabs built around a single
+  # dominant output, and let the output-dense tabs fall back to intrinsic
+  # height so nothing is squeezed.
+  fillable = c("Alpha diversity", "Beta diversity", "Composition",
+               "Composition pie", "Phylogenetic tree", "Heat tree",
+               "Abundance heatmap", "Sample clustering",
+               "Differential abundance", "Transformations"),
   theme = bslib::bs_theme(
     version = 5,
     base_font    = bslib::font_google("Inter", local = FALSE),
     heading_font = bslib::font_google("Inter", local = FALSE),
     code_font    = bslib::font_google("JetBrains Mono", local = FALSE),
     primary   = canis_ui$primary,
-    secondary = canis_ui$muted,
-    success   = canis_ui$primary,
-    info      = canis_ui$secondary,
+    secondary = canis_ui$secondary,
+    success   = canis_ui$success,
+    info      = canis_ui$primary,
     warning   = canis_ui$accent,
     danger    = canis_ui$danger,
     bg        = canis_ui$canvas,
     fg        = canis_ui$ink,
     "border-radius"     = "0.6rem",
     "card-border-color" = canis_ui$border,
-    "navbar-bg"         = canis_ui$ink
+    # Bootstrap 5.3 colour modes: these drive the dark counterpart, so the
+    # toggle switches the whole interface rather than just a few surfaces.
+    "body-bg-dark"      = canis_dark$canvas,
+    "body-color-dark"   = canis_dark$ink,
+    "card-bg-dark"      = canis_dark$surface,
+    "border-color-dark" = canis_dark$border
   ),
 
-  header = tags$head(tags$style(HTML(sprintf("
+  header = tags$head(
+    tags$link(rel = "icon", type = "image/png", href = "canis_logo_64.png"),
+    tags$style(HTML(sprintf("
     :root {
       --cl-primary:%s; --cl-secondary:%s; --cl-accent:%s;
       --cl-ink:%s; --cl-muted:%s; --cl-surface:%s;
@@ -506,17 +554,23 @@ ui <- bslib::page_navbar(
     }
     body { background:var(--cl-canvas); }
 
-    .cl-brand { display:flex; align-items:center; gap:.65rem; }
+    .cl-brand { display:flex; align-items:center; gap:.7rem; margin-right:1.75rem; }
+    /* The mark is already a circle with its own gold ring, so it needs no
+       frame of its own; a soft ground just lifts it off the dark navbar. */
     .cl-brand-mark {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:34px; height:34px; border-radius:9px;
-      background:linear-gradient(135deg,var(--cl-primary),var(--cl-secondary));
-      color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.02em;
+      width:42px; height:42px; border-radius:50%%;
+      background:#fff; object-fit:cover; display:block;
+      box-shadow:0 0 0 1px rgba(0,0,0,.10);
     }
-    .cl-brand-name { display:block; font-weight:650; font-size:1rem; line-height:1.1; color:#fff; }
-    .cl-brand-sub  { display:block; font-size:.7rem; color:rgba(255,255,255,.62); font-weight:400; }
+    [data-bs-theme='dark'] .cl-brand-mark { box-shadow:0 0 0 1px rgba(255,255,255,.20); }
+    /* Inherit the navbar's own text colour so the brand stays legible whether
+       the navbar renders light or dark. */
+    .cl-brand-name { display:block; font-weight:650; font-size:1rem; line-height:1.1;
+                     color:inherit; }
+    .cl-brand-sub  { display:block; font-size:.7rem; opacity:.65; font-weight:400;
+                     color:inherit; }
 
-    .navbar { box-shadow:0 1px 0 rgba(0,0,0,.06); }
+    .navbar { box-shadow:0 1px 0 rgba(0,0,0,.06); border-bottom:2px solid var(--cl-primary); }
     .navbar .nav-link { font-size:.9rem; font-weight:500; }
 
     /* Cards separate by surface contrast and a soft two-layer shadow rather
@@ -539,22 +593,30 @@ ui <- bslib::page_navbar(
       text-transform:uppercase; color:var(--cl-muted); margin:.15rem 0 .5rem; }
 
     .info-box {
-      background:#F1F6F4; border:1px solid #D8E6E0; border-left:3px solid var(--cl-primary);
+      background:#FBF7F0; border:1px solid #EBE2D4; border-left:3px solid var(--cl-accent);
       border-radius:.45rem; padding:.6rem .7rem; margin-bottom:.85rem;
       font-size:.79rem; line-height:1.45; color:#41525C;
     }
-    .info-box.cl-warn { background:#FDF3F3; border-color:#F0D2D2; border-left-color:var(--cl-danger); }
+    .info-box.cl-warn { background:#FBF0EF; border-color:#EFD6D4; border-left-color:var(--cl-danger); }
 
     .cl-hint { font-size:.75rem; color:var(--cl-muted); margin:-.35rem 0 .8rem; }
+    .cl-help {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:18px; height:18px; margin-left:.45rem; border-radius:50%%;
+      border:1px solid var(--cl-border); background:#fff;
+      color:var(--cl-muted); font-size:.7rem; font-weight:600;
+      cursor:pointer; vertical-align:middle;
+    }
+    .cl-help:hover { border-color:var(--cl-primary); color:var(--cl-primary); }
 
     /* One control height and one radius throughout, so a dense sidebar still
        reads as a single system. */
     .form-label, label { font-size:.875rem; font-weight:500; color:var(--cl-ink); margin-bottom:.35rem; }
     .form-control, .form-select {
-      font-size:.875rem; min-height:40px; border-radius:4px; border:1px solid #d2d0ce;
+      font-size:.875rem; min-height:40px; border-radius:4px; border:1px solid %s;
     }
     .form-control:focus, .form-select:focus {
-      border-color:var(--cl-primary); box-shadow:0 0 0 .18rem rgba(11,110,79,.12);
+      border-color:var(--cl-primary); box-shadow:0 0 0 .18rem %s;
     }
     .btn {
       font-size:.875rem; font-weight:500; border-radius:4px;
@@ -562,13 +624,15 @@ ui <- bslib::page_navbar(
       transition:box-shadow 200ms cubic-bezier(.4,1,.75,.9), background-color 150ms ease;
     }
     .btn-primary { background:var(--cl-primary); border-color:var(--cl-primary); }
-    .btn-primary:hover { background:#095B41; border-color:#095B41; }
+    .btn-primary:hover { background:#74491F; border-color:#74491F; }
     .sidebar .form-group, .sidebar .shiny-input-container { margin-bottom:1rem; }
 
     .irs--shiny .irs-bar, .irs--shiny .irs-single { background:var(--cl-primary); border-color:var(--cl-primary); }
     .irs--shiny .irs-handle { border-color:var(--cl-primary); }
 
-    pre, .shiny-text-output {
+    /* verbatimTextOutput renders as <pre>; textOutput renders as <div> and must
+       NOT pick up this panel styling, or every value_box gains a grey box. */
+    pre, pre.shiny-text-output {
       background:#FBFCFD; border:1px solid var(--cl-border); border-radius:.45rem;
       padding:.75rem .85rem; font-size:.79rem; line-height:1.5; color:#2A3A44;
     }
@@ -587,9 +651,45 @@ ui <- bslib::page_navbar(
       padding:1.1rem 0 1.6rem; color:var(--cl-muted); font-size:.79rem; text-align:center; }
     .cl-footer a { color:var(--cl-primary); text-decoration:none; margin:0 .55rem; font-weight:550; }
     .cl-footer a:hover { text-decoration:underline; }
+
+    /* Bootstrap 5.3 stamps data-bs-theme on <html>; the custom properties have
+       to follow or the hand-written components stay stuck in light mode. */
+    [data-bs-theme='dark'] {
+      --cl-ink:%s; --cl-muted:%s; --cl-surface:%s;
+      --cl-canvas:%s; --cl-border:%s;
+    }
+    [data-bs-theme='dark'] .card {
+      background:var(--cl-surface);
+      box-shadow:0 3.2px 7.2px 0 rgba(0,0,0,.55), 0 .6px 1.8px 0 rgba(0,0,0,.4);
+    }
+    [data-bs-theme='dark'] .card-header { background:var(--cl-surface); }
+    [data-bs-theme='dark'] .info-box {
+      background:#1F1B12; border-color:#3A3323; color:#CBD2D8;
+    }
+    [data-bs-theme='dark'] pre, [data-bs-theme='dark'] pre.shiny-text-output {
+      background:#151515; border-color:var(--cl-border); color:#D7DDE2;
+    }
+    [data-bs-theme='dark'] .form-control, [data-bs-theme='dark'] .form-select {
+      background:#181818; border-color:var(--cl-border); color:var(--cl-ink);
+    }
+    [data-bs-theme='dark'] .cl-help { background:#181818; }
+    /* On a dark canvas the primary lightens, so anything sitting ON it needs
+       dark text rather than white. */
+    [data-bs-theme='dark'] { --cl-primary:%s; }
+    [data-bs-theme='dark'] .btn-primary {
+      background:var(--cl-primary); border-color:var(--cl-primary); color:%s;
+    }
+    [data-bs-theme='dark'] .btn-primary:hover { filter:brightness(1.08); }
+    [data-bs-theme='dark'] a { color:var(--cl-primary); }
   ",
   canis_ui$primary, canis_ui$secondary, canis_ui$accent, canis_ui$ink,
-  canis_ui$muted, canis_ui$surface, canis_ui$canvas, canis_ui$border, canis_ui$danger)))),
+  canis_ui$muted, canis_ui$surface, canis_ui$canvas, canis_ui$border, canis_ui$danger,
+  canis_ui$border_strong,
+  hex_rgba(canis_ui$primary, ".15"),
+  canis_dark$ink, canis_dark$muted, canis_dark$surface,
+  canis_dark$canvas, canis_dark$border,
+  canis_dark$primary, canis_dark$on_primary)))
+  ),
 
   # ===========================================================================
   # DATA
@@ -626,7 +726,7 @@ ui <- bslib::page_navbar(
                     accept = c(".tsv", ".txt", ".csv"))
         ),
 
-        fileInput("metaFile", "Sample metadata (CSV)", accept = ".csv"),
+        fileInput("metaFile", "Metadata (CSV)", accept = ".csv"),
         fileInput("treeFile", "Phylogenetic tree (optional)",
                   accept = c(".tree", ".tre", ".nwk", ".txt")),
         div(class = "cl-hint",
@@ -646,20 +746,26 @@ ui <- bslib::page_navbar(
         downloadButton("downloadPS", "Download summary", class = "btn-outline-secondary w-100")
       ),
 
-      uiOutput("datasetStats"),
+      # value_box() carries its own theme-aware styling and Bootstrap contrast
+      # handling, so the hand-rolled stat tiles are gone. fill = FALSE stops the
+      # row claiming vertical space it does not need.
+      uiOutput("datasetStatsUI"),
       bslib::layout_columns(
         col_widths = c(7, 5),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Sequencing depth per sample"),
-          plotlyOutput("readCountPlot", height = "330px")
+          bslib::card_body(min_height = 300, plotlyOutput("readCountPlot"))
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Dataset summary"),
           verbatimTextOutput("dataSummary")
         )
       ),
       bslib::card(
-        bslib::card_header("Sample metadata"),
+        full_screen = TRUE,
+        bslib::card_header("Metadata"),
         DTOutput("sampleTable")
       )
     )
@@ -680,19 +786,22 @@ ui <- bslib::page_navbar(
               "Shows whether sequencing depth was deep enough to capture the community. ",
               "A curve that flattens has saturated."),
           selectInput("regionRare", "Colour samples by", choices = NULL),
-          numericInput("rareStep", "Step size", value = 100, min = 10, step = 50),
+          numericInput("rareStep", "Step size", value = 500, min = 50, step = 50),
+          div(class = "cl-hint",
+              "Smaller steps give smoother curves but cost far more computation. ",
+              "The step is raised automatically if it would be too fine for the ",
+              "sequencing depth in this dataset."),
           numericInput("rareMax", "Maximum depth (0 = auto)", value = 0, min = 0),
           checkboxInput("showRareLine", "Mark a target depth", value = TRUE),
           numericInput("rareDepth", "Target depth", value = 10000, min = 100),
           actionButton("updateRare", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Rarefaction curves"),
-          plotlyOutput("rarefactionCurve", height = "540px")
-        ),
-        bslib::card(
-          bslib::card_header("Depth summary"),
-          verbatimTextOutput("rareSummary")
+          bslib::card_body(min_height = 380, plotlyOutput("rarefactionCurve")),
+          bslib::card_body(fill = FALSE, class = "border-top",
+                           verbatimTextOutput("rareSummary"))
         )
       )
     ),
@@ -702,37 +811,48 @@ ui <- bslib::page_navbar(
       bslib::layout_sidebar(
         sidebar = bslib::sidebar(
           width = 310, title = "Alpha diversity",
-          div(class = "info-box",
-              "Diversity within each sample. Indices weight richness and evenness differently, ",
-              "so reporting more than one is usual."),
-          checkboxGroupInput(
-            "alphaMeasure", "Indices",
-            choices  = c("Observed", "Chao1", "ACE", "Shannon", "Simpson", "InvSimpson", "Fisher"),
-            selected = c("Shannon", "Observed")
+          bslib::accordion(
+            multiple = FALSE, open = "Indices",
+            bslib::accordion_panel(
+              "Indices",
+              checkboxGroupInput(
+                "alphaMeasure", NULL,
+                choices  = c("Observed", "Chao1", "ACE", "Shannon",
+                             "Simpson", "InvSimpson", "Fisher"),
+                selected = c("Shannon", "Observed")
+              )
+            ),
+            bslib::accordion_panel(
+              "Grouping",
+              selectInput("regionAlpha", "Group by", choices = NULL),
+              selectInput("blockAlpha", "Block / subject variable (optional)", choices = NULL),
+              checkboxInput("alphaStats", "Show group comparison test", value = TRUE)
+            )
           ),
-          selectInput("regionAlpha", "Group by", choices = NULL),
-          selectInput("blockAlpha", "Block / subject variable (optional)", choices = NULL),
-          div(class = "info-box",
-              "Set this when the same subject appears at several levels of the grouping ",
-              "variable, such as repeat timepoints. A Friedman test then replaces ",
-              "Kruskal-Wallis, which assumes independent samples."),
-          checkboxInput("alphaStats", "Show group comparison test", value = TRUE),
           actionButton("updateAlpha", "Update", class = "btn-primary w-100")
         ),
-        bslib::layout_columns(
-          col_widths = c(6, 6),
-          bslib::card(
-            bslib::card_header("Per-sample diversity"),
-            plotlyOutput("alphaDiv", height = "430px")
+        # Three views of one question belong in one card as tabs, rather than
+        # stacked cards each competing for vertical space.
+        bslib::navset_card_underline(
+          title = tagList(
+            "Alpha diversity",
+            bslib::popover(
+              tags$span(class = "cl-help", "?"),
+              title = "Alpha diversity",
+              tags$p("Diversity within each sample. Indices weight richness and ",
+                     "evenness differently, so reporting more than one is usual."),
+              tags$p("Set a block/subject variable when the same subject appears at ",
+                     "several levels of the grouping variable, such as repeat ",
+                     "timepoints. A Friedman test then replaces Kruskal-Wallis, ",
+                     "which assumes independent samples."),
+              tags$p("Chao1, ACE and Fisher need integer read counts, so they are ",
+                     "withheld for relative-abundance profiles.")
+            )
           ),
-          bslib::card(
-            bslib::card_header("Distribution by group"),
-            plotlyOutput("alphaDivBoxplot", height = "430px")
-          )
-        ),
-        bslib::card(
-          bslib::card_header("Group comparison"),
-          verbatimTextOutput("alphaStats")
+          full_screen = TRUE,
+          bslib::nav_panel("Per sample",  plotlyOutput("alphaDiv")),
+          bslib::nav_panel("By group",    plotlyOutput("alphaDivBoxplot")),
+          bslib::nav_panel("Group comparison", verbatimTextOutput("alphaStats"))
         )
       )
     ),
@@ -742,42 +862,53 @@ ui <- bslib::page_navbar(
       bslib::layout_sidebar(
         sidebar = bslib::sidebar(
           width = 310, title = "Beta diversity",
-          div(class = "info-box",
-              "Dissimilarity between samples. PERMANOVA tests whether group centroids differ."),
-          selectInput("betaMethod", "Ordination",
-                      choices = c("PCoA", "NMDS", "RDA", "CCA"), selected = "PCoA"),
-          selectInput("betaDistance", "Distance",
-                      choices = c("bray", "jaccard", "unifrac", "wunifrac", "euclidean"),
-                      selected = "bray"),
-          selectInput("betaNormalise", "Normalisation",
-                      choices = c("Relative abundance" = "relative", "None (raw counts)" = "none"),
-                      selected = "relative"),
-          div(class = "cl-hint",
-              "Samples differ in depth and Bray-Curtis responds to that, so relative ",
-              "abundance is the safer default."),
-          selectInput("regionBeta", "Colour / group by", choices = NULL),
-          selectInput("blockBeta", "Block / subject variable (optional)", choices = NULL),
-          div(class = "info-box",
-              "With a subject variable set, permutations stay within each subject, which is ",
-              "what a repeated-measures design requires."),
-          checkboxInput("betaEllipse", "Draw 95% ellipses", value = TRUE),
-          checkboxInput("betaPermanova", "Run PERMANOVA", value = TRUE),
+          # Accordions render flush inside a sidebar and are the documented way
+          # to keep a control-dense sidebar short.
+          bslib::accordion(
+            multiple = FALSE, open = "Ordination",
+            bslib::accordion_panel(
+              "Ordination",
+              selectInput("betaMethod", "Method",
+                          choices = c("PCoA", "NMDS", "RDA", "CCA"), selected = "PCoA"),
+              selectInput("betaDistance", "Distance",
+                          choices = c("bray", "jaccard", "unifrac", "wunifrac", "euclidean"),
+                          selected = "bray"),
+              selectInput("betaNormalise", "Normalisation",
+                          choices = c("Relative abundance" = "relative",
+                                      "None (raw counts)" = "none"),
+                          selected = "relative")
+            ),
+            bslib::accordion_panel(
+              "Grouping",
+              selectInput("regionBeta", "Colour / group by", choices = NULL),
+              selectInput("blockBeta", "Block / subject variable (optional)", choices = NULL)
+            ),
+            bslib::accordion_panel(
+              "Statistics",
+              checkboxInput("betaEllipse", "Draw 95% ellipses", value = TRUE),
+              checkboxInput("betaPermanova", "Run PERMANOVA", value = TRUE)
+            )
+          ),
           actionButton("updateBeta", "Update", class = "btn-primary w-100")
         ),
-        bslib::layout_columns(
-          col_widths = c(6, 6),
-          bslib::card(
-            bslib::card_header("Ordination"),
-            plotlyOutput("betaPlot", height = "470px")
+        bslib::navset_card_underline(
+          title = tagList(
+            "Beta diversity",
+            bslib::popover(
+              tags$span(class = "cl-help", "?"),
+              title = "Beta diversity",
+              tags$p("Dissimilarity between samples. PERMANOVA tests whether group ",
+                     "centroids differ."),
+              tags$p("Samples differ in sequencing depth and Bray-Curtis responds to ",
+                     "that, so relative abundance is the safer normalisation."),
+              tags$p("Setting a subject variable keeps permutations within each subject, ",
+                     "which is what a repeated-measures design requires.")
+            )
           ),
-          bslib::card(
-            bslib::card_header("NMDS"),
-            plotlyOutput("nmdsPlot", height = "470px")
-          )
-        ),
-        bslib::card(
-          bslib::card_header("PERMANOVA"),
-          verbatimTextOutput("permanovaResult")
+          full_screen = TRUE,
+          bslib::nav_panel("Ordination", plotlyOutput("betaPlot")),
+          bslib::nav_panel("NMDS",       plotlyOutput("nmdsPlot")),
+          bslib::nav_panel("PERMANOVA",  verbatimTextOutput("permanovaResult"))
         )
       )
     )
@@ -806,13 +937,11 @@ ui <- bslib::page_navbar(
                       selected = "relative"),
           actionButton("updateBar", "Update", class = "btn-primary w-100")
         ),
-        bslib::card(
-          bslib::card_header("Community composition"),
-          plotlyOutput("taxaBarplot", height = "480px")
-        ),
-        bslib::card(
-          bslib::card_header("Mean relative abundance"),
-          plotlyOutput("relativeAbundancePlot", height = "430px")
+        bslib::navset_card_underline(
+          title = "Community composition",
+          full_screen = TRUE,
+          bslib::nav_panel("Per sample",     plotlyOutput("taxaBarplot")),
+          bslib::nav_panel("Mean abundance", plotlyOutput("relativeAbundancePlot"))
         )
       )
     ),
@@ -831,8 +960,9 @@ ui <- bslib::page_navbar(
           actionButton("updatePie", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Taxonomic proportions"),
-          plotlyOutput("pieChart", height = "680px")
+          bslib::card_body(min_height = 420, plotlyOutput("pieChart"))
         )
       )
     ),
@@ -855,12 +985,11 @@ ui <- bslib::page_navbar(
           actionButton("updateCore", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
-          bslib::card_header("Core taxa"),
-          plotlyOutput("coreHeatmap", height = "530px")
-        ),
-        bslib::card(
-          bslib::card_header("Core summary"),
-          verbatimTextOutput("coreSummary")
+          full_screen = TRUE,
+          bslib::card_header("Core microbiome"),
+          bslib::card_body(min_height = 380, plotlyOutput("coreHeatmap")),
+          bslib::card_body(fill = FALSE, class = "border-top",
+                           verbatimTextOutput("coreSummary"))
         )
       )
     )
@@ -888,8 +1017,9 @@ ui <- bslib::page_navbar(
           actionButton("updateTree", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Phylogeny"),
-          plotOutput("phylogeneticTree", height = "720px")
+          bslib::card_body(min_height = 460, plotOutput("phylogeneticTree"))
         )
       )
     ),
@@ -907,8 +1037,9 @@ ui <- bslib::page_navbar(
           actionButton("updateHeatTree", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Taxonomic heat tree"),
-          plotOutput("heatTree", height = "700px")
+          bslib::card_body(min_height = 440, plotOutput("heatTree"))
         )
       )
     )
@@ -939,8 +1070,9 @@ ui <- bslib::page_navbar(
           actionButton("updateHeatmap", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Abundance heatmap"),
-          plotlyOutput("interactiveHeatmap", height = "720px")
+          bslib::card_body(min_height = 460, plotlyOutput("interactiveHeatmap"))
         )
       )
     ),
@@ -963,13 +1095,11 @@ ui <- bslib::page_navbar(
           checkboxInput("dendroShowBar", "Show composition alongside", value = FALSE),
           actionButton("updateDendro", "Update", class = "btn-primary w-100")
         ),
-        bslib::card(
-          bslib::card_header("Sample dendrogram"),
-          plotlyOutput("dendrogram", height = "620px")
-        ),
-        bslib::card(
-          bslib::card_header("Composition by cluster"),
-          plotlyOutput("dendroBar", height = "420px")
+        bslib::navset_card_underline(
+          title = "Sample clustering",
+          full_screen = TRUE,
+          bslib::nav_panel("Dendrogram",  plotlyOutput("dendrogram")),
+          bslib::nav_panel("Composition", plotlyOutput("dendroBar"))
         )
       )
     ),
@@ -994,12 +1124,12 @@ ui <- bslib::page_navbar(
           actionButton("updateNetwork", "Update", class = "btn-primary w-100")
         ),
         bslib::card(
+          full_screen = TRUE,
           bslib::card_header("Co-occurrence network"),
-          networkD3::forceNetworkOutput("correlationNetwork", height = "680px")
-        ),
-        bslib::card(
-          bslib::card_header("Network summary"),
-          verbatimTextOutput("networkSummary")
+          bslib::card_body(min_height = 420,
+                           networkD3::forceNetworkOutput("correlationNetwork")),
+          bslib::card_body(fill = FALSE, class = "border-top",
+                           verbatimTextOutput("networkSummary"))
         )
       )
     )
@@ -1033,13 +1163,11 @@ ui <- bslib::page_navbar(
               "so they do not spend the FDR budget."),
           actionButton("updateDA", "Update", class = "btn-primary w-100")
         ),
-        bslib::card(
-          bslib::card_header("Differential abundance"),
-          plotlyOutput("daVolcano", height = "480px")
-        ),
-        bslib::card(
-          bslib::card_header("Results table"),
-          DTOutput("daTable")
+        bslib::navset_card_underline(
+          title = "Differential abundance",
+          full_screen = TRUE,
+          bslib::nav_panel("Volcano", plotlyOutput("daVolcano")),
+          bslib::nav_panel("Results", DTOutput("daTable"))
         )
       )
     ),
@@ -1058,19 +1186,18 @@ ui <- bslib::page_navbar(
           selectInput("transColorBy", "Colour by", choices = NULL),
           actionButton("updateTrans", "Update", class = "btn-primary w-100")
         ),
-        bslib::card(
-          bslib::card_header("Ordination after transformation"),
-          plotlyOutput("transPCoA", height = "470px")
-        ),
-        bslib::card(
-          bslib::card_header("Value distribution"),
-          plotlyOutput("transHist", height = "340px")
+        bslib::navset_card_underline(
+          title = "Transformations",
+          full_screen = TRUE,
+          bslib::nav_panel("Ordination",   plotlyOutput("transPCoA")),
+          bslib::nav_panel("Distribution", plotlyOutput("transHist"))
         )
       )
     )
   ),
 
   bslib::nav_spacer(),
+  bslib::nav_item(bslib::input_dark_mode(id = "dark_mode", mode = "light")),
   bslib::nav_item(
     tags$a(
       href = "https://github.com/barah123/canis_lupus2.0", target = "_blank",
@@ -1107,6 +1234,11 @@ server <- function(input, output, session) {
   # TRUE when the loaded table is already relative abundance (typical of shotgun
   # profilers), which changes what the depth-based controls can mean.
   data_is_relative <- reactiveVal(FALSE)
+
+  # Plots are drawn server-side and cannot see the client's colour mode, so the
+  # toggle is read here and fed into the shared ggplot theme.
+  is_dark    <- reactive(identical(input$dark_mode, "dark"))
+  plot_theme <- function() theme_canis(dark = isolate(is_dark()))
   
   # ── Update all group selectors when ps changes ────────────────────────────
   observe({
@@ -1114,7 +1246,7 @@ server <- function(input, output, session) {
     vars <- colnames(sample_data(ps()))
     for (id in c("regionBar","regionPie","regionRare","regionAlpha","regionBeta",
                  "regionCore","regionHeatmap","dendroColorBy","regionDA",
-                 "transColorBy","treeColorBy","blockAlpha","blockBeta","blockDA")) {
+                 "transColorBy","blockAlpha","blockBeta","blockDA")) {
       updateSelectInput(session, id, choices = c("None" = "", vars), selected = "")
     }
   })
@@ -1129,6 +1261,13 @@ server <- function(input, output, session) {
     ranks <- rank_names(ps())
     ranks <- ranks[!is.na(ranks) & nzchar(ranks)]
     if (!length(ranks)) return()
+    # Tree tips are taxa, so they colour by a taxonomic rank. "None" is offered
+    # because at deep ranks every tip is its own colour, which tells you nothing.
+    updateSelectInput(session, "treeColorBy",
+                      choices = c("None" = "", ranks),
+                      selected = isolate(if (!is.null(input$treeColorBy) &&
+                                             input$treeColorBy %in% ranks)
+                                         input$treeColorBy else "Phylum"))
     for (id in c("taxLevelBar", "taxLevelPie", "taxLevelCore",
                  "taxLevelHeatmap", "taxLevelHeatTree", "taxLevelNetwork",
                  "taxLevelDA")) {
@@ -1159,33 +1298,59 @@ server <- function(input, output, session) {
   })
 
   # ── Headline numbers for the data tab ──────────────────────────────────────
-  output$datasetStats <- renderUI({
-    if (is.null(ps())) {
-      return(div(class = "info-box",
-                 "No dataset loaded yet. Choose a data type, add your files, and select ",
-                 "\"Load & process data\". Leaving the amplicon inputs empty loads the ",
-                 "bundled example dataset."))
-    }
-    depths <- sample_sums(ps())
-    stat <- function(label, value, note = NULL) {
-      div(class = "cl-stat",
-          div(class = "cl-stat-label", label),
-          div(class = "cl-stat-value", value),
-          if (!is.null(note)) div(class = "cl-stat-note", note))
-    }
-    div(
-      class = "cl-stat-row",
-      stat("Samples", nsamples(ps())),
-      stat("Taxa", format(ntaxa(ps()), big.mark = ",")),
-      stat("Metadata fields", ncol(sample_data(ps()))),
-      stat(if (isTRUE(data_is_relative())) "Median total" else "Median depth",
-           format(round(stats::median(depths)), big.mark = ","),
-           if (isTRUE(data_is_relative())) "relative abundance"
-           else paste0("range ", format(round(min(depths)), big.mark = ","), " - ",
-                       format(round(max(depths)), big.mark = ","))),
-      stat("Phylogeny", if (isTRUE(tree_is_real())) "Provided" else "None",
-           if (isTRUE(tree_is_real())) "UniFrac available" else "UniFrac unavailable")
+  # Headline numbers. Posit recommends textOutput() placeholders inside
+  # value_box() so the boxes appear before the values resolve, which avoids the
+  # layout shifting once data loads.
+  output$datasetStatsUI <- renderUI({
+    bslib::layout_columns(
+      fill = FALSE,
+      col_widths = bslib::breakpoints(sm = c(6, 6, 6, 6, 12),
+                                      lg = c(2, 2, 2, 3, 3)),
+      bslib::value_box(title = "Samples",         value = textOutput("statSamples"),
+                       theme = "primary"),
+      bslib::value_box(title = "Taxa",            value = textOutput("statTaxa"),
+                       theme = "text-primary"),
+      bslib::value_box(title = "Metadata fields", value = textOutput("statMeta"),
+                       theme = "text-secondary"),
+      bslib::value_box(title = uiOutput("statDepthTitle", inline = TRUE),
+                       value = textOutput("statDepth"),
+                       theme = "text-secondary",
+                       textOutput("statDepthNote")),
+      bslib::value_box(title = "Phylogeny",       value = textOutput("statTree"),
+                       theme = "text-success",
+                       textOutput("statTreeNote"))
     )
+  })
+
+  output$statSamples <- renderText({ if (is.null(ps())) "-" else nsamples(ps()) })
+  output$statTaxa    <- renderText({
+    if (is.null(ps())) "-" else format(ntaxa(ps()), big.mark = ",")
+  })
+  output$statMeta    <- renderText({
+    if (is.null(ps())) "-" else ncol(sample_data(ps()))
+  })
+  output$statDepthTitle <- renderUI({
+    if (isTRUE(data_is_relative())) "Median total" else "Median depth"
+  })
+  output$statDepth   <- renderText({
+    if (is.null(ps())) "-"
+    else format(round(stats::median(sample_sums(ps()))), big.mark = ",")
+  })
+  output$statDepthNote <- renderText({
+    if (is.null(ps())) ""
+    else if (isTRUE(data_is_relative())) "relative abundance"
+    else {
+      d <- sample_sums(ps())
+      paste0("range ", format(round(min(d)), big.mark = ","), " - ",
+             format(round(max(d)), big.mark = ","))
+    }
+  })
+  output$statTree    <- renderText({
+    if (is.null(ps())) "-" else if (isTRUE(tree_is_real())) "Provided" else "None"
+  })
+  output$statTreeNote <- renderText({
+    if (is.null(ps())) ""
+    else if (isTRUE(tree_is_real())) "UniFrac available" else "UniFrac unavailable"
   })
 
   # ── Withhold phylogenetic distances when there is no real tree ─────────────
@@ -1407,7 +1572,7 @@ server <- function(input, output, session) {
   
   output$sampleTable <- renderDT({
     req(ps())
-    datatable(as.data.frame(sample_data(ps())),
+    datatable(as(sample_data(ps()), "data.frame"), fillContainer = TRUE,
               options=list(scrollX=TRUE, pageLength=10),
               class="cell-border stripe")
   })
@@ -1418,6 +1583,7 @@ server <- function(input, output, session) {
   output$rarefactionCurve <- renderPlotly({
     req(ps())
     input$updateRare
+    input$dark_mode
     isolate({
       # Rarefaction subsamples reads, so it is only defined on integer counts.
       # A relative-abundance profile has no reads left to subsample.
@@ -1433,49 +1599,92 @@ server <- function(input, output, session) {
       }
       withProgress(message="Computing rarefaction curves…", {
         otu_mat <- t(as(otu_table(ps()), "matrix"))
-        maxd     <- if (input_num(input$rareMax, 0) > 0) input_num(input$rareMax, 0) else max(rowSums(otu_mat))
-        step_sz  <- max(input_num(input$rareStep, 100), 1)
+        depths   <- rowSums(otu_mat)
+        maxd     <- if (input_num(input$rareMax, 0) > 0) input_num(input$rareMax, 0) else max(depths)
 
-        rc <- vegan::rarecurve(otu_mat, step=step_sz,
-                               sample=input_num(input$rareDepth, 10000), label=FALSE)
-
-        # rarecurve() has no tmax argument, so a maximum depth has to be applied
-        # to the returned curves; passing it through would be silently ignored.
-        if (input_num(input$rareMax, 0) > 0) {
-          rc <- lapply(rc, function(z) {
-            sub_v <- attr(z, "Subsample")
-            k <- sub_v <= maxd
-            if (!any(k)) k[1] <- TRUE
-            out <- z[k]
-            attr(out, "Subsample") <- sub_v[k]
-            out
-          })
+        # Total work is (summed depth / step), and it grows without bound as the
+        # step shrinks. On a deeply sequenced study a small step will exhaust
+        # memory outright, so the step is raised to whatever keeps the curves
+        # under a sane number of points, and the user is told.
+        MAX_POINTS <- 8000
+        asked_step <- max(input_num(input$rareStep, 100), 1)
+        min_step   <- max(1, ceiling(sum(depths) / MAX_POINTS))
+        step_sz    <- max(asked_step, min_step)
+        if (step_sz > asked_step) {
+          showNotification(
+            sprintf(paste("A step of %s would need roughly %s points across %d samples.",
+                          "Using %s instead to keep the curves computable."),
+                    format(asked_step, big.mark = ","),
+                    format(round(sum(depths) / asked_step), big.mark = ","),
+                    nrow(otu_mat), format(step_sz, big.mark = ",")),
+            type = "warning", duration = 9)
         }
 
-        samp_data <- as.data.frame(sample_data(ps()))
-        grp_var   <- if (!is.null(input$regionRare) && nchar(input$regionRare)>0 &&
+        # tidy = TRUE is essential, not cosmetic: the default draws a base-R
+        # plot as a side effect and only returns the curves invisibly. Inside
+        # renderPlotly there is no device sized for that, so it fails with
+        # "figure margins too large". The tidy form touches no device at all.
+        rc <- vegan::rarecurve(otu_mat, step = step_sz,
+                               sample = input_num(input$rareDepth, 10000),
+                               tidy = TRUE)
+        names(rc)[match(c("Site", "Sample", "Species"), names(rc))] <-
+          c("SampleID", "Reads", "OTUs")
+
+        # rarecurve() has no maximum-depth argument, so the cap is applied to
+        # the returned curves; passing one through would be silently ignored.
+        if (input_num(input$rareMax, 0) > 0) {
+          keep <- rc$Reads <= maxd
+          if (any(keep)) rc <- rc[keep, , drop = FALSE]
+        }
+
+        # as.data.frame() leaves this an S4 sample_data, whose `[` does not drop
+        # to a vector: samp_data[ids, var] would come back as a one-column
+        # sample_data, and as.character() would deparse it into the single
+        # literal string 'c("BB", "BB", ...)'. Every curve then shared one
+        # bogus level and the legend printed that string. as() gives a real
+        # data frame, and the column is looked up by name to be certain.
+        samp_data <- as(sample_data(ps()), "data.frame")
+        grp_var   <- if (!is.null(input$regionRare) && nzchar(input$regionRare) &&
                          input$regionRare %in% colnames(samp_data))
           input$regionRare else NULL
-        
-        plot_list <- lapply(seq_along(rc), function(i) {
-          x <- attr(rc[[i]], "Subsample")
-          y <- rc[[i]]
-          grp <- if (!is.null(grp_var)) as.character(samp_data[[grp_var]][i]) else "All"
-          data.frame(Sample=rownames(samp_data)[i], Reads=x, OTUs=y, Group=grp)
-        })
-        plot_df <- bind_rows(plot_list)
-        
-        p <- ggplot(plot_df, aes(x=Reads, y=OTUs, group=Sample, color=Group)) +
-          geom_line(alpha=0.7, linewidth=0.8) +
-          theme_canis() +
+
+        rc$Group <- if (!is.null(grp_var)) {
+          g <- as.character(samp_data[[grp_var]])[
+                 match(as.character(rc$SampleID), rownames(samp_data))]
+          g[is.na(g) | !nzchar(g)] <- "Unassigned"
+          g
+        } else "All samples"
+
+        p <- ggplot(rc, aes(x = Reads, y = OTUs, group = SampleID, colour = Group)) +
+          geom_line(alpha = 0.75, linewidth = 0.6) +
+          plot_theme() +
           scale_color_canis() +
-          labs(title="Rarefaction Curves", x="Sequencing Depth (Reads)", y="Observed OTUs",
-               color=if(!is.null(grp_var)) grp_var else "")
-        
-        if (input$showRareLine) {
-          p <- p + geom_vline(xintercept=input$rareDepth, linetype="dashed", color="red", linewidth=0.8)
+          labs(title = "Rarefaction curves", x = "Sequencing depth (reads)",
+               y = "Observed taxa",
+               colour = if (!is.null(grp_var)) grp_var else NULL)
+
+        if (isTRUE(input$showRareLine)) {
+          p <- p + geom_vline(xintercept = input_num(input$rareDepth, 10000),
+                              linetype = "dashed", colour = canis_ui$danger,
+                              linewidth = 0.6)
         }
-        ggplotly(p)
+        # One line is drawn per sample, so ggplotly emits one trace per sample
+        # and each claims its own legend entry. With 75 samples the legend
+        # swamps the panel. Collapse it to one entry per group, and let a
+        # click on that entry toggle the whole group.
+        gp <- ggplotly(p)
+        if (!is.null(grp_var)) {
+          shown <- character(0)
+          for (i in seq_along(gp$x$data)) {
+            tr <- gp$x$data[[i]]
+            if (!identical(tr$mode, "lines") || is.null(tr$legendgroup)) next
+            key <- as.character(tr$legendgroup)[1]
+            gp$x$data[[i]]$name       <- key
+            gp$x$data[[i]]$showlegend <- !(key %in% shown)
+            shown <- c(shown, key)
+          }
+        }
+        gp
       })
     })
   })
@@ -1483,6 +1692,7 @@ server <- function(input, output, session) {
   output$rareSummary <- renderPrint({
     req(ps())
     input$updateRare
+    input$dark_mode
     isolate({
       ss <- sort(sample_sums(ps()))
       if (isTRUE(data_is_relative())) {
@@ -1529,12 +1739,13 @@ server <- function(input, output, session) {
   output$alphaDiv <- renderPlotly({
     req(ps())
     input$updateAlpha
+    input$dark_mode
     isolate({
       a <- alpha_long()
       p <- ggplot(a$long, aes(x = Sample, y = Value, colour = Group)) +
         geom_point(size = 2.6, alpha = 0.9) +
         facet_wrap(~Index, scales = "free_y") +
-        theme_canis() +
+        plot_theme() +
         scale_color_canis() +
         theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
         labs(title = "Alpha diversity per sample", x = "Sample", y = NULL,
@@ -1546,6 +1757,7 @@ server <- function(input, output, session) {
   output$alphaDivBoxplot <- renderPlotly({
     req(ps())
     input$updateAlpha
+    input$dark_mode
     isolate({
       a <- alpha_long()
       if (is.null(a$group_var) || !nzchar(a$group_var) ||
@@ -1563,7 +1775,7 @@ server <- function(input, output, session) {
         geom_jitter(width = 0.16, size = 1.9, alpha = 0.85,
                     colour = canis_ui$ink, show.legend = FALSE) +
         facet_wrap(~Index, scales = "free_y") +
-        theme_canis() +
+        plot_theme() +
         scale_fill_canis() +
         scale_color_canis() +
         theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
@@ -1575,6 +1787,7 @@ server <- function(input, output, session) {
   output$alphaStats <- renderPrint({
     req(ps())
     input$updateAlpha
+    input$dark_mode
     isolate({
       if (is.null(input$regionAlpha) || nchar(input$regionAlpha)==0 ||
           !input$alphaStats) return(invisible(NULL))
@@ -1681,6 +1894,7 @@ server <- function(input, output, session) {
   output$betaPlot <- renderPlotly({
     req(ps())
     input$updateBeta
+    input$dark_mode
     isolate({
       ps_beta <- beta_ps()
       dmetric <- beta_distance()
@@ -1688,7 +1902,7 @@ server <- function(input, output, session) {
                     "UniFrac needs a phylogenetic tree. Upload one on the Data Upload tab, or choose a non-phylogenetic distance."))
       ord <- ordinate(ps_beta, method=input$betaMethod, distance=dmetric)
       p   <- plot_ordination(ps_beta, ord, type="samples") +
-        theme_canis() +
+        plot_theme() +
         labs(title=paste(input$betaMethod, "(", dmetric, ")"))
       if (!is.null(input$regionBeta) && nchar(input$regionBeta)>0 &&
           input$regionBeta %in% colnames(sample_data(ps()))) {
@@ -1705,6 +1919,7 @@ server <- function(input, output, session) {
   output$nmdsPlot <- renderPlotly({
     req(ps())
     input$updateBeta
+    input$dark_mode
     isolate({
       ps_beta <- beta_ps()
       dmetric <- beta_distance()
@@ -1714,7 +1929,7 @@ server <- function(input, output, session) {
         ord <- ordinate(ps_beta, method="NMDS", distance=dmetric)
       })
       p <- plot_ordination(ps_beta, ord, type="samples") +
-        theme_canis() +
+        plot_theme() +
         labs(title=paste("NMDS (", dmetric, ")"))
       if (!is.null(input$regionBeta) && nchar(input$regionBeta)>0 &&
           input$regionBeta %in% colnames(sample_data(ps()))) {
@@ -1731,6 +1946,7 @@ server <- function(input, output, session) {
   output$permanovaResult <- renderPrint({
     req(ps())
     input$updateBeta
+    input$dark_mode
     isolate({
       if (!input$betaPermanova) return(invisible(NULL))
       grp_var <- input$regionBeta
@@ -1802,6 +2018,7 @@ server <- function(input, output, session) {
   output$taxaBarplot <- renderPlotly({
     req(ps())
     input$updateBar
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelBar)
       validate(need(!is.null(rank), "That taxonomic rank is not present in this dataset."))
@@ -1811,7 +2028,7 @@ server <- function(input, output, session) {
       top_t <- names(sort(taxa_sums(ps_use), decreasing=TRUE)[seq_len(n_bar)])
       ps_top <- prune_taxa(top_t, ps_use)
       p <- plot_bar(ps_top, fill=rank) +
-        theme_canis() +
+        plot_theme() +
         labs(title=paste("Top", n_bar, rank), x = "Sample", y = "Abundance") +
         scale_fill_manual(values = canis_colors(n_bar)) +
         sample_axis_theme(nsamples(ps_top))
@@ -1825,13 +2042,14 @@ server <- function(input, output, session) {
   output$relativeAbundancePlot <- renderPlotly({
     req(ps())
     input$updateBar
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelBar)
       validate(need(!is.null(rank), "That taxonomic rank is not present in this dataset."))
       ps_glom <- safe_tax_glom(ps(), rank)
       ps_rel  <- transform_sample_counts(ps_glom, function(x) if (sum(x) > 0) x/sum(x) else x)
       p <- plot_bar(ps_rel, fill=rank) +
-        theme_canis() +
+        plot_theme() +
         labs(title=paste(rank, "relative abundance"), x = "Sample", y = "Relative abundance") +
         scale_fill_manual(values = canis_colors(ntaxa(ps_rel))) +
         sample_axis_theme(nsamples(ps_rel))
@@ -1848,6 +2066,7 @@ server <- function(input, output, session) {
   output$pieChart <- renderPlotly({
     req(ps())
     input$updatePie
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelPie)
       validate(need(!is.null(rank), "That taxonomic rank is not present in this dataset."))
@@ -1910,6 +2129,7 @@ server <- function(input, output, session) {
   output$coreHeatmap <- renderPlotly({
     req(ps())
     input$updateCore
+    input$dark_mode
     isolate({
       core <- core_taxa()
       validate(need(!is.null(core), "That taxonomic rank is not present in this dataset."))
@@ -1933,6 +2153,7 @@ server <- function(input, output, session) {
   output$coreSummary <- renderPrint({
     req(ps())
     input$updateCore
+    input$dark_mode
     isolate({
       core <- core_taxa()
       if (is.null(core)) { cat("That taxonomic rank is not present in this dataset.\n"); return(invisible(NULL)) }
@@ -1982,6 +2203,7 @@ server <- function(input, output, session) {
     
     req(ps())
     input$updateTree
+    input$dark_mode
     
     isolate({
       
@@ -2002,13 +2224,34 @@ server <- function(input, output, session) {
       }
       
       tree <- phy_tree(tree_ps)
-      
-      p <- ggtree::ggtree(tree, layout = input$treeLayout) +
-        ggtree::geom_tiplab(size = input$treeTipSize) +
-        ggtree::theme_tree2() +
-        ggplot2::ggtitle("Phylogenetic Tree")
-      
-      
+
+      rank <- safe_rank(ps(), input$treeColorBy)
+      colour_by <- !is.null(input$treeColorBy) && nzchar(input$treeColorBy) &&
+        !is.null(rank)
+
+      p <- ggtree::ggtree(tree, layout = input$treeLayout)
+
+      if (colour_by) {
+        # Attach the taxonomy to the tree so tips can be coloured by rank.
+        # ggtree matches on a column named `label`, which holds the tip names.
+        lab <- as.character(tax_table(tree_ps)[taxa_names(tree_ps), rank])
+        lab[is.na(lab) | !nzchar(lab)] <- "Unclassified"
+        tip_data <- data.frame(label = taxa_names(tree_ps),
+                               Taxon = lab, stringsAsFactors = FALSE)
+        p <- p %<+% tip_data +
+          ggtree::geom_tippoint(ggplot2::aes(colour = Taxon), size = 1.8, na.rm = TRUE) +
+          ggtree::geom_tiplab(ggplot2::aes(colour = Taxon),
+                              size = input_num(input$treeTipSize, 2), na.rm = TRUE) +
+          scale_color_canis() +
+          ggplot2::labs(colour = rank)
+      } else {
+        p <- p + ggtree::geom_tiplab(size = input_num(input$treeTipSize, 2))
+      }
+
+      p <- p + ggtree::theme_tree2() +
+        ggplot2::ggtitle(if (colour_by) paste("Phylogeny, tips coloured by", rank)
+                         else "Phylogeny")
+
       print(p)
       
     })
@@ -2021,6 +2264,7 @@ server <- function(input, output, session) {
   output$heatTree <- renderPlot({
     req(ps())
     input$updateHeatTree
+    input$dark_mode
     isolate({
       tryCatch({
         obj <- metacoder::parse_phyloseq(ps())
@@ -2051,6 +2295,7 @@ server <- function(input, output, session) {
   output$interactiveHeatmap <- renderPlotly({
     req(ps())
     input$updateHeatmap
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelHeatmap)
       validate(need(!is.null(rank), "That taxonomic rank is not present in this dataset."))
@@ -2105,6 +2350,7 @@ server <- function(input, output, session) {
   output$dendrogram <- renderPlotly({
     req(ps())
     input$updateDendro
+    input$dark_mode
     isolate({
       otu_mat <- t(as(otu_table(ps()), "matrix"))
       # Normalise before distance calculation
@@ -2122,7 +2368,7 @@ server <- function(input, output, session) {
       grp_var <- input$dendroColorBy
       if (!is.null(grp_var) && nchar(grp_var)>0 &&
           grp_var %in% colnames(sample_data(ps()))) {
-        meta_df  <- as.data.frame(sample_data(ps()))
+        meta_df  <- as(sample_data(ps()), "data.frame")
         grp_fac  <- as.factor(meta_df[[grp_var]])
         pal      <- setNames(canis_colors(nlevels(grp_fac)), levels(grp_fac))
         label_colors <- pal[grp_fac[hc$order]]
@@ -2148,12 +2394,13 @@ server <- function(input, output, session) {
   output$dendroBar <- renderPlotly({
     req(ps())
     input$updateDendro
+    input$dark_mode
     isolate({
       if (!input$dendroShowBar) return(NULL)
       ps_glom <- safe_tax_glom(ps(), "Phylum")
       ps_rel  <- transform_sample_counts(ps_glom, function(x) x/sum(x))
       p <- plot_bar(ps_rel, fill="Phylum") +
-        theme_canis() +
+        plot_theme() +
         labs(title="Phylum Composition (ordered as dendrogram)")
       ggplotly(p)
     })
@@ -2165,6 +2412,7 @@ server <- function(input, output, session) {
   output$correlationNetwork <- renderForceNetwork({
     req(ps())
     input$updateNetwork
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelNetwork)
       validate(need(!is.null(rank), "That taxonomic rank is not present in this dataset."))
@@ -2225,6 +2473,7 @@ server <- function(input, output, session) {
   output$networkSummary <- renderPrint({
     req(ps())
     input$updateNetwork
+    input$dark_mode
     isolate({
       rank <- safe_rank(ps(), input$taxLevelNetwork)
       if (is.null(rank)) { cat("That taxonomic rank is not present in this dataset.\n"); return(invisible(NULL)) }
@@ -2363,6 +2612,7 @@ server <- function(input, output, session) {
   output$daVolcano <- renderPlotly({
     req(ps())
     input$updateDA
+    input$dark_mode
     isolate({
       da <- da_results()
       msg <- if (is.null(da)) "Select a grouping variable."
@@ -2412,6 +2662,7 @@ server <- function(input, output, session) {
   output$daTable <- renderDT({
     req(ps())
     input$updateDA
+    input$dark_mode
     isolate({
       da <- da_results()
       if (is.null(da) || !is.null(da$error)) return(NULL)
@@ -2432,11 +2683,12 @@ server <- function(input, output, session) {
       )
 
       datatable(disp, caption = caption,
+                fillContainer = TRUE,
                 options = list(scrollX = TRUE, pageLength = 15),
                 rownames = FALSE,
                 class = "cell-border stripe") %>%
         formatStyle("Significant",
-                    backgroundColor = styleEqual(TRUE, "#E3F0EA"),
+                    backgroundColor = styleEqual(TRUE, "#F7EFD9"),
                     fontWeight = styleEqual(TRUE, "bold"))
     })
   })
@@ -2447,6 +2699,7 @@ server <- function(input, output, session) {
   output$transPCoA <- renderPlotly({
     req(ps())
     input$updateTrans
+    input$dark_mode
     isolate({
       ps_use <- if (input$transMethod == "raw") ps() else
         tryCatch(microbiome::transform(ps(), input$transMethod),
@@ -2455,7 +2708,7 @@ server <- function(input, output, session) {
         ord <- ordinate(ps_use, method="PCoA", distance="euclidean")
       })
       p <- plot_ordination(ps_use, ord, type="samples") +
-        theme_canis() +
+        plot_theme() +
         labs(title=paste("PCoA –", input$transMethod, "transformation"))
       grp_var <- input$transColorBy
       if (!is.null(grp_var) && nchar(grp_var)>0 &&
@@ -2471,6 +2724,7 @@ server <- function(input, output, session) {
   output$transHist <- renderPlotly({
     req(ps())
     input$updateTrans
+    input$dark_mode
     isolate({
       ps_use <- if (input$transMethod == "raw") ps() else
         tryCatch(microbiome::transform(ps(), input$transMethod),
