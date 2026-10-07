@@ -407,32 +407,32 @@ canis_categorical <- c(
 #
 # The accents are Okabe-Ito colours, the standard colourblind-safe scientific
 # set, so the chrome is accessible by construction and agrees with the charts.
-# Anthocyanin - indigo violet shading to magenta
-# Named for the pigment whose colour shifts with pH. Assertive and modern, and the cleanest separation from the chart palette.
+# Slate & Iris - violet-tinted graphite with a deep iris primary
+# A cool graphite chassis where every saturated hue on screen belongs to the data. Built on the Radix mauve neutral ramp with Carbon's page-behind-panel layering.
 canis_ui <- list(
-  primary       = "#4B3E9E",
-  secondary     = "#6B6480",
-  accent        = "#A31E78",
-  success       = "#16613F",
-  danger        = "#BF2C30",
-  ink           = "#1E1B30",
-  muted         = "#63607A",
-  surface       = "#FDFDFF",
-  canvas        = "#F6F5FB",
-  border        = "#E2DFEF",
-  border_strong = "#938FA6"
+  primary       = "#4B45B8",
+  secondary     = "#3D4354",
+  accent        = "#10707D",
+  success       = "#198038",
+  danger        = "#C0202A",
+  ink           = "#1E1B29",
+  muted         = "#5F5B6B",
+  surface       = "#FBFAFD",
+  canvas        = "#F3F2F6",
+  border        = "#E1DFE9",
+  border_strong = "#8F8BA1"
 )
 
 # Dark-mode counterparts. Surfaces lift slightly off the background so cards
 # stay legible as distinct planes without needing borders.
 canis_dark <- list(
-  ink        = "#E7E4F2",
-  muted      = "#9C98B8",
-  surface    = "#1A182C",
-  canvas     = "#100E1F",
-  border     = "#2C2942",
-  primary    = "#A99BF5",
-  on_primary = "#120E24"
+  ink        = "#EDECF2",
+  muted      = "#A09DAC",
+  surface    = "#1C1B23",
+  canvas     = "#14131A",
+  border     = "#2F2D3A",
+  primary    = "#9B97F5",
+  on_primary = "#14131A"
 )
 
 #' Hex to an rgba() string, so derived colours track the palette instead of
