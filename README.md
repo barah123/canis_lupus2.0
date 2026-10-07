@@ -108,10 +108,10 @@ conditions specified in the LICENSE file.
 ---
 - **Authors**: Philip Yamoah Appiah, Alaa Fadaq, Elizabeth Banda-Arnold
 - **Affiliated Institution**:
-- Computational Biology Institute
-- Department of Biostatistics and Bioinformatics
-- Milken Institute of Public Health
-- The George Washington University 
+  Computational Biology Institute
+  Department of Biostatistics and Bioinformatics
+  Milken Institute of Public Health
+  The George Washington University 
           
 ### ✉️ Contact <a name="Contact"></a>
 For questions or collaboration, please contact:
