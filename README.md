@@ -22,9 +22,6 @@
 ## 🧪 Project Overview <a name="project-overview"></a>
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own data (ASV tables, taxonomy, metadata, and phylogenetic trees) and perform comprehensive analyses.
 
-- **Authors**: Philip Yamoah Appiah, Alaa Fadaq, Elizabeth Banda-Arnold
-- **Affiliated Institution**: Student at George Washington University – MS Health Data Science
-- **Tools**: R Shiny, phyloseq
 
 ---
 
@@ -109,7 +106,9 @@ You are free to use, modify, and distribute this work, subject to the
 conditions specified in the LICENSE file.
 
 ---
-
+- **Authors**: Philip Yamoah Appiah, Alaa Fadaq, Elizabeth Banda-Arnold
+- **Affiliated Institution**: Student at George Washington University – MS Health Data Science
+- **Tools**: R Shiny, phyloseq
           
 ### ✉️ Contact <a name="Contact"></a>
 For questions or collaboration, please contact:
