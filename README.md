@@ -34,10 +34,25 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 ---
 
 ## 📖 How to Use <a name="how-to-use"></a>
-1. Run `app.R` file in R
-2. Upload ASV, taxonomy, metadata, and phylogenetic tree files (sample dataset available in the `skin_data` folder)
-3. Click on the **Load** button and wait for the summary statistics
-4. Explore the **Visual Exploration**, **Community Profile**, and **Network Analysis** with different taxonomic levels and features
+1.
+```bash
+git clone https://github.com/barah123/canis_lupus2.0.git
+cd canis_lupus2.0
+
+#Install R dependencies - the pipeline scripts' packages plus the app's own
+
+R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("phyloseq","microbiome","ggtree"))'
+
+R -e 'install.packages(c("shiny","phyloseq","microbiome","plotly","DT","vegan","ape","ggtree","ggplot2","tidyverse","metacoder","networkD3","heatmaply","patchwork","RColorBrewer","viridis","igraph","cowplot","ggdendro","dendextend","reshape2","scales","base64enc","readxl","dplyr","tidyr","readr"))'
+
+#Launch the Shiny app
+  cd canis_lupus2.0
+  R -e 'shiny::runApp(".", launch.browser = TRUE)'
+```
+
+3. Upload ASV, taxonomy, metadata, and phylogenetic tree files (sample dataset available in the `skin_data` folder)
+4. Click on the **Load** button and wait for the summary statistics
+5. Explore the **Visual Exploration**, **Community Profile**, and **Network Analysis** with different taxonomic levels and features
 
 
 <div align="center">
@@ -59,40 +74,12 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 - ✅ Visualization of taxa abundance (bar plots, heatmaps)
 - ✅ Sample clustering and dendrograms
 
----
 
-### Required R Libraries
-To run CanisLupus2.0, ensure the following libraries are installed in your R environment:
-```r
-  library(shiny)
-  library(phyloseq)
-  library(microbiome)
-  library(plotly)
-  library(DT)
-  library(vegan)
-  library(ape)
-  library(ggtree)
-  library(ggplot2)
-  library(tidyverse)
-  library(metacoder)
-  library(networkD3)
-  library(heatmaply)
-  library(patchwork)
-  library(RColorBrewer)
-  library(viridis)
-  library(igraph)
-  library(cowplot)
-  library(ggdendro)
-  library(dendextend)
-  library(reshape2)
-  library(scales)
-```
----
-## Recognition
+## Adoption, Use and Recognition of the Tool 
 
-- 🏆 **1st Place, George Washington University Open Source Software Awards**
-- 🎤 Presented at the **GW Open Source Program Office (OSPO) Conference**, 2026
-- 📋 Accepted as a **poster presentation** at **ISMB 2026** (Intelligent Systems
+- 🏆 **1st Place, George Washington University Open Source Software Awards** - *provide the Link*
+- 🎤 Presented at the **GW Open Source Program Office (OSPO) Conference**, 2026 - *link*
+- 📋 Accepted as a **poster presentation** at **ISMB 2026** (Intelligent Systems -*link*
   for Molecular Biology), Microbiome COSI track, hosted by the International
   Society for Computational Biology — Washington, D.C.
 ---
