@@ -93,7 +93,7 @@ You are free to use, modify, and distribute this work, subject to the
 conditions specified in the LICENSE file.
 
 ---
-- **Authors**: Philip Yamoah Appiah, Alaa Fadaq, Elizabeth Banda-Arnold
+- **Authors**: Philip Yamoah Appiah, Alaa Fadaq, Elizabeth Banda-Arnold, Marcos Perez-Losada, Carmen Ortega-Santos,Keith Crandell
 - **Affiliated Institution**:
   Computational Biology Institute,
   Department of Biostatistics and Bioinformatics,
