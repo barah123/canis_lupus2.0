@@ -140,7 +140,7 @@ Tests run automatically on every push and pull request via GitHub Actions (see [
 ## 📑 How to Cite <a name="how-to-cite"></a>
 If you use CanisLupus2.0 in your work, please cite the software release:
 
-> Appiah, P., Fadaq, A., Banda, E., Perez-Losada, M., Ortega-Santos, C., & Crandall, K. (2026). *CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis* (Version v2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21287079
+> Appiah, P., Fadaq, A., Banda-Arnold, E., Perez-Losada, M., Ortega-Santos, C., & Crandall, K. (2026). *CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis* (Version v2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21287079
 
 Machine-readable citation metadata is also available in [`CITATION.cff`](CITATION.cff).
 
