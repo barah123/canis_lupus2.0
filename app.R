@@ -395,7 +395,7 @@ input_chr <- function(x, default) {
 # Okabe-Ito: the standard colourblind-safe qualitative palette for scientific
 # figures, extended with further distinguishable hues for taxa-heavy plots.
 canis_categorical <- c(
-  "#009E73", "#E69F00", "#CC79A7", "#56B4E9", "#0072B2",
+  "#E69F00", "#009E73", "#CC79A7", "#56B4E9", "#0072B2",
   "#D55E00", "#5D3A9B", "#117733", "#882255", "#F0E442",
   "#44AA99", "#DDCC77", "#AA4499", "#88CCEE", "#999933",
   "#661100", "#6699CC", "#332288", "#AA7744", "#BBBBBB"
@@ -407,32 +407,32 @@ canis_categorical <- c(
 #
 # The accents are Okabe-Ito colours, the standard colourblind-safe scientific
 # set, so the chrome is accessible by construction and agrees with the charts.
-# Slate & Iris - violet-tinted graphite with a deep iris primary
-# A cool graphite chassis where every saturated hue on screen belongs to the data. Built on the Radix mauve neutral ramp with Carbon's page-behind-panel layering.
+# Cyanotype - petrol teal on blueprint paper
+# Cool and instrument-like: the palette of a blueprint archive, meant to read as laboratory equipment rather than software.
 canis_ui <- list(
-  primary       = "#4B45B8",
-  secondary     = "#3D4354",
-  accent        = "#10707D",
-  success       = "#198038",
-  danger        = "#C0202A",
-  ink           = "#1E1B29",
-  muted         = "#5F5B6B",
-  surface       = "#FBFAFD",
-  canvas        = "#F3F2F6",
-  border        = "#E1DFE9",
-  border_strong = "#8F8BA1"
+  primary       = "#106470",
+  secondary     = "#5F6B72",
+  accent        = "#A8446B",
+  success       = "#1F6B3F",
+  danger        = "#B3261E",
+  ink           = "#13272C",
+  muted         = "#5A7178",
+  surface       = "#FCFEFE",
+  canvas        = "#F1F6F7",
+  border        = "#D4E2E5",
+  border_strong = "#82969C"
 )
 
 # Dark-mode counterparts. Surfaces lift slightly off the background so cards
 # stay legible as distinct planes without needing borders.
 canis_dark <- list(
-  ink        = "#EDECF2",
-  muted      = "#A09DAC",
-  surface    = "#1C1B23",
-  canvas     = "#14131A",
-  border     = "#2F2D3A",
-  primary    = "#9B97F5",
-  on_primary = "#14131A"
+  ink        = "#E1EDEF",
+  muted      = "#93A9AE",
+  surface    = "#121F23",
+  canvas     = "#0B1417",
+  border     = "#22343A",
+  primary    = "#4FBCCB",
+  on_primary = "#06181C"
 )
 
 #' Hex to an rgba() string, so derived colours track the palette instead of
