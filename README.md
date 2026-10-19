@@ -49,12 +49,61 @@ CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bi
 
 ## 📖 How to Use <a name="how-to-use"></a>
 1. Install R and the required libraries (see below), then run `app.R` — the Shiny app opens in your browser
-2. On the **Data** tab, choose a data type:
+   
+# CRAN packages
+cran_packages <- c(
+  "shiny",
+  "microbiome",
+  "plotly",
+  "DT",
+  "vegan",
+  "ape",
+  "ggplot2",
+  "tidyverse",
+  "metacoder",
+  "networkD3",
+  "heatmaply",
+  "patchwork",
+  "RColorBrewer",
+  "viridis",
+  "igraph",
+  "cowplot",
+  "ggdendro",
+  "dendextend",
+  "reshape2",
+  "scales"
+)
+
+# Install missing CRAN packages
+missing_packages <- cran_packages[
+  !cran_packages %in% rownames(installed.packages())
+]
+
+if (length(missing_packages) > 0) {
+  install.packages(missing_packages)
+}
+
+# Install Bioconductor packages if missing
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+bioc_packages <- c("phyloseq", "ggtree")
+
+missing_bioc <- bioc_packages[
+  !bioc_packages %in% rownames(installed.packages())
+]
+
+if (length(missing_bioc) > 0) {
+  BiocManager::install(missing_bioc, ask = FALSE, update = FALSE)
+}
+
+3. On the **Data** tab, choose a data type:
    - **Amplicon (ASV/OTU table)** — upload an abundance table and taxonomy table (plus optional metadata and phylogenetic tree)
    - **Shotgun (taxonomic profile)** — upload one merged profile from MetaPhlAn, Kraken2/Bracken, or similar
    - Leave the upload fields empty to explore a bundled example dataset instead
-3. Click **Load & process data** and review the sequencing-depth plot and dataset summary
-4. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
+4. Click **Load & process data** and review the sequencing-depth plot and dataset summary
+5. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
 
 ### Sample datasets
 Three example datasets ship with the app so you can try it before uploading your own data:
