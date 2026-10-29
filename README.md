@@ -28,10 +28,6 @@
 ## 🧪 Project Overview <a name="project-overview"></a>
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own amplicon sequencing data (ASV/OTU tables, taxonomy, metadata, and phylogenetic trees) **or** shotgun metagenomics taxonomic profiles (e.g., MetaPhlAn, Kraken2/Bracken), and perform comprehensive analyses without writing any code.
 
-- **Author**: Philip Yamoah Appiah
-- **Affiliated Institution**: Student at George Washington University – MS Health Data Science
-- **Tools**: R, Shiny, phyloseq, vegan
-
 ---
 
 ## 🚀 Features <a name="features"></a>
@@ -195,14 +191,9 @@ Machine-readable citation metadata is also available in [`CITATION.cff`](CITATIO
 
 ---
 
-## 🤝 Contributing <a name="contributing"></a>
-Contributions are welcome! See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how to report bugs, request features, and submit changes, including the code style guide and how to run the test suite before opening a pull request.
-
----
-
 ## License <a name="license"></a>
 
-Copyright (c) 2026 Philip Yamoah Appiah
+
 
 This project is licensed under the terms of the [MIT license](LICENSE).
 You are free to use, modify, and distribute this work, subject to the
