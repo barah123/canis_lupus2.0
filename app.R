@@ -395,7 +395,7 @@ input_chr <- function(x, default) {
 # Okabe-Ito: the standard colourblind-safe qualitative palette for scientific
 # figures, extended with further distinguishable hues for taxa-heavy plots.
 canis_categorical <- c(
-  "#E69F00", "#009E73", "#CC79A7", "#56B4E9", "#0072B2",
+  "#CC79A7", "#E69F00", "#009E73", "#56B4E9", "#0072B2",
   "#D55E00", "#5D3A9B", "#117733", "#882255", "#F0E442",
   "#44AA99", "#DDCC77", "#AA4499", "#88CCEE", "#999933",
   "#661100", "#6699CC", "#332288", "#AA7744", "#BBBBBB"
@@ -407,32 +407,32 @@ canis_categorical <- c(
 #
 # The accents are Okabe-Ito colours, the standard colourblind-safe scientific
 # set, so the chrome is accessible by construction and agrees with the charts.
-# Cyanotype - petrol teal on blueprint paper
-# Cool and instrument-like: the palette of a blueprint archive, meant to read as laboratory equipment rather than software.
+# Petrol & Sage - deep petrol on a green-grey chassis
+# Reads like bench equipment rather than software. The petrol ramp is capped dark on purpose: lightened, it would drift toward the chart's bluish green.
 canis_ui <- list(
-  primary       = "#106470",
-  secondary     = "#5F6B72",
-  accent        = "#A8446B",
-  success       = "#1F6B3F",
-  danger        = "#B3261E",
-  ink           = "#13272C",
-  muted         = "#5A7178",
-  surface       = "#FCFEFE",
-  canvas        = "#F1F6F7",
-  border        = "#D4E2E5",
-  border_strong = "#82969C"
+  primary       = "#0E5A61",
+  secondary     = "#33413E",
+  accent        = "#6B3F8E",
+  success       = "#0E6027",
+  danger        = "#B42318",
+  ink           = "#16211F",
+  muted         = "#566360",
+  surface       = "#FAFCFB",
+  canvas        = "#F0F3F2",
+  border        = "#DCE3E1",
+  border_strong = "#7F8D89"
 )
 
 # Dark-mode counterparts. Surfaces lift slightly off the background so cards
 # stay legible as distinct planes without needing borders.
 canis_dark <- list(
-  ink        = "#E1EDEF",
-  muted      = "#93A9AE",
-  surface    = "#121F23",
-  canvas     = "#0B1417",
-  border     = "#22343A",
-  primary    = "#4FBCCB",
-  on_primary = "#06181C"
+  ink        = "#E9EEEC",
+  muted      = "#9BA8A4",
+  surface    = "#171C1B",
+  canvas     = "#101413",
+  border     = "#2A322F",
+  primary    = "#4CC9D6",
+  on_primary = "#101413"
 )
 
 #' Hex to an rgba() string, so derived colours track the palette instead of
