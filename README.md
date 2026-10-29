@@ -174,11 +174,11 @@ Tests run automatically on every push and pull request via GitHub Actions (see [
 
 ## Recognition <a name="recognition"></a>
 
-- 🏆 **1st Place, George Washington University Open Source Software Awards**
-- 🎤 Presented at the **GW Open Source Program Office (OSPO) Conference**, 2026
-- 📋 Accepted as a **poster presentation** at **ISMB 2026** (Intelligent Systems
+- 🏆 **1st Place, 2025 George Washington University Open Source Software Competition Awards**
+- 🎤 **Conference Presentation at 2026 George Washington University Open Source Conference**
+- 📋 **Coference presentation** at **ISMB 2026** (Intelligent Systems
   for Molecular Biology), Microbiome COSI track, hosted by the International
-  Society for Computational Biology — Washington, D.C.
+  Society for Computational Biology (ISCB) — Washington, D.C.
 
 ---
 
