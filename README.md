@@ -205,4 +205,3 @@ conditions specified in the LICENSE file.
 For questions or collaboration, please contact:
 📧 [pyappiah561@gmail.com](mailto:pyappiah561@gmail.com)
 
-![App logo_2](https://github.com/barah123/canis_lupus2.0/blob/main/www/canis_logo.png)
