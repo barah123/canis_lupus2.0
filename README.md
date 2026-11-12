@@ -174,11 +174,13 @@ Tests run automatically on every push and pull request via GitHub Actions (see [
 
 ## Recognition & Adoption (usage) <a name="recognition"></a>
 
-- 🏆 **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO)
-- 🎤 **Conference Presentation at 2026 George Washington University Open Source Conference** (letter and website for talk) 
+- 🏆 **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
+  
+- 🎤 **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference** (letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026) 
 - 📋 **Coference presentation** at **ISMB 2026** (Intelligent Systems
   for Molecular Biology), Microbiome COSI track, hosted by the International
-  Society for Computational Biology (ISCB) — Washington, D.C. (provide letters and website of the abtract) 
+  Society for Computational Biology (ISCB) — Washington, .DC. (https://www.iscb.org/ismb2026/scientific-programme/posters)search for the title: B-192: CanisLupus2.0: An Open-Source Interactive Dashboard for Microbiome Data Analysis and Visualization
+  **poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma-assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
 
 ---
 
