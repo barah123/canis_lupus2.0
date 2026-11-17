@@ -11,7 +11,7 @@
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents (NEEDS TO BE EDITED) 
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [How to Use](#how-to-use)
@@ -24,26 +24,44 @@
 - [Contact](#contact)
 
 ---
-
-## 🧪 Project Overview <a name="project-overview"></a>
-CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets. Built with R, Shiny, and phyloseq, this app allows users to upload their own amplicon sequencing data (ASV/OTU tables, taxonomy, metadata, and phylogenetic trees) **or** shotgun metagenomics taxonomic profiles (e.g., MetaPhlAn, Kraken2/Bracken), and perform comprehensive analyses without writing any code.
-
----
-
-## 🚀 Features <a name="features"></a>
-- ✅ **Open the app in R**: Run the `app.R` file in R and the Shiny app will open in a browser
-- ✅ **Two data types**: Amplicon (ASV/OTU table + taxonomy) or shotgun taxonomic profiles, selectable from the Data tab
-- ✅ **Preprocessing & QC**: Singleton removal and minimum-read-depth filtering (automatically skipped for relative-abundance profiles), with a sequencing-depth plot and downloadable dataset summary
-- ✅ **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, phylogenetic trees, and metacoder heat trees
-- ✅ **Community Analysis**: Alpha/beta diversity, PERMANOVA, differential abundance, core microbiome, abundance heatmaps, and co-occurrence networks
-- ✅ **Repeated-measures aware**: Automatically switches to a Friedman test instead of Kruskal-Wallis when a complete blocked/repeated-measures design is detected
-- ✅ **User-Friendly UI**: Intuitive interface with themed styling
-- ✅ **Runs Locally**: No server upload required, so unpublished data stays on your machine
-- ✅ **Tested**: Automated `testthat` suite covering core helpers, run on every push via GitHub Actions
+## Introduction: 
+- Why do we care about microbiome data?
+- Public Health Connection + Health Importance
+- How is microbiome data analyzed?
+- Introduce Canis Lupus
+  
+# Canis Lupus Overview 
+CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets without . Built with R, Shiny, and phyloseq, this app allows users to upload their own amplicon sequencing data (ASV/OTU tables, taxonomy, metadata, and phylogenetic trees) **or** shotgun metagenomics taxonomic profiles (e.g., MetaPhlAn, Kraken2/Bracken), and perform comprehensive analyses without writing any code.
 
 ---
+## Objective 
 
-## 📖 How to Use <a name="how-to-use"></a>
+Create a Shiny App that runs locally & doesn't require any coding experience. EXPAND
+
+---
+## Main Features <a name="features"></a>
+- **Two data types**: Amplicon (ASV/OTU table + taxonomy) or shotgun taxonomic profiles, selectable from the Data tab
+- **Preprocessing & QC**: Singleton removal and minimum-read-depth filtering (automatically skipped for relative-abundance profiles), with a sequencing-depth plot and downloadable dataset summary
+- **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, phylogenetic trees, and metacoder heat trees
+- **Community Analysis**: Alpha/beta diversity, PERMANOVA, differential abundance, core microbiome, abundance heatmaps, and co-occurrence networks
+- **Repeated-measures aware**: Automatically switches to a Friedman test instead of Kruskal-Wallis when a complete blocked/repeated-measures design is detected
+- **User-Friendly UI**: Intuitive interface with themed styling
+- **Runs Locally**: No server upload required, so unpublished data stays on your machine
+- **Tested**: Automated `testthat` suite covering core helpers, run on every push via GitHub Actions
+ 
+ --- 
+## Recognition & Adoption (usage) <a name="recognition"></a> 
+
+- **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
+  
+- **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference**(letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026) 
+- **Coference presentation** at **ISMB 2026** (Intelligent Systems
+for Molecular Biology), Microbiome COSI track, hosted by the International Society for Computational Biology (ISCB) — Washington, .DC. (https://www.iscb.org/ismb2026/scientific-programme/posters)search for the title: B-192: CanisLupus2.0: An Open-Source Interactive Dashboard for Microbiome Data Analysis and Visualization
+- **poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
+---
+
+## How to Use <a name="how-to-use"></a>
+EDIT! 
 1. Install R and the required libraries (see below), then run `app.R` — the Shiny app opens in your browser
    
 # CRAN packages
@@ -123,15 +141,15 @@ Three example datasets ship with the app so you can try it before uploading your
 
 ---
 
-## 🔬 Key Analyses <a name="key-analyses"></a>
-- ✅ **Taxonomic profiling**: interactive stacked bar plots, pie charts, and metacoder heat trees at user-selected taxonomic levels
-- ✅ **Alpha diversity**: Observed richness, Chao1, ACE, Shannon, Simpson, InvSimpson, and Fisher indices, with per-sample, by-group, and group-comparison (Kruskal-Wallis or Friedman) views
-- ✅ **Beta diversity**: PCoA, NMDS, RDA, and CCA ordination over Bray-Curtis, Jaccard, (weighted) UniFrac, or Euclidean distance, with PERMANOVA group testing
-- ✅ **Phylogenetics**: interactive phylogenetic tree viewer (rectangular, circular, fan, or radial layout)
-- ✅ **Core microbiome**: detection of taxa consistently present across samples at user-defined abundance and prevalence thresholds
-- ✅ **Networks & clustering**: CLR-normalised abundance heatmaps, hierarchical clustering/dendrograms, and taxon co-occurrence networks
-- ✅ **Differential abundance**: Kruskal-Wallis (or Friedman for repeated measures) per taxon with Benjamini-Hochberg correction, shown as volcano plots and results tables
-- ✅ **Data transformations**: CLR and compositional transformation views (ordination and distribution)
+## Key Analyses <a name="key-analyses"></a>
+- **Taxonomic profiling**: interactive stacked bar plots, pie charts, and metacoder heat trees at user-selected taxonomic levels
+- **Alpha diversity**: Observed richness, Chao1, ACE, Shannon, Simpson, InvSimpson, and Fisher indices, with per-sample, by-group, and group-comparison (Kruskal-Wallis or Friedman) views
+- **Beta diversity**: PCoA, NMDS, RDA, and CCA ordination over Bray-Curtis, Jaccard, (weighted) UniFrac, or Euclidean distance, with PERMANOVA group testing
+- **Phylogenetics**: interactive phylogenetic tree viewer (rectangular, circular, fan, or radial layout)
+- **Core microbiome**: detection of taxa consistently present across samples at user-defined abundance and prevalence thresholds
+- **Networks & clustering**: CLR-normalised abundance heatmaps, hierarchical clustering/dendrograms, and taxon co-occurrence networks
+- **Differential abundance**: Kruskal-Wallis (or Friedman for repeated measures) per taxon with Benjamini-Hochberg correction, shown as volcano plots and results tables
+- **Data transformations**: CLR and compositional transformation views (ordination and distribution)
 
 ---
 
@@ -163,7 +181,7 @@ To run CanisLupus2.0, ensure the following libraries are installed in your R env
 ```
 ---
 
-## ✅ Testing <a name="testing"></a>
+## Testing <a name="testing"></a>
 CanisLupus2.0 has an automated `testthat` suite covering key helpers (e.g., the amplicon/shotgun data coercion, the phylogenetic/UniFrac guard, and the repeated-measures test-selection logic). Run it locally with:
 ```r
 testthat::test_dir("tests/testthat")
@@ -172,19 +190,7 @@ Tests run automatically on every push and pull request via GitHub Actions (see [
 
 ---
 
-## Recognition & Adoption (usage) <a name="recognition"></a>
-
-- 🏆 **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
-  
-- 🎤 **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference** (letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026) 
-- 📋 **Coference presentation** at **ISMB 2026** (Intelligent Systems
-  for Molecular Biology), Microbiome COSI track, hosted by the International
-  Society for Computational Biology (ISCB) — Washington, .DC. (https://www.iscb.org/ismb2026/scientific-programme/posters)search for the title: B-192: CanisLupus2.0: An Open-Source Interactive Dashboard for Microbiome Data Analysis and Visualization
-  **poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma-assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
-
----
-
-## 📑 How to Cite <a name="how-to-cite"></a>
+## How to Cite <a name="how-to-cite"></a>
 If you use CanisLupus2.0 in your work, please cite the software release:
 
 > Appiah, P., Fadaq, A., Banda-Arnold, E., Perez-Losada, M., Ortega-Santos, C., & Crandall, K. (2026). *CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis* (Version v2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21287079
