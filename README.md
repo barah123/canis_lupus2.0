@@ -24,7 +24,7 @@
 - [Contact](#contact)
 
 ---
-## Introduction: 
+## Introduction (LIZ): 
 - Why do we care about microbiome data?
 - Public Health Connection + Health Importance
 - How is microbiome data analyzed?
@@ -40,6 +40,7 @@ Create a Shiny App that runs locally & doesn't require any coding experience. EX
 
 ---
 ## Main Features <a name="features"></a>
+Need to rephrase all of this! 
 - **Two data types**: Amplicon (ASV/OTU table + taxonomy) or shotgun taxonomic profiles, selectable from the Data tab
 - **Preprocessing & QC**: Singleton removal and minimum-read-depth filtering (automatically skipped for relative-abundance profiles), with a sequencing-depth plot and downloadable dataset summary
 - **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, phylogenetic trees, and metacoder heat trees
@@ -51,6 +52,7 @@ Create a Shiny App that runs locally & doesn't require any coding experience. EX
  
  --- 
 ## Recognition & Adoption (usage) <a name="recognition"></a> 
+One sentence giving context? 
 
 - **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
   
@@ -200,8 +202,6 @@ Machine-readable citation metadata is also available in [`CITATION.cff`](CITATIO
 ---
 
 ## License <a name="license"></a>
-
-
 
 This project is licensed under the terms of the [MIT license](LICENSE).
 You are free to use, modify, and distribute this work, subject to the
