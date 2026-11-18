@@ -29,6 +29,9 @@
 - Public Health Connection + Health Importance
 - How is microbiome data analyzed?
 - Introduce Canis Lupus
+
+- Bacterial communities of the skin, gut and environment play important roles in to human health, disease, and the environment. In human health, 
+- By these commensal microbes, we are able to understand what communities are present, what molecules are produced post interventions and interactions
   
 # Canis Lupus Overview 
 CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets without . Built with R, Shiny, and phyloseq, this app allows users to upload their own amplicon sequencing data (ASV/OTU tables, taxonomy, metadata, and phylogenetic trees) **or** shotgun metagenomics taxonomic profiles (e.g., MetaPhlAn, Kraken2/Bracken), and perform comprehensive analyses without writing any code.
