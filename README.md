@@ -20,13 +20,30 @@
 
 ---
 ## Introduction (LIZ): 
-- Why do we care about microbiome data?
-- Public Health Connection + Health Importance
-- How is microbiome data analyzed?
-- Introduce Canis Lupus
+Bacterial communities inhabiting the skin, gastrointestinal tract, and our surrounding environment play important roles in human health, disease development, and the ecosystem. These microbial communities, collectively referred to as the microbiome, contribute to processes such as nutrient metabolism, immune system regulation, pathogen resistance, and maintenance of physiological homeostasis. Studying these communities allows researchers to characterize microbial diversity, investigate changes in community composition and understand interactions between microorganisms and their hosts (Gotschlich et al., 2019).
 
-- Bacterial communities of the skin, gut and environment play important roles in to human health, disease, and the environment. In human health, 
-- By these commensal microbes, we are able to understand what communities are present, what molecules are produced post interventions and interactions
+Technological advancements in genomics, and high-throughput sequencing technologies have substantially expanded our ability to characterize microbial communities without requiring the isolation and cultivation of individual microorganisms. In particular, sequencing of the bacterial 16S ribosomal RNA (rRNA) gene has become a widely used approach for profiling bacterial community composition and diversity across different environments and biological samples (Gotschlich et al., 2019).
+
+- Public Health Connection + Health Importance
+  
+### How is microbiome data analyzed?**
+Microbiome analysis involves experimental and computational steps, beginning with sample collection and ending with statistical interpretation of microbial community profiles. The selection of an appropriate sequencing approach depends on the research question, sample type, and level of microbial characterization required (Knight et al., 2018).
+
+**Sample collection and DNA extraction**
+The first step involves collecting biological or environmental samples, such as stool, skin swabs, soil, or water. Microbial DNA is subsequently extracted from the samples to obtain genetic material for sequencing. Proper sample collection, storage, and DNA extraction are important because differences in sample handling and microbial cell disruption can introduce technical variation and influence the resulting microbial profiles (Liu et al., 2022).
+
+**Sequencing**
+Several sequencing approaches are used to characterize microbial communities. 16S rRNA gene sequencing is commonly used to profile bacterial and archaeal community composition, while ITS sequencing is used to characterize fungal communities. Shotgun metagenomic sequencing analyzes total microbial DNA to identify microorganisms and assess their functional potential. In contrast, metatranscriptomic sequencing analyzes microbial RNA to investigate gene expression and understand which microbial functions are actively being performed within a community (Knight et al., 2018; Quince et al., 2017)
+
+**Bioinformatics processing and taxonomic classification**
+Following sequencing, the raw reads undergo quality control to remove low-quality sequences and potential contaminants. Sequences are then processed using bioinformatics tools to identify unique microbial sequence variants. These may be represented as amplicon sequence variants (ASVs) or operational taxonomic units (OTUs), depending on the analytical approach. The resulting sequences are compared against reference databases, such as SILVA, to assign taxonomic classifications ranging from phylum to genus and, where resolution permits, species (Callahan et al., 2016; Liu et al., 2022).
+
+**Statistical analysis and interpretation**
+Once microbial sequences have been processed and classified, statistical analyses are performed to characterize microbial communities and investigate differences between sample groups. Researchers commonly examine alpha diversity, which describes microbial diversity within an individual sample, and beta diversity, which measures differences in microbial community composition between samples. Additional analyses may investigate the relative abundance of specific microbial taxa, identify differentially abundant microorganisms, and assess associations between microbial composition and clinical or environmental variables (Knight et al., 2018; Nearing et al., 2022)
+
+
+- Introduce Canis Lupus
+ 
 --- 
 # Canis Lupus Overview 
 A Shiny App that runs locally in your device and will analyze and visualize microbiome data. 
@@ -55,7 +72,7 @@ Awards:
 - **1st Place, 2025 George Washington University Open Source Software Competition Awards**(link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
   
 Conferences: 
-- **Coference presentation** at **ISMB 2026** (Intelligent Systems
+- **Conference presentation** at **ISMB 2026** (Intelligent Systems
 for Molecular Biology), Microbiome COSI track, hosted by the International Society for Computational Biology (ISCB) — Washington, .DC. (https://www.iscb.org/ismb2026/scientific-programme/posters)search for the title: B-192: CanisLupus2.0: An Open-Source Interactive Dashboard for Microbiome Data Analysis and Visualization
 
 - **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference**(letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026)
