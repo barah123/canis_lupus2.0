@@ -106,7 +106,7 @@ cran_packages <- c(
 |---|---|---|---|
 | Human skin microbiome | `skin_data/` | Amplicon (ASV table) | Body-site comparison, used for validation |
 | Inflammatory bowel disease (IBD) | `IBD_data/` | Amplicon (ASV table) | Includes a phylogenetic tree |
-| Colorectal cancer vs. control / HMP body sites | `sample_data_shotgun/` | Shotgun (MetaPhlAn profiles) | See [`sample_data_shotgun/README.md`](sample_data_shotgun/README.md) for details |
+| Colorectal cancer vs. control / HMP body sites | `sample_data_shotgun/` | Shotgun (MetaPhlAn profiles) |  
 
 4. For each sample choose its correct data type on the **Data** tab:
    - **Amplicon (ASV/OTU table)** — upload an abundance table and taxonomy table (plus optional metadata and phylogenetic tree)
