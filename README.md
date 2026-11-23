@@ -64,10 +64,7 @@ for Molecular Biology), Microbiome COSI track, hosted by the International Socie
 ---
 ## How to Use <a name="how-to-use"></a>
 You can run the app via GitHub Actions: 
-CanisLupus2.0 has an automated `testthat` suite covering key helpers (e.g., the amplicon/shotgun data coercion, the phylogenetic/UniFrac guard, and the repeated-measures test-selection logic). Run it locally with:
-```r
-testthat::test_dir("tests/testthat")
-```
+CanisLupus2.0 has an automated `testthat` suite covering key helpers (e.g., the amplicon/shotgun data coercion, the phylogenetic/UniFrac guard, and the repeated-measures test-selection logic). Run it locally with: ```r testthat::test_dir("tests/testthat")```
 Tests run automatically on every push and pull request via GitHub Actions (see [`.github/workflows/r-tests.yml`](.github/workflows/r-tests.yml)).
 
 You can run the app locally through R: 
