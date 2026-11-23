@@ -94,7 +94,7 @@ cran_packages <- c(
 )
 
 
-2. Run `app.R` — the Shiny app opens in your browser
+2. Open and run `app.R` — the Shiny app opens in your browser
    
 3. Load Sample data
 Three example datasets (available on the Repo for download) to try before uploading your own data:
