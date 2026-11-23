@@ -65,9 +65,11 @@ for Molecular Biology), Microbiome COSI track, hosted by the International Socie
 
 ## How to Use <a name="how-to-use"></a>
 EDIT! 
-1. Install R and the required libraries (see below), then run `app.R` — the Shiny app opens in your browser
-   
-# CRAN packages
+1. Install R and the required libraries and packages 
+Packages Required:
+Install Bioconductor packages if not installed:
+install.packages("BiocManager")
+CRAN packages: 
 cran_packages <- c(
   "shiny",
   "microbiome",
@@ -91,45 +93,24 @@ cran_packages <- c(
   "scales"
 )
 
-# Install missing CRAN packages
-missing_packages <- cran_packages[
-  !cran_packages %in% rownames(installed.packages())
-]
 
-if (length(missing_packages) > 0) {
-  install.packages(missing_packages)
-}
-
-# Install Bioconductor packages if missing
-if (!requireNamespace("BiocManager", quietly = TRUE)) {
-  install.packages("BiocManager")
-}
-
-bioc_packages <- c("phyloseq", "ggtree")
-
-missing_bioc <- bioc_packages[
-  !bioc_packages %in% rownames(installed.packages())
-]
-
-if (length(missing_bioc) > 0) {
-  BiocManager::install(missing_bioc, ask = FALSE, update = FALSE)
-}
-
-3. On the **Data** tab, choose a data type:
-   - **Amplicon (ASV/OTU table)** — upload an abundance table and taxonomy table (plus optional metadata and phylogenetic tree)
-   - **Shotgun (taxonomic profile)** — upload one merged profile from MetaPhlAn, Kraken2/Bracken, or similar
-   - Leave the upload fields empty to explore a bundled example dataset instead
-4. Click **Load & process data** and review the sequencing-depth plot and dataset summary
-5. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
-
-### Sample datasets
-Three example datasets ship with the app so you can try it before uploading your own data:
+2. Run `app.R` — the Shiny app opens in your browser
+   
+3. Load Sample data
+Three example datasets (available on the Repo for download) to try before uploading your own data:
 
 | Dataset | Folder | Data type | Notes |
 |---|---|---|---|
 | Human skin microbiome | `skin_data/` | Amplicon (ASV table) | Body-site comparison, used for validation |
 | Inflammatory bowel disease (IBD) | `IBD_data/` | Amplicon (ASV table) | Includes a phylogenetic tree |
 | Colorectal cancer vs. control / HMP body sites | `sample_data_shotgun/` | Shotgun (MetaPhlAn profiles) | See [`sample_data_shotgun/README.md`](sample_data_shotgun/README.md) for details |
+
+4. For each sample choose its correct data type on the **Data** tab:
+   - **Amplicon (ASV/OTU table)** — upload an abundance table and taxonomy table (plus optional metadata and phylogenetic tree)
+   - **Shotgun (taxonomic profile)** — upload one merged profile from MetaPhlAn, Kraken2/Bracken, or similar
+   - Leave the upload fields empty to explore a bundled example dataset instead
+     
+5. Click **Load & process data** and review the sequencing-depth plot and dataset summary
 
 <div align="center">
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.png" width="45%" />
@@ -141,6 +122,10 @@ Three example datasets ship with the app so you can try it before uploading your
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot 2026-03-12 210309.jpg" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot 2026-03-12 210529.png" width="45%" />
 </div>
+   
+6. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
+
+
 
 ---
 
