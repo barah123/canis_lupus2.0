@@ -1,9 +1,4 @@
-# 🧬 CanisLupus2.0: Microbiome Analysis Dashboard
-
 ![App logo](https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-09-04%20223841.png)
-
-**A Shiny-based interactive dashboard for analyzing and visualizing microbiome data.**
-**Built with R, Shiny, and phyloseq. Runs locally, so your data never leaves your machine.**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21287079.svg)](https://doi.org/10.5281/zenodo.21287079)
 [![R tests](https://github.com/barah123/canis_lupus2.0/actions/workflows/r-tests.yml/badge.svg)](https://github.com/barah123/canis_lupus2.0/actions/workflows/r-tests.yml)
