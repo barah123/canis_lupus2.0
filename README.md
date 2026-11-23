@@ -63,10 +63,10 @@ for Molecular Biology), Microbiome COSI track, hosted by the International Socie
 - **Poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
 ---
 ## How to Use <a name="how-to-use"></a>
-You can run the app via GitHub Actions: 
-CanisLupus2.0 has an automated `testthat` suite covering key helpers (e.g., the amplicon/shotgun data coercion, the phylogenetic/UniFrac guard, and the repeated-measures test-selection logic). Run it locally with:
-```r testthat::test_dir("tests/testthat")```
-Tests run automatically on every push and pull request via GitHub Actions (see [`.github/workflows/r-tests.yml`](.github/workflows/r-tests.yml)).
+You can run the app via GitHub Actions ((see [`.github/workflows/r-tests.yml`](.github/workflows/r-tests.yml)): 
+```r 
+testthat::test_dir("tests/testthat")
+```
 
 You can run the app locally through R: 
 1. Install R and the required libraries and packages 
@@ -101,8 +101,7 @@ cran_packages <- c(
 2. Open and run `app.R` — the Shiny app opens in your browser
     
 4. Load Sample data
-Three example datasets (available on the Repo for download) to try before uploading your own data:
-
+Download sample datasets 
 | Dataset | Folder | Data type | Notes |
 |---|---|---|---|
 | Human skin microbiome | `skin_data/` | Amplicon (ASV table) | Body-site comparison, used for validation |
