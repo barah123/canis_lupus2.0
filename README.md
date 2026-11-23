@@ -100,8 +100,8 @@ cran_packages <- c(
 
 2. Open and run `app.R` — the Shiny app opens in your browser
     
-4. Load Sample data
-Download sample datasets 
+3. Download sample datasets
+   
 | Dataset | Folder | Data type | Notes |
 |---|---|---|---|
 | Human skin microbiome | `skin_data/` | Amplicon (ASV table) | Body-site comparison, used for validation |
