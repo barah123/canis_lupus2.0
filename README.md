@@ -27,21 +27,21 @@
 
 - Bacterial communities of the skin, gut and environment play important roles in to human health, disease, and the environment. In human health, 
 - By these commensal microbes, we are able to understand what communities are present, what molecules are produced post interventions and interactions
-  
+--- 
 # Canis Lupus Overview 
-CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets without . Built with R, Shiny, and phyloseq, this app allows users to upload their own amplicon sequencing data (ASV/OTU tables, taxonomy, metadata, and phylogenetic trees) **or** shotgun metagenomics taxonomic profiles (e.g., MetaPhlAn, Kraken2/Bracken), and perform comprehensive analyses without writing any code.
+A Shiny App that runs locally in your device and will analyze and visualize microbiome data. 
 
 ---
 ## Objective 
 
-Create a Shiny App that runs locally & doesn't require any coding experience. EXPAND
+CanisLupus2.0 is a user-friendly, web-based tool designed for researchers and bioinformaticians to explore, analyze, and visualize microbiome datasets without needed coding experience. Built with R, Shiny, and phyloseq, this app allows users to upload their data and perform comprehensive analyses.
 
 ---
 ## Main Features <a name="features"></a>
 Need to rephrase all of this! 
-- **Two data types**: Amplicon (ASV/OTU table + taxonomy) or shotgun taxonomic profiles, selectable from the Data tab
+- **Two data types**: Amplicon (ASV/OTU table + taxonomy) or shotgun taxonomic profiles can be uploaded to be analyzed. 
 - **Preprocessing & QC**: Singleton removal and minimum-read-depth filtering (automatically skipped for relative-abundance profiles), with a sequencing-depth plot and downloadable dataset summary
-- **Visual Exploration**: Interactive bar plots, pie charts, rarefaction curves, phylogenetic trees, and metacoder heat trees
+- **Visual Exploration**: The tool provides interactive bar plots, pie charts, rarefaction curves, phylogenetic trees, and metacoder heat trees
 - **Community Analysis**: Alpha/beta diversity, PERMANOVA, differential abundance, core microbiome, abundance heatmaps, and co-occurrence networks
 - **Repeated-measures aware**: Automatically switches to a Friedman test instead of Kruskal-Wallis when a complete blocked/repeated-measures design is detected
 - **User-Friendly UI**: Intuitive interface with themed styling
@@ -51,13 +51,16 @@ Need to rephrase all of this!
  --- 
 ## Recognition & Adoption (usage) <a name="recognition"></a> 
 One sentence giving context? 
-
-- **1st Place, 2025 George Washington University Open Source Software Competition Awards**( link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
+Awards: 
+- **1st Place, 2025 George Washington University Open Source Software Competition Awards**(link OSPO: https://ospo.gwu.edu/2025-student-open-source-awards-winners-0)
   
-- **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference**(letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026) 
+Conferences: 
 - **Coference presentation** at **ISMB 2026** (Intelligent Systems
 for Molecular Biology), Microbiome COSI track, hosted by the International Society for Computational Biology (ISCB) — Washington, .DC. (https://www.iscb.org/ismb2026/scientific-programme/posters)search for the title: B-192: CanisLupus2.0: An Open-Source Interactive Dashboard for Microbiome Data Analysis and Visualization
-- **poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
+
+- **Conference Presentation:Regular at Talk at 2026 George Washington University Open Source Conference**(letter and website for talk: https://ospo.gwu.edu/open-source-conference-2026)
+  
+- **Poster presentation at George Washington University,Milken school of Public Health Research Day,date and linK here:** Wednesday, April 15, 2026, page 40 (https://emma assets.s3.amazonaws.com/ufigb/95ecdd1aa0d7395d3e0a703b38f061d8/GWSPH_Research_Day_2026_Abstract_Booklet_Updated04102026.pdf)
 ---
 
 ## How to Use <a name="how-to-use"></a>
