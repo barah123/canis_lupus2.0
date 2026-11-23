@@ -100,7 +100,7 @@ cran_packages <- c(
 
 2. Open and run `app.R` — the Shiny app opens in your browser
     
-3. Download sample datasets
+3. Sample datasets can be downloaded from the Repository (UPLOAD Colorectal cancer DATA) 
    
 | Dataset | Folder | Data type | Notes |
 |---|---|---|---|
@@ -108,13 +108,14 @@ cran_packages <- c(
 | Inflammatory bowel disease (IBD) | `IBD_data/` | Amplicon (ASV table) | Includes a phylogenetic tree |
 | Colorectal cancer vs. control / HMP body sites | `sample_data_shotgun/` | Shotgun (MetaPhlAn profiles) |  
 
-4. For each sample choose its correct data type on the **Data** tab:
-   - **Amplicon (ASV/OTU table)** — upload an abundance table and taxonomy table (plus optional metadata and phylogenetic tree)
-   - **Shotgun (taxonomic profile)** — upload one merged profile from MetaPhlAn, Kraken2/Bracken, or similar
-   - Leave the upload fields empty to explore a bundled example dataset instead
+4. Upload data on the Data Upload & QC tab:
+   - Upload data on its specific format option (ASV table, taxonomy table, metadata table, phylogenetic tree)
      
 5. Click **Load & process data** and review the sequencing-depth plot and dataset summary
 
+6. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
+   
+These are the plots that will be created:
 <div align="center">
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot%202025-11-04%20134710.png" width="45%" />
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/newplot2.png" width="45%" />
@@ -126,10 +127,6 @@ cran_packages <- c(
   <img src="https://github.com/barah123/canis_lupus2.0/blob/main/www/Screenshot 2026-03-12 210529.png" width="45%" />
 </div>
    
-6. Explore the **Diversity**, **Taxonomy**, **Phylogenetics**, **Networks**, and **Statistics** menus with different taxonomic levels, grouping variables, and statistical parameters
-
-
-
 ---
 
 ## Key Analyses <a name="key-analyses"></a>
@@ -147,9 +144,7 @@ cran_packages <- c(
 ## How to Cite <a name="how-to-cite"></a>
 If you use CanisLupus2.0 in your work, please cite the software release:
 
-> Appiah, P., Fadaq, A., Banda-Arnold, E., Perez-Losada, M., Ortega-Santos, C., & Crandall, K. (2026). *CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis* (Version v2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21287079
-
-Machine-readable citation metadata is also available in [`CITATION.cff`](CITATION.cff).
+> Appiah, P., Fadaq, A., Banda-Arnold, E., De Torres, C., Perez-Losada, M., Ortega-Santos, C., & Crandall, K. (2026). *CanisLupus 2.0: An Interactive R Shiny Application for Microbiome Data Analysis* (Version v2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21287079
 
 ---
 
@@ -161,7 +156,6 @@ conditions specified in the LICENSE file.
 
 ---
 
-### ✉️ Contact <a name="Contact"></a>
-For questions or collaboration, please contact:
-📧 [pyappiah561@gmail.com](mailto:pyappiah561@gmail.com)
+### Contact <a name="Contact"></a>
+For questions or collaboration, please contact: [pyappiah561@gmail.com](mailto:pyappiah561@gmail.com)
 
